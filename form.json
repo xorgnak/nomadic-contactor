@@ -1,0 +1,4 @@
+{
+    "phone": [ "tel", "phone number" ],
+    "name": [ "text", "your name" ]
+}

@@ -1,0 +1,32 @@
+<style>
+#bg { width: 100%; height: 100%; z-index: -1; }
+#logo { width: 100%; }
+#doc { z-index: 1; margin: 0; position: absolute; top: 50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%); height: 80%; }
+#trigger { z-index: 1; position: fixed; background-color: white; border-radius: 50px; padding: 10%;}
+#trigger > * { font-size: x-large; width: 90%; }
+</style>
+<!-- <img id="bg" src="<%= ENV['BG'] %>"> -->
+<img id="bg" src="/img_house.jpg">
+<form id="doc" action="/" method="post" style="width: 100%;">
+    <div id="trigger" style="display: none;">
+      <div class='ctc'>
+      	<!-- <%= @result %> -->
+        <h3>Thank you for your request!</h3><p>Our local agent will contact you shortly.</p>
+      </div>
+    </div>
+</form>
+<script>
+    $(function() {
+	var bl = false;
+	setTimeout(function() {
+	    $("#trigger").fadeIn(1250);
+	    setTimeout(function() {
+		setTimeout(function() {
+	            $(".ctc").slideDown(1250);
+		}, 500);
+	    }, 1000);
+	}, 1000);
+    });
+</script>
+    
+<><>
