@@ -39,11 +39,11 @@ class App < Sinatra::Base
           erb :result
 	end
         
-        post('/call') do
+        get('/call') do
           Phone.new(:call, request, params)
         end
 
-        post('/sms') do
+        get('/sms') do
           Phone.new(:sms, request, params)
         end
         
