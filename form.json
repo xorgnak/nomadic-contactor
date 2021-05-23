@@ -1,4 +1,4 @@
 {
-    "phone": [ "tel", "phone number" ],
-    "name": [ "text", "your name" ]
+    "From": [ "tel", "phone number" ],
+    "Body": [ "text", "your zip code" ]
 }

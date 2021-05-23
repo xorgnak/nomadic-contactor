@@ -5,17 +5,27 @@
 #####################
 
 #PORT=1234;
-BG=/img-house.jpg;
-LOGO=/logo.png;
 BTN_COLOR=orange;
 BTN_TEXT='FREE INSPECTION'
-PHONE='12345551212';
-RESPONSE='<%= Time.now %>'
+PHONE='+18663897120';
+PHONE_ADMIN='+17205522104'
+#PHONE_SID
+#PHONE_KEY
+
+
 #####################
 #   CONFIGURATION   #
 #####################
 
-export BG LOGO BTN_COLOR BTN_TEXT PHONE RESPONSE;
+if [[ -z "$PHONE_SID" ]]; then
+    echo -e "#####\nrun:\nexport PHONE_SID='your twilio-account-sid';\nand rerun." && exit 1
+fi
+if [[ -z "$PHONE_KEY" ]]; then
+    echo -e "#####\nrun:\nexport PHONE_KEY='your twilio-account-key';\nand rerun." && exit 1
+fi
+
+
+export BTN_COLOR BTN_TEXT PHONE PHONE_ADMIN PHONE_SID PHONE_KEY;
 
 redis-cli LPUSH SEED `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1`
 redis-cli SET COMMIT `git log --format="%h" -n 1`

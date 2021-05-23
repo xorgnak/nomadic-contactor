@@ -35,9 +35,18 @@ class App < Sinatra::Base
 	end
 
         post('/') do
-	  Redis.new.publish "POST", JSON.generate(AppHandler.new(request, params).to_h)
+          Phone.new(:web, request, params.merge(AppHandler.new(request, params).to_h))
           erb :result
 	end
+        
+        post('/call') do
+          Phone.new(:call, request, params)
+        end
+
+        post('/sms') do
+          Phone.new(:sms, request, params)
+        end
+        
 end
 def app
 	Process.detach( fork { App.run! } )

@@ -7,25 +7,16 @@
 </style>
 <img id="bg" src="/bg.img">
 <form id="doc" action="/" method="post" style="width: 100%;">
-    <div id="trigger" style="display: none;">
+  <div id="trigger" style="display: none;">
     <img id="logo" src="/logo.img">
     <% ENV['RESPONSE'] != false %>
-      <input type='hidden' name='seed' value="<%= seed.current %>">
-      <input type='hidden' name='epoch' value="<%= clock.epoch %>">
-      <% @fields.map do |f| %>
-      	 <input type='<%= f[:type] %>' class='ctc' name='<%= f[:name] %>' placeholder='<%= f[:text] %>' style="display: none;">
-      <% end %>
-      <% if ENV['RESPONSE'] != false && ENV['RESPONSE'] != '' %>
-      <textarea name='response'><%= ERB.new(ENV['RESPONSE']).result(binding) %></textarea>
-      <% end %>
-      <button id="ctc" class="ctc" style="background-color: <%= ENV['BTN_COLOR'] %>; display: none;"><%= ENV['BTN_TEXT'] %></button>
-      <% end %>
-    </div>
-    <div id='cloud'>
-    <% @cloud.map do |c| %>
-    <span class='goto' value='<%= c %>'><%= c %></span>
+    <input type='hidden' name='seed' value="<%= seed.current %>">
+    <input type='hidden' name='epoch' value="<%= clock.epoch %>">
+    <% @fields.map do |f| %>
+    <input type='<%= f[:type] %>' class='ctc' name='<%= f[:name] %>' placeholder='<%= f[:text] %>' style="display: none;">
     <% end %>
-    </div>
+    <button id="ctc" class="ctc" style="background-color: <%= ENV['BTN_COLOR'] %>; display: none;"><%= ENV['BTN_TEXT'] %></button>
+  </div>
 </form>
 <script>
     $(function() {

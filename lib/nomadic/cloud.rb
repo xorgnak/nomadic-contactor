@@ -1,118 +1,39 @@
 module NOMADIC
-  
-  class GRP
+  class Zone
     include Redis::Objects
-    hash_key :attr
-    sorted_set :stat
-    
-    sorted_set :role
-    sorted_set :fare
-    
-    set :grp
-    set :lead
-   
-    set :admin
-    
-    set :zones
-    set :depts
-    set :teams
-    
+    set :users
+    set :admins
     def initialize i
-      @id = i
-      update!
+      @id = i 
     end
     def id; @id; end
-    def update!
-      if self.attr.has_key?('team')
-        self.teams << self.attr['team']
-        x = Team.new(self.attr['team'])
-        x.depts << self.attr['dept'] if self.attr.has_key?('dept')
-        x.zones << self.attr['zone'] if self.attr.has_key?('zone')
-      end
-      if self.attr.has_key?('zone')
-        self.zones << self.attr['zone']
-        x = Zone.new(self.attr['zone'])
-        x.depts << self.attr['dept'] if self.attr.has_key?('dept')
-        x.teams << self.attr['team'] if self.attr.has_key?('team')
-      end
-      if self.attr.has_key?('dept')
-        self.depts << self.attr['dept']
-        x = Dept.new(self.attr['dept'])
-        x.teams << self.attr['team'] if self.attr.has_key?('team')
-        x.zones << self.attr['zone'] if self.attr.has_key?('zone')
-      end
-      
-    end
-    def info
-      {
-        attr: self.attr.all,
-        role: self.role.members(with_scores: true).to_h,
-        fare: self.fare.members(with_scores: true).to_h,
-        stat: self.stat.members(with_scores: true).to_h,
-        group: self.grp.members,
-        lead: self.lead.members,
-        web: {
-          zones: self.zones.members,
-          depts: self.depts.members,
-          teams: self.teams.members
-        }
-      }
-    end
-  end
-
-  class User < GRP
-    def follow u
-      User.new(u).lead << @id
-      self.grp << u
-    end
-    def give a, s, u
-      self.stat.decr(s, a)
-      User.new(u).stat.incr(s, a)
-    end
-    def dept t
-      Cloud.new.all << t
-      Cloud.new.depts << t
-      self.attr['dept'] = t
-      self.depts << t
-      x = Dept.new(t)
-      x.grp << @id
-      update!
-      return x
-    end
-    def zone t
-      Cloud.new.all << t
-      Cloud.new.zones << t
-      self.attr['zone'] = t
-      self.zones << t
-      x = Zone.new(t)
-      x.grp << @id
-      update!
-      return x
-    end
-    def team t
-      Cloud.new.all << t
-      Cloud.new.teams << t
-      self.attr['team'] = t
-      self.teams << t
-      x = Team.new(t)
-      x.grp << @id
-      update!
-      return x
-    end
   end
   
-  class Team < GRP; end
-  class Dept < GRP; end
-  class Zone < GRP; end
+  class User
+    include Redis::Objects
+    hash_key :attr
+    set :zones
+    set :jobs
+    sorted_set :stat
+    def initialize i
+      @id = i
+    end
+    def id; @id; end
+  end
   
   class Cloud
     include Redis::Objects
-    set :teams
+    
+    set :msgs
     set :zones
-    set :depts
+    hash_key :at
+    
+    hash_key :jid
+    hash_key :job
+    
+    hash_key :assigned
+    
     set :users
-    set :online
-    set :all
     
     def initialize
       
@@ -120,27 +41,82 @@ module NOMADIC
     def id
       ENV['domain'] || "sandbox"
     end
-    def [] x
-      r = false
-      if self.all.include? x
-        if self.zones.include? x
-          r = Zone.new(x)
-        elsif self.depts.include? x
-          r = Dept.new(x)
-        elsif self.teams.include? x
-          r = Team.new(x)
-        end     
+    def [] k
+      v = []
+      if k == '#'
+        v << %[zones: #{self.zones.members.to_a}\n]
+        v << %[admins:\n]
+        self.at.all.each_pair { |kk,vv| v << %[#{kk}: #{vv}\n] }
+        v << %[jobs:\n]
+        self.jid.all.each_pair { |kk,vv| v << %[#{kk}: #{vv}\n] }
+        v << %[assignments:\n]
+        self.assigned.all.each_pair { |kk,vv| v << %[#{kk}: #{vv}\n] }
+      elsif self.at.has_key?(k)
+        #user info
+        v << %[user: #{k}\n]
+        v << User.new(k).zones.members.join(', ') 
+        v << %[\n]
+
+        User.new(k).stat.members(with_scores: true).to_h.each_pair do |k,v|
+          v << %[#{k}: #{v}]
+        end
+        User.new(k).attr.all.each_pair { |kk,vv|
+          v << %[#{kk}: #{vv}\n]
+        }
+      elsif self.zones.members.include?(k)
+        # zone info
+        v << %[zone: #{k}\n]
+        Zone.new(k).admins.members.each { |e|
+          u = User.new(e);
+          v << %[[#{e}]\n];
+          u.attr.all.each_pair { |kk,vv|
+            v << %[#{kk}: #{vv}\n]
+          };
+          v << %[\n]
+        }
+      elsif self.jid.has_key?(k)
+        # job info
+        v << %[job: #{k}\n]
+        v << %[user: #{self.jid[k]}\n]
+        User.new(self.jid[k]).attr.all.each_pair {|kk,vv|
+          v << %[#{kk}: #{vv}\n]
+        }
       end
-      return r
+      return v.join('')
     end
-    
+    def assign(i, u)
+      if !self.assigned.has_key? i
+        self.assigned[i] = u
+        user(u).jobs << i
+      end
+    end
+    def finish(i, u)
+      self.assigned.delete(i)
+      user(u).jobs.delete(i)
+    end
+    def admin? u
+      self.at.has_key? u
+    end
+    def hire! z, u
+      self.at[u] = z
+      user(u).zones << z
+      user(u).attr['zone'] = z
+      zone(z).admins << u
+    end
+    def fire! u
+      z = self.at[u]
+      self.at.delete(u)
+      user(u).attr.delete('zone')
+      user(u).zones.delete(z)
+      zone(z).admins.delete(u)
+    end
+    def zone z
+      self.zones << z
+      Zone.new(z)
+    end
     def user u
       self.users << u
       User.new u
-    end
-    
-    def map &b
-        b.call()
     end
   end
 end
