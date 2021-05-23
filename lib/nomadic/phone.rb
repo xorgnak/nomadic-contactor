@@ -61,7 +61,11 @@ module NOMADIC
       to = []
       [ h[:to] ].flatten.uniq.each do |t|
         if /^\+1#.+$/.match(t)
-          @cloud.zone(t).admins.members.each { |e|  }
+          if @cloud.zones.members.include? t.gsub(/\+1/, '')
+            @cloud.zone(t).admins.members.each { |e|  }
+          else
+            to << ENV['PHONE_ADMIN']
+          end
         else
           to << t
         end  
