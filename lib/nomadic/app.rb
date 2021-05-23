@@ -40,10 +40,12 @@ class App < Sinatra::Base
 	end
         
         get('/call') do
+          content_type 'text/xml'
           Phone.new(:call, request, params)
         end
 
         get('/sms') do
+          content_type 'text/xml'
           Phone.new(:sms, request, params)
         end
         
