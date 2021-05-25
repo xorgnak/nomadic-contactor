@@ -99,7 +99,7 @@ module NOMADIC
     def send_job!
       send_sms({
                  from: ENV['PHONE'],
-                 to: @to,
+                 to: @to,OB
                  body: "[#{@cloud.job[@params['From']]}] " + @params['From'] + " " + @params['Body']
              })
     end
@@ -123,7 +123,7 @@ module NOMADIC
         else
           send_msg(@cloud[@body[0]])
         end
-      elsif admin? 
+      elsif admin? || boss?
         if @body[0] == "X"
           if @cloud.user(@params['From']).jobs.members.include? @body[1]
             @cloud.finish(@body[1], @params['From'])
