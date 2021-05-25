@@ -155,7 +155,7 @@ module NOMADIC
       h = {}
       Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
       Twilio::TwiML::VoiceResponse.new do |r|
-        if !@params['Digits']
+        if !@params.has_key? 'Digits'
           if admin? || boss?
             h[:d] = 3
             h[:msg] = "welcome"
