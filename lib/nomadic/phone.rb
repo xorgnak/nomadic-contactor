@@ -152,9 +152,39 @@ module NOMADIC
       handle!
     end   
     def call
+      h = {}
+      r = Twilio::TwiML::VoiceResponse.new do |r|
+        if !@params['Digits']
+          if admin?(@params['From']) || boss?(@params['From'])
+            h[:d] = 3
+            h[:msg] = "welcome"
+          else
+            h[:d] = 5
+            h[:msg] = "please type in your zip code"
+          end
+          r.gather(numDigits: h[:d], method: 'GET', action: '/call') do |g|
+            g.say(message: h[:msg])
+          end
+          redirect '/call'
+        else
+          if admin?(@params['From']) || boss?(@params['From'])
+            if @cloud.jid.has_key? @params['Digits']
+              r.dial(number: @cloud.jid[@params['Digits']])
+            else
+              r.say(message: "try again.")
+              r.redirect '/call', 'GET'
+            end
+          else
+            r.say(message: "thank you.  our local representative will contact you shortly.")
+            r.hangup
+          end
+        end
+      end
+      Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
+      return r.to_s
+      end
       # \d{3}# => connect admin to job
       # \d{5}# => create new job
-      Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
     end
 
     def sms
