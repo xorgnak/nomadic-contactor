@@ -41,7 +41,21 @@ class App < Sinatra::Base
         
         get('/call') do
           content_type 'text/xml'
-          Phone.new(:call, request, params)
+          px = Phone.new(:call, request, params)
+          rx = Twilio::TwiML::VoiceResponse.new do |r|
+            if !@params.has_key? 'Digits'
+              r.gather(method: 'GET', action: '/call') do |g|
+                g.say(message: "please enter your zip code followed by the pound key.")
+              end
+            else
+              if px.admin? || px.boss?
+                r.dial(number: @cloud.jid[@params['Digits']])
+              else
+                r.say(message: "thank you.  our local representative will contact you shortly.")
+              end
+            end
+          end
+          return rx.to_s
         end
 
         get('/sms') do

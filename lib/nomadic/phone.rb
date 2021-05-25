@@ -154,20 +154,6 @@ module NOMADIC
     def call
       h = {}
       Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
-      rx = Twilio::TwiML::VoiceResponse.new do |r|
-        if !@params.has_key? 'Digits'
-          r.gather(method: 'GET', action: '/call') do |g|
-            g.say(message: "please enter your zip code followed by the pound key.")
-          end
-        else
-          if admin? || boss?
-            r.dial(number: @cloud.jid[@params['Digits']])
-          else
-            r.say(message: "thank you.  our local representative will contact you shortly.")
-          end
-        end
-      end
-      return rx.to_s
     end
     
     def sms
