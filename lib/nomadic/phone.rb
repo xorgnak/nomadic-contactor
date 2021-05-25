@@ -153,7 +153,8 @@ module NOMADIC
     end   
     def call
       h = {}
-      r = Twilio::TwiML::VoiceResponse.new do |r|
+      Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
+      Twilio::TwiML::VoiceResponse.new do |r|
         if !@params['Digits']
           if admin? || boss?
             h[:d] = 3
@@ -177,9 +178,7 @@ module NOMADIC
             r.say(message: "thank you.  our local representative will contact you shortly.")
             r.hangup
           end
-        end
-        Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
-        return r.to_s
+        end.to_s
       end
       # \d{3}# => connect admin to job
       # \d{5}# => create new job
