@@ -152,8 +152,18 @@ module NOMADIC
       handle!
     end   
     def call
-      h = {}
       Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
+      if @params.has_key? :Digits
+        if boss? || admin?
+          twilio.calls.create(
+            url: 'https://calebmartinconstruction.us/out',
+            to: @cloud.jid[@params[:Digits]],
+            from: ENV['PHONE']
+          )
+        else
+          send_job!
+        end
+      end
     end
     
     def sms

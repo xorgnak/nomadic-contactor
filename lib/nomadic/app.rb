@@ -38,7 +38,10 @@ class App < Sinatra::Base
           Phone.new(:web, request, params.merge(AppHandler.new(request, params).to_h))
           erb :result
 	end
-        
+
+        get('/out') do
+          
+        end
         get('/call') do
           content_type 'text/xml'
           px = Phone.new(:call, request, params)
