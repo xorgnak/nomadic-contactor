@@ -167,7 +167,7 @@ module NOMADIC
             g.say(message: h[:msg])
           end
         else
-          if admin?(@params['From']) || boss?(@params['From'])
+          if admin? || boss?
             if @cloud.jid.has_key? @params['Digits']
               r.dial(number: @cloud.jid[@params['Digits']])
             else
