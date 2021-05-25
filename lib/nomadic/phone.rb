@@ -154,34 +154,20 @@ module NOMADIC
     def call
       h = {}
       Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
-      Twilio::TwiML::VoiceResponse.new do |r|
+      rx = Twilio::TwiML::VoiceResponse.new do |r|
         if !@params.has_key? 'Digits'
-          if admin? || boss?
-            h[:d] = 3
-            h[:msg] = "welcome"
-          else
-            h[:d] = 5
-            h[:msg] = "please type in your zip code"
-          end
-          r.gather(numDigits: h[:d], method: 'GET', action: '/call') do |g|
-            g.say(message: h[:msg])
+          r.gather(method: 'GET', action: '/call') do |g|
+            g.say(message: "please enter your zip code followed by the pound key.")
           end
         else
           if admin? || boss?
-            if @cloud.jid.has_key? @params['Digits']
-              r.dial(number: @cloud.jid[@params['Digits']])
-            else
-              r.say(message: "try again.")
-              r.redirect '/call', 'GET'
-            end
+            r.dial(number: @cloud.jid[@params['Digits']])
           else
             r.say(message: "thank you.  our local representative will contact you shortly.")
-            r.hangup
           end
-        end.to_s
+        end
       end
-      # \d{3}# => connect admin to job
-      # \d{5}# => create new job
+      return rx.to_s
     end
     
     def sms
