@@ -123,7 +123,7 @@ module NOMADIC
         else
           send_msg(@cloud[@body[0]])
         end
-      elsif admin? || boss?
+      elsif admin?
         if @body[0] == "X"
           if @cloud.user(@params['From']).jobs.members.include? @body[1]
             @cloud.finish(@body[1], @params['From'])
