@@ -77,7 +77,7 @@ module NOMADIC
         if ENV['DEBUG'] == 'true'
           Redis.new.publish "DEBUG.send_sms", "#{t}"
         end
-        if ENV['LIVE'] == 'true'
+        if ENV['LIVE'] == 'true' && h[:body] != ''
           if h[:image]
             twilio.messages.create(
               to: t,
