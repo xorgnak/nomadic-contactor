@@ -70,24 +70,28 @@ module NOMADIC
           to << t
         end  
       end
+      if ENV['DEBUG'] == 'true'
+        Redis.new.publish "DEBUG.send_sms_to", "#{h} #{to}"
+      end
       to.each do |t|
-        ms = {
-          body: h[:body],
-          from: ENV['PHONE'],
-          to: t
-        }
-        if h[:image]
-          if h[:image].class == Array
-            ms[:media_url] = h[:image]
-          else
-            ms[:media_url] = [ h[:image] ]
-          end
-        end
         if ENV['DEBUG'] == 'true'
-          Redis.new.publish "DEBUG.send_sms", "#{ms}"
+          Redis.new.publish "DEBUG.send_sms", "#{t}"
         end
         if ENV['LIVE'] == 'true'
-          twilio.messages.create(ms)
+          if h[:image]
+            twilio.messages.create(
+              to: t,
+              from: ENV['PHONE'],
+              body: h[:body],
+              media_url: [ h[:image] ]
+            )
+          else
+            twilio.messages.create(
+              to: t,
+              from: ENV['PHONE'],
+              body: h[:body]
+            )
+          end
         end
       end
     end
