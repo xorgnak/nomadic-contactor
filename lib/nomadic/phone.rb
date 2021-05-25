@@ -32,7 +32,14 @@ module NOMADIC
     ##
     # basic user tracking.
     def init!
-      @body = @params['Body'].split(' ')
+      if @params['Body']
+        @body = @params['Body'].split(' ')
+        if @cloud.zones.members.include? @body[0]
+          @to = @cloud.zone(@body[0]).admins.members.to_a
+        else
+          @to = ENV['PHONE_ADMIN']
+        end
+      end
       if new?
         if !@cloud.at.has_key?(@params['From'])
           a = []
@@ -47,14 +54,7 @@ module NOMADIC
       else
         @user = @cloud.user(@params['From'])
         @user.attr['last'] = @clock.epoch
-      end
-      @user.attr['type'] = @type
-      if @cloud.zones.members.include? @body[0]
-        @to = @cloud.zone(@body[0]).admins.members.to_a
-      else
-        @to = ENV['PHONE_ADMIN']
-      end
-      
+      end   
     end
     
     def send_sms h={}
@@ -155,7 +155,7 @@ module NOMADIC
       h = {}
       r = Twilio::TwiML::VoiceResponse.new do |r|
         if !@params['Digits']
-          if admin?(@params['From']) || boss?(@params['From'])
+          if admin? || boss?
             h[:d] = 3
             h[:msg] = "welcome"
           else
@@ -165,7 +165,6 @@ module NOMADIC
           r.gather(numDigits: h[:d], method: 'GET', action: '/call') do |g|
             g.say(message: h[:msg])
           end
-          redirect '/call'
         else
           if admin?(@params['From']) || boss?(@params['From'])
             if @cloud.jid.has_key? @params['Digits']
@@ -179,14 +178,13 @@ module NOMADIC
             r.hangup
           end
         end
-      end
-      Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
-      return r.to_s
+        Redis.new.publish("DEBUG.call", "#{@request} #{@params}")
+        return r.to_s
       end
       # \d{3}# => connect admin to job
       # \d{5}# => create new job
     end
-
+    
     def sms
       Redis.new.publish "DEBUG.sms", "#{admin?} #{@body} #{@params}"
       handle!
