@@ -39,7 +39,15 @@ module NOMADIC
         else
           @to = ENV['PHONE_ADMIN']
         end
+      elsif @params['Digits']
+        @body = @params['Digits'].split(' ')
+        if @cloud.zones.members.include? @body[0]
+          @to = @cloud.zone(@body[0]).admins.members.to_a
+        else
+          @to = ENV['PHONE_ADMIN']
+        end
       end
+      
       if new?
         if !@cloud.at.has_key?(@params['From'])
           a = []
@@ -163,6 +171,7 @@ module NOMADIC
             from: ENV['PHONE']
           )
         else
+          @cloud.zone(@params[:Digits]).users << @params['From']
           send_job!
         end
       end
