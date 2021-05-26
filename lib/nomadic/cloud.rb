@@ -85,7 +85,7 @@ module NOMADIC
             m = t / 60
             h = m / 60
             d = h / 24
-            v << %[#{kk}: #{d}d#{h}h#{m}m ago.]
+            v << %[#{kk}: #{d}d#{h}h#{m}m ago.\n]
           else
             v << %[#{kk}: #{vv}\n]
           end

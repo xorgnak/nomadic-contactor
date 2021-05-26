@@ -12,7 +12,7 @@ PHONE_ADMIN='+16155926675'
 #PHONE_ADMIN='+17205522104'
 #PHONE_SID
 #PHONE_KEY
-
+WELCOME="Welcome to the caleb martin construction some help in town job managment system. We would love to help you manage your construction job and our local representatives are waiting for your request.  To help me locate you"
 
 #####################
 #   CONFIGURATION   #
@@ -26,7 +26,7 @@ if [[ -z "$PHONE_KEY" ]]; then
 fi
 
 
-export BTN_COLOR BTN_TEXT PHONE PHONE_ADMIN PHONE_SID PHONE_KEY;
+export BTN_COLOR BTN_TEXT PHONE PHONE_ADMIN PHONE_SID PHONE_KEY WELCOME;
 
 redis-cli LPUSH SEED `cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1`
 redis-cli SET COMMIT `git log --format="%h" -n 1`

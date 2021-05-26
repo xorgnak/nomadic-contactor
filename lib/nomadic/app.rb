@@ -48,7 +48,7 @@ class App < Sinatra::Base
           rx = Twilio::TwiML::VoiceResponse.new do |r|
             if !@params.has_key? 'Digits'
               r.gather(method: 'GET', action: '/call') do |g|
-                g.say(message: "please enter your zip code followed by the pound key.")
+                g.say(message: "Hi. #{ENV['WELCOME']}, please enter your zip code followed by the pound key.")
               end
             else
               if px.admin? || px.boss?
