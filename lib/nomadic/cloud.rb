@@ -79,7 +79,15 @@ module NOMADIC
         v << %[job: #{k}\n]
         v << %[user: #{self.jid[k]}\n]
         User.new(self.jid[k]).attr.all.each_pair {|kk,vv|
-          v << %[#{kk}: #{vv}\n]
+          if kk == 'since' || kk == 'last'
+            t = Clock.epoch - vv.to_i
+            m = t / 60
+            h = m / 60
+            d = h / 24
+            v << %[#{kk}: #{d}d#{h}h#{m}m ago.]
+          else
+            v << %[#{kk}: #{vv}\n]
+          end
         }
       end
       return v.join('')
