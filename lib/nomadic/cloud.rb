@@ -80,7 +80,8 @@ module NOMADIC
         v << %[user: #{self.jid[k]}\n]
         User.new(self.jid[k]).attr.all.each_pair {|kk,vv|
           if kk == 'since' || kk == 'last'
-            t = Clock.epoch - vv.to_i
+            c = Clock.new
+            t = c.epoch - vv.to_i
             m = t / 60
             h = m / 60
             d = h / 24
