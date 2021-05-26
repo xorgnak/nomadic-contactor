@@ -100,7 +100,7 @@ module NOMADIC
       send_sms({
                  from: ENV['PHONE'],
                  to: @to,
-                 body: "[#{@cloud.job[@params['From']]}] " + @params['From'] + " " + @params['Body']
+                 body: "[#{@cloud.job[@params['From']]}] " + @params['From'] + " " + @params['Body'] || @params['Digits']
                })
     end
     def send_msg m
