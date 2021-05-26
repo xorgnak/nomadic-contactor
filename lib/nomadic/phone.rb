@@ -97,10 +97,12 @@ module NOMADIC
     end
     
     def send_job!
+      b = ["[#{@cloud.job[@params['From']]}] " + @params['From'] + "\n"]
+      ['Body', 'Digits'].each { |k| if @params.has_key?(k); b << "#{k}: #{@params[k]}\n"; end  }
       send_sms({
                  from: ENV['PHONE'],
                  to: @to,
-                 body: "[#{@cloud.job[@params['From']]}] " + @params['From'] + " " + @params['Body'] || @params['Digits']
+                 body: b.join('')
                })
     end
     def send_msg m
