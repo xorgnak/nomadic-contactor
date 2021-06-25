@@ -1,11 +1,23 @@
-require 'redis-objects'
-require 'paho-mqtt'
-require 'sinatra/base'
-require 'pry'
-require 'device_detector'
-require 'twilio-ruby'
-require "#{Dir.pwd}/lib/nomadic.rb"
-require "#{Dir.pwd}/init.rb"
+##       ###                     ##
+#         #                       #
+# nomadic # generic nomadic shell # 
+#         #                       #
+##       ###                     ##
 
-Pry.start
-
+##
+# load nomadic library
+begin
+  require "#{Dir.pwd}/lib/nomadic.rb"
+  
+  #@
+  # load init file
+  require "#{Dir.pwd}/app.rb"
+  
+  ##
+  # drop to the shell.
+  Pry.start
+  
+rescue => e
+  Redis.new.publish 'BUG', "#{e}"
+  puts "#{e.full_message}"
+end

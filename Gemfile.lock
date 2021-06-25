@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    cinch (2.3.4)
     coderay (1.1.3)
     device_detector (1.0.5)
     method_source (1.0.0)
@@ -29,6 +30,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  cinch
   device_detector
   paho-mqtt
   pry

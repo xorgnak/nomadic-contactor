@@ -1,0 +1,131 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg viewBox="0 0 1024 1360" width="100%" height="100%" 
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+
+
+<rect x="0" y="0" width="1024" height="1360" fill="black"/>
+<rect x="0" y="0" width="804" height="200" fill="white"/>
+<text x="20" y="160" font-family="monospace" font-weight="bold" font-size="180" fill="black">
+2b45f44
+</text>
+<rect x="824" y="0" width="200" height="200" fill="white"/>
+<text x="25" y="260" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+███████__██_____██___██__█____███████
+</text>
+<text x="25" y="290" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_____█____█_█_█___█_██_█_____█_____█
+</text>
+<text x="25" y="320" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_███_█___█____██____██__████_█_███_█
+</text>
+<text x="25" y="350" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_███_█__█__█__█_█_███___█_█__█_███_█
+</text>
+<text x="25" y="380" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_███_█_██████_█_█_█_____█_█__█_███_█
+</text>
+<text x="25" y="410" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_____█__████_█________██_█___█_____█
+</text>
+<text x="25" y="440" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+███████_█_█_█_█_█_█_█_█_█_█_█_███████
+</text>
+<text x="25" y="470" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+________███████___██_█___████________
+</text>
+<text x="25" y="500" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+__██__████_██_█__████__█_███_██_█____
+</text>
+<text x="25" y="530" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+___█______█__████_█_██__██_█__███____
+</text>
+<text x="25" y="560" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+████_██_█__█__█_███__█__██__██____██_
+</text>
+<text x="25" y="590" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█___██__█_█___█__██████_███_█___█_██_
+</text>
+<text x="25" y="620" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+_█_██_█__█_█_█_█__██_█__███████_█_██_
+</text>
+<text x="25" y="650" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+██_█____█_██__█__███__██_█_█__███_█_█
+</text>
+<text x="25" y="680" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+__█_█████__█__██_██___███_█___█_█_██_
+</text>
+<text x="25" y="710" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_█__█_██_██__██_████_█____██████__█_
+</text>
+<text x="25" y="740" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+__█_█_██__█████_███__█___█_______██_█
+</text>
+<text x="25" y="770" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+___█_█__█__██_█___█__██_██_█__█___█_█
+</text>
+<text x="25" y="800" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+██__█_█_____█_█_████___█_█_███___█_██
+</text>
+<text x="25" y="830" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+██___█__█__███__█__██__██_█____███_█_
+</text>
+<text x="25" y="860" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+██__█_█___█_█_█_█___█__██_█_█___█__█_
+</text>
+<text x="25" y="890" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+_███___█__█_█____█___█_██____█_█__█__
+</text>
+<text x="25" y="920" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+██__████_███__████___████_█__█__███__
+</text>
+<text x="25" y="950" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+███____█__████____█_█_████████___███_
+</text>
+<text x="25" y="980" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_██████__█__█___██__███______█___███
+</text>
+<text x="25" y="1010" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+____█___█_█_██_█__█___██____█___██_██
+</text>
+<text x="25" y="1040" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+_██_███__█___██_██_████_██_██__█__██_
+</text>
+<text x="25" y="1070" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█__█_█___████_█__██_█___█___██_█_█_█_
+</text>
+<text x="25" y="1100" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+__█_█_█__█_██_██_█___█████_████████_█
+</text>
+<text x="25" y="1130" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+________██__█_███__███_█_████___███_█
+</text>
+<text x="25" y="1160" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+███████_██__██_█_____█__██__█_█_██_██
+</text>
+<text x="25" y="1190" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_____█__█████____████_██__██___██_██
+</text>
+<text x="25" y="1220" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_███_█__███████___████___█_██████___
+</text>
+<text x="25" y="1250" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_███_█_█_███_█____███______█_█_█____
+</text>
+<text x="25" y="1280" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_███_█_█████__█__█████__████_█_██_█_
+</text>
+<text x="25" y="1310" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+█_____█__█_██__███___█████_______██__
+</text>
+<text x="25" y="1340" font-family="monospace" font-weight="bold" font-size="44" fill="white">
+███████__██_█_██_███___█_█___█___████
+</text>
+<rect x="844" y="20" width="160" height="160" fill="black"/>
+<rect x="864" y="40" width="120" height="120" fill="white"/>
+<rect x="884" y="60" width="80" height="80" fill="black"/>
+<rect x="904" y="80" width="40" height="40" fill="white"/>
+
+</svg>

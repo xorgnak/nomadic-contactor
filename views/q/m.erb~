@@ -1,0 +1,130 @@
+<% @user = Redis::HashKey.new("uid")[params[:u]] %>
+<% @u = @here.cloud.user(@user) %>
+<% @b = @here.badge(@user) %>
+<% @a = @u.attr.all %>
+
+<style>
+  #bg { position: fixed; left: 0; top: 0; width: 100vw; height: 100vw; z-index: -1; }
+  #head { position: fixed; top: 0; width: 100%; padding: 1%; background-color: white; }
+  #head > * { vertical-align: middle; }
+  #team {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: black;
+    border: thick solid black;
+    color: red;
+    padding: 1%;
+    border-radius: 0 0 0 20px; 
+  }
+  #team > * { display: block; }
+  #favorited { color: red; }
+  #starred { color: gold; }
+  #highed { color: yelow; }
+  #cheered { color: green; }
+  .s { padding: 25% 0 25% 0; font-size: xx-large; }
+  #name {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 2%;
+    border-radius: 0 0 20px 0px;
+  }
+  #id { background-color: black; color: white; }
+  #skills { display: none; text-align: left; }
+  .ic {
+  color: black;
+  padding: 1%;
+  border: thick solid black;
+  background-color: white;
+  text-align: center;
+  display: inline;
+  width: min-content;
+  }
+  #skills > * {
+  display: block;
+  margin: 1%;
+  }
+  #foot { position: fixed; bottom: 0; }
+  #nav { position: fixed; bottom: 0; width: 100%; }
+  .nav {
+  width: 20%;
+  border: thick solid white;
+  border-radius: 15px;
+  text-decoration: none;
+  text-shadow: 0 0 3px white;
+  font-size: xx-large;
+  margin: 2%;
+  }
+  .i { background-color: black; color: white; }
+</style>
+
+<img id='bg' src='<%= @a['img'] %>'>
+
+<h1 id='head' class='i'>
+    <span id='name' class='i'>Ux<%= params[:u] %></span>
+    <span id="skills">
+    <%= @b.badges %>
+    </span>
+  <span id='team'>
+  <span id='heart' class='material-icons i s'>favorite_border</span>
+  <span id='star' class='material-icons i s'>star_border</span>
+  <span id='high' class='material-icons i s'>pan_tool</span>
+  <span id='cheer' class='material-icons i s'>accessibility_new</span>
+  </span>
+</h1>
+
+<h2 id='foot' class='i'><%= @a['tagline'] %></h2>
+
+<nav id='nav' class='i'>
+  <a class='material-icons nav i' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>pp<%= @u.voicemailbox || '#' %>'>phone</a>
+  <%# @here.venmo( to: @a['venmo'], amt: @a['tip'], note: CGI.escape(@a['thanks'] || 'thanks') ) %>
+  <a class='material-icons nav i' style='background-color: red; color: pink;' href='#'>savings</a>
+  <a class='material-icons nav i' style='right: 0; background-color: blue; color: silver;' href='<%= @a['social'] %>'>link</a>
+</nav>
+<script>
+    $(function() {
+	var hearts = 0;
+	var stars = 0;
+	var highs = 0;
+	var cheers = 0;
+	var badges = {};
+	$(document).on('click', '#heart' , function() {
+	    hearts++;
+	    $('#heart').text('favorite');
+	    $("#heart").css('color', 'red');
+	    setTimeout(function(){ $("#heart").css('color', 'white'); $('#heart').text('favorite_border'); }, 200);
+	    msg('user/', {
+		topic: "<span style='background-color: white; color: red;'></span>", input: "+1"
+	    });
+	    setTimeout(function(){ $("#heart").css('color', 'white'); $('#heart').text('favorite_border'); }, 200);
+	});
+	$(document).on('click', '#star' , function() {
+	    stars++;
+	    $('#star').text('star');
+	    $("#star").css('color', 'gold');
+	    setTimeout(function(){ $("#star").css('color', 'white'); $('#star').text('star_border');}, 200);
+	    console.log('star ' + stars);
+	});
+	$(document).on('click', '#high' , function() {
+	    highs++;
+	    $("#high").css('color', 'blue');
+	    setTimeout(function(){ $("#high").css('color', 'white'); }, 200);
+	    console.log('high ' + highs);
+	});
+	$(document).on('click', '#cheer' , function() {
+	    cheers++;
+	    $("#cheer").css('color', 'green');
+	    setTimeout(function(){ $("#cheer").css('color', 'white'); }, 200);
+	    console.log('cheer ' + cheers);
+	});
+	$(document).on('click', '#name' , function() {
+	    $('#skills').toggle();
+	    $('#name').toggle();
+	    console.log('name');
+	});
+	    <%= @b.badges_js %>
+	    
+    });
+
+</script>

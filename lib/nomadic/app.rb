@@ -1,73 +1,145 @@
 module NOMADIC
-class AppHandler
-	def initialize r, p
-	  @request, @params, @h = r, p, {}.merge(p)
-          @a = @request.user_agent
-          @h['referrer'] = @request.referrer
-          @ua = DeviceDetector.new(@a)
-          @h['ua'] = {
-            name: @ua.name,
-            ver: @ua.full_version,
-            os: @ua.os_name,
-            os_ver: @ua.os_full_version,
-            dev: @ua.device_name,
-            type: @ua.device_type
-          }
-	end
-	def to_h
-		@h
-	end
-end
-class App < Sinatra::Base
-	include NOMADIC
-	configure do
-	set :port, ENV['PORT']
-	set :bind, '0.0.0.0'
-	set :views, "#{Dir.pwd}/views/"
-	set :public_folder, "#{Dir.pwd}/public/"
-	end
+  ##
+  # INTERACTION HANDLER
+  ##
+  class AppHandler
+    def initialize r, p
+      @request, @params, @h = r, p, {}.merge(p)
+      @a = @request.user_agent
+      @h['referrer'] = @request.referrer
+      @ua = DeviceDetector.new(@a)
+      @h['ua'] = {
+        name: @ua.name,
+        ver: @ua.full_version,
+        os: @ua.os_name,
+        os_ver: @ua.os_full_version,
+        dev: @ua.device_name,
+        type: @ua.device_type
+      }
+    end
+    def to_h
+      @h
+    end
+  end
+  class App < Sinatra::Base
+    include NOMADIC
+    configure do
+      set :port, ENV['PORT']
+      set :bind, '0.0.0.0'
+      set :views, "#{Dir.pwd}/views/"
+      set :public_folder, "#{Dir.pwd}/public/"
+    end
+    
+    before { @fields = Fields.new; @cloud = Cloud.new; @here = Nomadic.new }
 
-        before { @fields = Fields.new; @cloud = Cloud.new }
 
-        get('/') do
-          Redis.new.publish "GET", JSON.generate(AppHandler.new(request, params).to_h)
-          erb :index
-	end
-
-        post('/') do
-          Phone.new(:web, request, params.merge(AppHandler.new(request, params).to_h))
+    get('/service.js') { content_type 'application/javascript'; erb :service, layout: false }
+    get('/manifest.webmanifest') { content_type 'text/json'; erb :manifest, layout: false }
+    
+    
+    get('/') do
+      Redis.new.publish "GET", JSON.generate(AppHandler.new(request, params).to_h)
+      erb :index
+    end
+    
+    post('/') do
+      if params.has_key? 'From'
+        Phone.new(:web, request, params.merge(AppHandler.new(request, params).to_h))
+        if params.has_key? :goto
+          erb params[:goto].to_sym
+        else
           erb :result
-	end
-
-        get('/out') do
-          
         end
-        get('/call') do
-          content_type 'text/xml'
-          px = Phone.new(:call, request, params)
-          rx = Twilio::TwiML::VoiceResponse.new do |r|
-            if !@params.has_key? 'Digits'
-              r.gather(method: 'GET', action: '/call') do |g|
-                g.say(message: "Hi. #{ENV['WELCOME']}, please enter your zip code followed by the pound key.")
-              end
-            else
-              if px.admin? || px.boss?
-                r.dial(number: @cloud.jid[@params['Digits']])
-              else
-                r.say(message: "thank you.  our local representative will contact you shortly.")
-              end
-            end
-          end
-          return rx.to_s
-        end
-
-        get('/sms') do
-          content_type 'text/xml'
-          Phone.new(:sms, request, params)
+      else
+        Redis.new.publish('DEBUG.post.pre', "#{@q} " + JSON.generate(params))
+        if params.has_key?(:q) && !params.has_key?(:a) && @here.ticket(params[:q]).active?('auth') == 'challange'
+          r = []; 6.times {r << rand(9) }
+          @here.ticket(params[:q]).activate(name: 'challange', ttl: 1000, value: params[:user]);
+          @here.ticket(params[:q] + ':pin').activate(name: 'challange', ttl: 1000, value: r.join(''));
+          # 
+          # send sms with code
+          #
+          Redis.new.publish("AUTH.test", "#{params}")
         end
         
+        if params.has_key?(:a)
+          if @here.ticket(params[:q] + ':pin').active?('challange') == params[:a]
+            u = @here.ticket(params[:q]).active?('challange')
+            @here.ticket(u).activate(name: 'token', ttl: 60 * 60 * 24, value: params[:q]);
+            @here.ticket(params[:q]).activate(name: 'token', ttl: 60 * 60 * 24, value: u);
+            Redis.new.publish("AUTH.test", "#{u} #{params}")
+          else
+            params[:goto] = '/comms/auth'
+          end
+        end
+        Redis.new.publish('DEBUG.post.post', "#{params}")
+        redirect params[:goto]
+      end
+    end
+    
+    get('/out') do
+      
+    end
+
+    get('/audio/:track') do
+      if File.exist? "audio/#{params[:track]}"
+        return File.read("audio/#{params[:track]}")
+      end
+    end
+    
+    get('/call') do
+      content_type 'text/xml'
+      px = Phone.new(:call, request, params)
+      rx = Twilio::TwiML::VoiceResponse.new do |r|
+        if !@params.has_key? 'Digits'
+          r.gather(method: 'GET', action: '/call') do |g|
+            if File.exist? 'audio/welcome.mp3'
+              g.play(url: "#{ENV['DOMAIN']}/audio/welcome.mp3")
+            else
+              g.say(message: "Hi. #{ENV['WELCOME']}, please enter your zip code followed by the pound key.")
+            end
+          end
+        else
+          if px.admin? || px.boss?
+            r.dial(number: @cloud.jid[@params['Digits']])
+          else
+            if File.exist? 'audio/thanks.mp3'
+              g.play(url: "https://#{ENV['DOMAIN']}/audio/thanks.mp3")
+            else
+              r.say(message: "thank you.  our local representative will contact you shortly.")
+            end
+          end
+        end
+      end
+      return rx.to_s
+    end
+    
+    get('/sms') do
+      content_type 'text/xml'
+      Phone.new(:sms, request, params)
+    end
+    
+    get('/:type/:id' ) do
+      if File.exist? 'views/' + params[:type] + '/' + params[:id] + '.erb'
+        erb "#{params[:type]}/#{params[:id]}".to_sym
+      else
+        redirect '/'
+      end
+    end
+
+    error do
+      Redis.new.publish('ERROR.sinatra', @variable)
+    end
+    
+  end
+  ##
+  # start app
+  def app
+    begin
+      Process.detach( fork { App.run! } )
+    rescue => e
+      Redis.new.publish('ERROR.app', "#{e}")
+    end
+  end
 end
-def app
-	Process.detach( fork { App.run! } )
-end
-end
+

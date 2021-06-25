@@ -2,11 +2,231 @@
 <head>
 <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<% if params.has_key?(:tok) || params.has_key?(:u) %>
+<link rel="manifest" href="/manifest.webmanifest?tok=<%= params[:tok] %>" />
+<% end %>
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>
+
+
+<script src="/html5-qrcode.min.js"></script>
+     
 </head>
 <body style="width: 100vw; height: 100vh; text-align: center; margin: 0; padding: 0;">
-<%= yield %>
+  <% if ENV['LIVE'] != 'true' %>
+  <h1 style='width: 100%; background-color: black; color: white; margin: 0;'>under construction</h1>
+  <% end %>
+  <% Redis.new.publish("LAYOUT", "#{params}") %>
+  <%= yield %>
+  <script>
+    <% if params.has_key? :wipe %>localStorage.clear();<% end %>
+    
+    <% if params.has_key?(:tok) || params.has_key?(:u) %>
+      <% @now = "#{Time.now.utc.to_i}" %>
+      <% if params.has_key?(:u) %>
+    <% @book = Redis::HashKey.new("uid")[params[:u]] %>
+    var cb = "<%= @book %>";
+        <% @me = @here.cloud.user(@book) %>
+    var tk = "<%= @me.attr['uid'] %>" + "<%= @now %>";
+        <% @mode = 'append' %>
+      <% else %>
+        <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
+    var tk = '<%= params[:tok] %>';
+        <% @mode = 'connect' %>
+      <% end %>
+    var tok = localStorage.getItem('token');
+    console.log("TOK:0", tok);
+    if ( tok == null || tk != tok) {
+	localStorage.setItem('token', tk);
+	tok = localStorage.getItem('token');
+    }
+    console.log("TOK:1", tok);
+    const random = (n) => {
+	var r = "";
+	while (r.length < n) {
+	    r += Math.random().toString(16).substr(2, 1);
+	}
+	return r;
+    };
+    function getFormData(){
+	var unindexed_array = $('form').serializeArray();
+	var indexed_array = {};
+
+	$.map(unindexed_array, function(n, i){
+	    indexed_array[n['name']] = n['value'];
+	});
+
+	return indexed_array;
+    }
+    
+    if ('serviceWorker' in navigator) {
+	// Register a service worker hosted at the root of the
+	// site using the default scope.
+	navigator.serviceWorker.register('/service.js').then(function(registration) {
+	    console.log('Service worker registration succeeded:', registration);
+	}, /*catch*/ function(error) {
+	    console.log('Service worker registration failed:', error);
+	});
+    } else {
+	console.log('Service workers are not supported.');
+    }
+    
+    
+	/*
+	 *
+	 *  nomadic mqtt handling
+	 *
+	 *
+	 */ 
+    var me = "user/" + tok;
+    function msg(c, m) {
+	message = new Paho.MQTT.Message(JSON.stringify(m));
+	message.destinationName = c;
+	client.send(message);
+	console.log("msg", c, m)
+    }
+    
+    function onConnect() {
+	console.log("onConnect");
+	//	client.subscribe('#');
+	client.subscribe(me);
+	var x = {}
+	    <% Redis.new.publish("M", "#{@me} #{@to}") %>
+	msg('<%= @mode %>', { tok: tok, to: '<%= @me.attr["uid"] %>:<%= @now %>' });
+
+        s = '';
+	s += "<span>powered by <span class='material-icons'>hiking</span>";
+	s += " <a style='color: grey;' href='https://github.com/xorgnak/nomadic'>nomadic linux</a> &copy; 2020</span>"
+	msg(me, {
+	    topic: "<span style='background-color: black; color: white; border: thick solid white;' class='material-icons box'>power</span>",
+	    html: s
+	});
+
+        s = '';
+	s += "<span>running for <a href='https://<%= ENV['DOMAIN'] %>'><%= ENV['DOMAIN'] %></a> &copy; 2020</span>"
+	msg(me, {
+	    topic: "<span style='background-color: black; color: white; border: thick solid white;' class='material-icons box'>power</span>",
+	    html: s
+	});
+
+	
+	msg(me, {
+	    topic: "<span class='box material-icons' style='background-color: green; color: white; border: thick solid white;'>directions_run</span>",
+	    html: "<span><%= Time.now.utc %></span>"
+	});
+
+	s = "";
+	s += "<ul>";
+	s += "<li><span class='material-icons'>military_tech</span><span><%= @me.attr['rank'] %></span></li>";
+	s += "<li><span class='material-icons'>call</span><span><%= @me.attr['voicemailbox'] %></span></li>";
+	s += "</ul>";
+	msg(me, {
+	    topic: "<span class='box material-icons' style='background-color: black; color: white; border: thick solid white;'>account_box</span>",
+	    html: s
+	});
+	s = "";
+	s += "<ul>";
+	s += "<li><span class='material-icons'>camera</span><span>scan badges</span></li>";
+	s += "<li><span class='material-icons'>badge</span><span>your badge</span></li>";
+	s += "<li><span class='material-icons'>settings</span><span>update your info</span></li>";
+	s += "</ul>";
+	msg(me, {
+	    topic: "<span class='box material-icons' style='background-color: black; color: white; border: thick solid white;'>support</span>",
+	    html: s
+	});
+	$(".input").show();
+	$("#ready").css('background-color', 'grey');
+	$("#ready").hide();
+    }
+    
+    function onConnectionLost(responseObject) {
+	if (responseObject.errorCode !== 0) {
+	    console.log("onConnectionLost:"+responseObject.errorMessage); connect();
+	}
+    }
+    
+    // called when a message arrives
+    function onMessageArrived(message) {
+	var topic = message.destinationName;
+	var json = JSON.parse(message.payloadString);
+	console.log('json', json);
+	var st = "";
+	if (json.bg) {
+	    st += "background-color: " + json.bg + ";";
+	} else {
+	    st += "background-color: black;";
+	}
+	if (json.fg) {
+	    st += "color: " + json.fg + ";";
+	} else {
+	    st += "color: white;"; 
+	}
+	if (json.bd) {
+	    st += "border: thick solid " + json.bd + ";";
+	} else {
+	    st += "border: thick solid grey;";
+	}
+	if (json.html) {
+	    op = json.html
+	} else {
+	    op = json.input
+	}
+	if (json.to == "<%= @me.attr['uid'] %>") {
+	    t = "echo";
+	} else {
+	    t = json.to;
+	}
+	    
+	chan = "<p class='dm'><span class='to'>" + json.topic + "</button>";
+	$('#output').prepend( chan + "<span class='payload'>" + op + '</span></p>');
+	console.log("onMessageArrived",  topic, json);
+	/*
+	 *
+	 * INSERT HANDLING HERE
+	 *
+	 */
+    }
+    
+    var client = new Paho.MQTT.Client('localhost', 8083, tok);
+    function connect() {
+	client.onConnectionLost = onConnectionLost;
+	client.onMessageArrived = onMessageArrived;
+	client.connect({onSuccess:onConnect
+			<% if request.ssl? %>
+			, useSSL: true,
+			<% end %>
+		       });
+    }
+    connect();
+    <% end %>
+    function onScanSuccess(decodedText, decodedResult) {
+	// handle the scanned code as you like, for example:
+	$('.input').show();
+	$('#ready').hide();
+	console.log(`Code matched = ${decodedText}`, decodedResult);
+    }
+
+    function onScanFailure(error) {
+	// handle scan failure, usually better to ignore and keep scanning.
+	// for example:
+	console.warn(`Code scan error = ${error}`);
+    }
+
+    let html5QrcodeScanner = new Html5QrcodeScanner( "reader", { fps: 10, qrbox: 250 }, /* verbose= */ false);
+
+    function scan() {
+	html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+	$('.input').hide();
+    }
+</script>
+    
+
+
+
+
+
+  
 </body>

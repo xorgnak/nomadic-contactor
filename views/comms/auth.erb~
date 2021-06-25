@@ -1,0 +1,7 @@
+<% @r = []; 16.times { @r << rand(16).to_s(16) }; @here.ticket(@r.join('')).activate(name: 'auth', ttl: 30, value: 'challange'); %>
+<form action='/' method='post'>
+<input type='hidden' name='goto' value='/comms/pin?q=<%= @r.join('') %>'>
+<input type='hidden' name='q' value='<%= @r.join(''); %>'>
+<input type='tel' name='user'>
+<button>LOGIN</button>
+</form>

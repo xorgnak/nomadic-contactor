@@ -1,38 +1,102 @@
 module NOMADIC
+  
+  ##
+  # basic group abstraction
   class Zone
     include Redis::Objects
+    # the person who can fire people
+    value :boss
+    # members of the general public
     set :users
+    # group administrators
     set :admins
+    # group members
+    set :members
+    # group special offers
+    hash_key :code
     def initialize i
       @id = i 
     end
     def id; @id; end
+    def special h={}
+      p, c = [], []
+      (:A..:Z).each { |e| p << e }
+      (0..9).each { |e| p << e }
+      6.times { c << p.sample }
+      Redis::HashKey.new('codes')[c.join('')] = @id
+      self.code[c.join('')] = JSON.generate(h)
+      return c.join('')
+    end
   end
   
+  ##
+  # basic user abstraction
   class User
     include Redis::Objects
+    # nick, pic, info, etc.
     hash_key :attr
-    set :zones
-    set :jobs
+    # xp, likes, lvl, boost, gp, likes, etc.
     sorted_set :stat
+    # service: amt
+    sorted_set :fare
+    # amt: quantity
+    sorted_set :rate
+    # places and groups user has connection to.
+    set :zones
+    # jobs assigned to user.
+    set :jobs
     def initialize i
       @id = i
     end
+    def turn h={}
+      h.each_pair { |k,v| self.stat.incr(k,v) }
+    end
     def id; @id; end
+    def voicemailbox
+      Redis::HashKey.new('voicemailbox')[@id]
+    end
+    def special c
+      z = NOMADIC.cloud.code[c]
+      ticket(JSON.parse(NOMADIC.cloud.zone(z).code[c]))
+    end
+    def ticket h={}
+      NOMADIC.ticket(@id).activate(h)
+    end
+    def tickets
+      h = {}
+      Redis.new.keys("ticket:#{@id}:*").each { |e| h[e.gsub("ticket:#{@id}:", '')] = Redis.new.get(e) }
+      return h
+    end
+    def logo
+      NOMADIC.logo self.attr['uid'], lvl: self.attr['rank'], method: 'm', object: 'u' 
+    end
   end
   
+  ##
+  # cloud object
+  ##
+  # Handles general user and group interactions.
+  #
+  # @cloud <---- base cloub object.
+  # 
   class Cloud
     include Redis::Objects
     
+    # all active message ids for groups
     set :msgs
+    
     set :zones
+    # member: primary group
     hash_key :at
-    
+    # id: user
     hash_key :jid
-    hash_key :job
     
+    hash_key :job
+    # id: member
     hash_key :assigned
     
+    
+    # everyone
     set :users
     
     def initialize
@@ -41,6 +105,8 @@ module NOMADIC
     def id
       ENV['domain'] || "sandbox"
     end
+    ##
+    # cloud lookup by usr, zone, or job.
     def [] k
       v = []
       if k == '#'
@@ -56,7 +122,7 @@ module NOMADIC
         v << %[user: #{k}\n]
         v << User.new(k).zones.members.join(', ') 
         v << %[\n]
-
+        
         User.new(k).stat.members(with_scores: true).to_h.each_pair do |k,v|
           v << %[#{k}: #{v}]
         end
@@ -107,6 +173,19 @@ module NOMADIC
       self.at.has_key? u
     end
     def hire! z, u
+      if !self.at.has_key? u
+        b = []; 4.times { b << rand(9) }
+        Redis::HashKey.new('voicemailbox')[u] = b.join('')
+        Redis::HashKey.new('voicemail')[b.join('')] = u
+        user(u).attr['voicemailbox'] = b.join('')
+
+        b = []; 5.times { b << rand(16).to_s(16) }
+        Redis::HashKey.new('uids')[u] = b.join('')
+        Redis::HashKey.new('uid')[b.join('')] = u
+        user(u).attr['uid'] = b.join('')
+        
+        user(u).attr['rank'] = 3
+      end
       self.at[u] = z
       user(u).zones << z
       user(u).attr['zone'] = z
@@ -127,5 +206,8 @@ module NOMADIC
       self.users << u
       User.new u
     end
-  end
+    def code
+      Redis::HashKey.new('codes')
+    end
+  end  
 end

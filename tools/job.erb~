@@ -1,0 +1,33 @@
+<% @c = Clock.new %>
+
+<form action='post' method='/'>
+<h1>JOB UPDATE</h1>
+<h3>time: <%= @c.time %></h3>
+
+<input type='hidden' name='time' value='<%= @c.time %>'>
+
+<if params.has_key? :by >
+  <h3>by: <%= params[:by] %></h3>
+  <input type='hidden' name='by' value='<%= params[:by] %>'>
+<% else %>
+  <input type='tel' name='by' placeholder='callback number'>
+<% end %>
+	   
+<if params.has_key? :job >
+    <h3>job: <%= params[:job] %></h3>
+    <input type='hidden' name='job' value='<%= params[:job] %>'>
+<% else %>
+   <input type='number' name='job' placeholder='job'>
+<% end %>
+
+<if params.has_key? :re >
+  <h3>job: <%= params[:re] %></h3>
+  <input type='hidden' name='re' value='<%= params[:re] %>'>
+<% else %>
+  <input type='text' name='re' placeholder='re'>
+<% end %>
+
+<textarea name='info' placeholder='info...'></textarea>
+
+<button type='submit'>UPDATE</button>
+</form>

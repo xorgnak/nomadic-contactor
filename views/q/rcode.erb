@@ -1,0 +1,19 @@
+<% @here.logo( params[:uid], lvl: params[:lvl], method: 'm', object: params[:tgt] || 'i', fg: params[:fg], bg: params[:bg], branded: params[:branded]) %>
+<style>
+
+body { height: 100%; width: 100%; text-align: center; background-color: <%= params[:base] || params[:fg] || '#000' %>;}
+body > * { vertical-align: middle; }
+img {
+    height: 95%;
+    width: 93%;
+    padding: 2%;
+    border: thick solid <%= params[:border] || params[:fg] || '#000' %>;
+    border-radius: 20px;
+    background-color: <%= params[:shield] || '#fff' %>;
+}
+
+</style>
+
+
+
+<img src='/<%= params[:uid] %>.svg'>

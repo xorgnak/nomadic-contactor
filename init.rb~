@@ -1,5 +1,0 @@
-@cloud = NOMADIC::Cloud.new
-@user = @cloud.user '+17205522104'
-@zone = @cloud.zone '80203'
-@team = @cloud.team 'my team'
-@dept = @cloud.dept 'pedicab'

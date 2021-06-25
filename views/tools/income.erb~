@@ -1,0 +1,42 @@
+<% @c = Clock.new %>
+
+<form action='/' method='post'>
+<h1>INCOME ESTIMATOR</h1>
+<h3>time: <%= @c.time %></h3>
+
+<input type='hidden' name='time' value='<%= @c.time %>'>
+
+<% if params.has_key?(:by) %>
+  <h3>by: <%= params[:by] %></h3>
+  <input type='hidden' name='From' value='<%= params[:by] %>'>
+<% else %>
+  <h3><input type='tel' name='From' placeholder='callback number'></h3>
+<% end %>
+	   
+<% if params.has_key?(:job) %>
+    <h3>job: <%= params[:job] %></h3>
+    <input type='hidden' name='job' value='<%= params[:job] %>'>
+<% else %>
+   <h3><input type='number' name='job' placeholder='job'></h3>
+<% end %>
+
+<% if params.has_key?(:re) %>
+  <h3>re: <%= params[:re] %></h3>
+  <input type='hidden' name='re' value='<%= params[:re] %>'>
+<% else %>
+  <h3><input type='text' name='re' placeholder='re'></h3>
+<% end %>
+
+<h3><input type='number' name='sale' placeholder='average sale'></h3>
+<h3><input type='number' name='cost' placeholder='cost of service'></h3>
+<h3><input type='number' name='customers' placeholder='number of sales'></h3>
+<h3><input type='number' name='hours' placeholder='hours of operation'></h3>
+<h3><input type='number' name='days' placeholder='days per week'></h3>
+
+<h3><textarea name='Body' placeholder='info...'></textarea></h3>
+
+<input type='hidden' name='do' value='job'>
+<input type='hidden' name='goto' value='/goto/job'>
+
+<h3><button type='submit'>UPDATE</button></h3>
+</form>

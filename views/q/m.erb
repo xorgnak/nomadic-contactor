@@ -1,0 +1,117 @@
+<% if params.has_key?(:u); @mo = 'U'; @id = params[:u]; end %>
+<% if params.has_key?(:z); @mo = 'Z'; @id = params[:z]; end %>
+<% if params.has_key?(:i); @mo = 'I'; @id = params[:i]; end %>
+
+<% @user = Redis::HashKey.new("uid")[params[:u]] %>
+<% @u = @here.cloud.user(@user) %>
+<% @b = @here.badge(@user) %>
+<% @a = @u.attr.all %>
+
+<style>
+  #bg { position: fixed; left: 0; top: 0; width: 100vw; height: 100vw; z-index: -1; }
+  #head { position: fixed; top: 0; width: 100%; padding: 1%; background-color: white; }
+  #head > * { vertical-align: middle; }
+  #team {
+    position: fixed;
+    right: 0;
+      top: 0;
+      padding: 2%;
+      background-color: rgba(0, 0, 0, 0.4);
+      border-radius: 0 0 0 20px;
+  }
+#pig { position: fixed; top: 0; }
+#team > * { display: block; color: grey; }
+  .s { padding: 25% 0 25% 0; font-size: xx-large; }
+  #name {
+    position: fixed;
+    left: 0;
+    top: 0;
+      padding: 2%;
+      color: grey;
+      border-radius: 0 0 20px 0px;
+      background-color: rgba(0, 0, 0, 0.4);
+  }
+  #id { background-color: black; color: white; }
+  #skills { display: none; text-align: left; }
+  .ic {
+  color: black;
+  padding: 1%;
+  border: thick solid black;
+  background-color: white;
+  text-align: center;
+  display: inline;
+  width: min-content;
+  }
+  #skills > * {
+  display: block;
+  margin: 1%;
+  }
+  #foot { position: fixed; bottom: 0; }
+  #nav { position: fixed; bottom: 0; width: 100%; }
+  .nav {
+  width: 20%;
+  border: thick solid white;
+  border-radius: 15px;
+  text-decoration: none;
+  text-shadow: 0 0 3px white;
+  font-size: xx-large;
+  margin: 2%;
+  }
+
+#pig { background-color: black; color: pink; }
+</style>
+
+<img id='bg' src='<%= @a['img'] %>'>
+
+<h1 id='head' class='i'>
+    <span id='name' class='i'><%= @mo %>x<%= @id %></span>
+    <span id="skills">
+    <%= @b.badges %>
+    </span>
+  <% if params.has_key? :u %>
+  <%# @here.venmo( to: @a['venmo'], amt: @a['tip'], note: CGI.escape(@a['thanks'] || 'thanks') ) %>
+  <a id='pig' class='material-icons nav i' href='#'>savings</a>
+    <% end %>
+    <span id='team'>
+  <span id='heart' class='material-icons s badge'>favorite_border</span>
+  <span id='star' class='material-icons s badge'>star_border</span>
+  <span id='high' class='material-icons s badge'>pan_tool</span>
+  <span id='cheer' class='material-icons s badge'>accessibility_new</span>
+  </span>
+</h1>
+
+<h2 id='foot' class='i'><%= @a['tagline'] %></h2>
+
+<div id="reader" width="600px"></div>
+<nav id='nav' class='i'>
+  <% if params.has_key? :u %>
+  <a class='material-icons nav i input' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>pp<%= @u.voicemailbox || '#' %>'>phone</a>
+  <% end %>
+  <a class='material-icons nav i input' onclick='scan();'>camera</a>
+  <a class='material-icons nav i input' style='right: 0; background-color: blue; color: silver;' href='<%= @a['social'] %>'>link</a>
+</nav>
+<script>
+    $(function() {
+	var counts = { heart: 0, star: 0, high: 0, cheer: 0 };
+	$(document).on('click', '.badge' , function() {
+	    counts[$(this).attr('id')]++;
+	    $(this).css('color', 'white');
+	    var tgt = $(this).attr('id');
+	    setTimeout(function() { $("#" + tgt).css('color', 'grey'); }, 3000);
+	    msg('user/', {
+		topic: "<span class='material-icons box'>info</span>", to: '<%= @id %>',
+		html: "<span>" + tok + "</span><code>" + JSON.stringify(counts) + "</code>"
+	    });
+	    console.log(tgt, counts[tgt], $(this));
+	});
+
+	$(document).on('click', '#name' , function() {
+	    $('#skills').toggle();
+	    $('#name').toggle();
+	    console.log('name');
+	});
+	    <%= @b.badges_js %>
+	    
+    });
+
+</script>

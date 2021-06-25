@@ -1,0 +1,66 @@
+<% @c = Clock.new %>
+
+<form action='/' method='post'>
+<h1>INCOME ESTIMATOR</h1>
+<h3>time: <%= @c.time %></h3>
+
+<input type='hidden' name='time' value='<%= @c.time %>'>
+
+<% if params.has_key?(:by) %>
+  <h3>by: <%= params[:by] %></h3>
+  <input type='hidden' name='From' value='<%= params[:by] %>'>
+<% else %>
+  <h3><input type='tel' name='From' placeholder='callback number'></h3>
+<% end %>
+	   
+<% if params.has_key?(:tag) %>
+    <h3>job: <%= params[:tag] %></h3>
+    <input type='hidden' name='job' value='<%= params[:job] %>'>
+<% else %>
+   <h3><input type='text' name='job' placeholder='job'></h3>
+<% end %>
+
+<input type='hidden' name='Body' value='#income'>
+
+<% if params.has_key?(:sale) %>
+  <h3>sale: <%= params[:sale] %></h3>
+  <input type='hidden' name='stat[sale]' value='<%= params[:sale] %>'>
+<% else %>
+  <h3><input type='number' name='stat[sale]' placeholder='average sale'></h3>
+<% end %>
+
+<% if params.has_key?(:cost) %>
+  <h3>cost: <%= params[:cost] %></h3>
+  <input type='hidden' name='stat[cost]' value='<%= params[:cost] %>'>
+<% else %>
+  <h3><input type='number' name='stat[cost]' placeholder='cost of service'></h3>
+<% end %>
+
+
+<% if params.has_key?(:customers) %>
+  <h3>customers: <%= params[:customers] %></h3>
+  <input type='hidden' name='stat[customers]' value='<%= params[:customers] %>'>
+<% else %>
+  <h3><input type='number' name='stat[customers]' placeholder='number of sales'></h3>
+<% end %>
+
+<% if params.has_key?(:hours) %>
+  <h3>hours: <%= params[:hours] %></h3>
+  <input type='hidden' name='stat[hours]' value='<%= params[:hours] %>'>
+<% else %>
+  <h3><input type='number' name='stat[hours]' placeholder='hours per day'></h3>
+<% end %>
+
+<% if params.has_key?(:days) %>
+  <h3>days: <%= params[:days] %></h3>
+  <input type='hidden' name='stat[days]' value='<%= params[:days] %>'>
+<% else %>
+  <h3><input type='number' name='stat[days]' placeholder='days per week'></h3>
+<% end %>
+
+
+<input type='hidden' name='do' value='income'>
+<input type='hidden' name='goto' value='/goto/income'>
+
+<h3><button type='submit'>UPDATE</button></h3>
+</form>

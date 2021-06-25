@@ -1,0 +1,65 @@
+
+The Nomadic system gets moving fast.  It's built for the future and is made to grow on the fly.
+
+* app
+
+** Concepts
+
+
+
+
+*** Boss
+The person who can fire people and create groups by adding someone to them.
+
+*** Member
+A member of one or more groups.
+
+*** User
+A member of the general public
+
+*** Ticket
+A general "pass" or "boost" within the system. 
+
+*** Affinity
+The people a user repeatedly and regularly visit a location with.
+
+** Stuff Outsiders see
+These things are usually reached by qr code.  They link statically to a unique identifier. 
+A unique QR code should be displayed promenantly.  General functions will be displayed for the user when scanned.
+When a user authenticates via sms 2fa, their stats will be displayed.
+
+
+*** Profile                                                      :qr:inbound:
+  - [ ] "need a ride" callback via sms.
+  - [ ] venmo tipjar to rider's venmo with custom amount and message.
+  - [ ] social media connect to user's primary social media feed.
+  - [ ] status bar to show users their points, etc.
+  - [ ] code console for "cheat codes" to get specials, services, access, points, etc.
+  - [ ] add to home - so they can come back again and again.
+ 
+*** Sponsor
+  - [ ] "get a ride" callout to sponsor's team via sms.
+  - [ ] social media connect to sponsor's primary social media feed.
+  - [ ] status bar to show users their points, etc.
+  - [ ] code console for "cheat codes" to get specials, services, access, points, etc.
+  - [ ] add to home - so they can come back again and again.
+
+
+** Stuff Outsiders don't see
+
+*** Tools
+The User console allows basic commands and displays results as simple forms.  
+
+  - [ ] invite
+    - [ ] member
+    - [ ] user
+  - [ ] onboard sponsor
+  - [ ] profile update
+  - [ ] cheatcode manager
+  - [ ] reports
+  - [ ] info feed output
+
+
+** Boss Stuff
+- [ ] hire/fire by group
+- [ ] assign group admin member

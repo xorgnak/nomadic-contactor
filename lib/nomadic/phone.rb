@@ -1,4 +1,7 @@
 module NOMADIC
+  ##
+  # call system interaction
+  ##
   class Phone
     def initialize t, r, p
       @type, @request, @params = t, r, p
@@ -40,27 +43,33 @@ module NOMADIC
           @to = ENV['PHONE_ADMIN']
         end
       elsif @params['Digits']
-        @body = @params['Digits'].split(' ')
+        @body = @params['Digits'].split('*')
         if @cloud.zones.members.include? @body[0]
           @to = @cloud.zone(@body[0]).admins.members.to_a
         else
           @to = ENV['PHONE_ADMIN']
         end
       end
+
+      if /^%2B/.match(@params['From'])
+        f = @params['From'].gsub('%2B', '+')
+      else
+        f = @params['From']
+      end
       
       if new?
-        if !@cloud.at.has_key?(@params['From'])
+        if !@cloud.at.has_key?(f)
           a = []
           3.times { a << (0..9).to_a.sample }
-          @cloud.jid[a.join('')] = @params['From']
-          @cloud.job[@params['From']] = a.join('')
+          @cloud.jid[a.join('')] = f
+          @cloud.job[f] = a.join('')
         end
-        @user = @cloud.user(@params['From'])
+        @user = @cloud.user(f)
         @user.attr['since'] = @clock.epoch
         @user.attr['last'] = @clock.epoch
-        @cloud.users << @params['From']
+        @cloud.users << f
       else
-        @user = @cloud.user(@params['From'])
+        @user = @cloud.user(f)
         @user.attr['last'] = @clock.epoch
       end   
     end
@@ -70,7 +79,13 @@ module NOMADIC
       [ h[:to] ].flatten.uniq.each do |t|
         if /^\+1#.+$/.match(t)
           if @cloud.zones.members.include? t.gsub(/\+1/, '')
-            @cloud.zone(t).admins.members.each { |e|  }
+            @cloud.zone(t.gsub(/\+1/, '')).admins.members.each { |e| to << e }
+          else
+            to << ENV['PHONE_ADMIN']
+          end
+        elsif /^#.+/.match(t)
+          if @cloud.zones.members.include? t
+            @cloud.zone(t).admins.members.each {|e| to << e }
           else
             to << ENV['PHONE_ADMIN']
           end
@@ -113,6 +128,15 @@ module NOMADIC
                  body: b.join('')
                })
     end
+
+    def send_page!
+      send_sms({
+                 from: ENV['PHONE'],
+                 to: @to,
+                 body: "[PAGE] " + @params['From'] + "\n"
+               })
+    end
+
     def send_msg m
       send_sms({from: ENV['PHONE'], to: @params['From'], body: m })
     end
@@ -155,10 +179,25 @@ module NOMADIC
       end
     end
 
-    
+    ##
+    # INTERNAL HANDLING CALLS
+    ##
+
     def web
-      Redis.new.publish("DEBUG.web", "#{admin?} #{@body} #{@params}")
-      @cloud.zone(@body[0]).users << @params['From']
+      Redis.new.publish("DEBUG.web", "#{admin?} #{@body} #{@user} #{@params}")
+      if admin? || boss?
+        if @params[:mode] == 'set'
+          if @params.has_key?(:rate); @params[:rate].each_pair { |k,v| @user.rate[k] = v.to_i }; end
+          if @params.has_key?(:fare); @params[:fare].each_pair { |k,v| @user.fare[k] = v.to_i }; end
+          if @params.has_key?(:stat); @params[:stat].each_pair { |k,v| @user.stat[k] = v.to_i }; end
+        else
+          if @params.has_key?(:rate); @params[:rate].each_pair { |k,v| @user.rate.incr(k, v.to_i) }; end
+          if @params.has_key?(:fare); @params[:fare].each_pair { |k,v| @user.fare.incr(k, v.to_i) }; end
+          if @params.has_key?(:stat); @params[:stat].each_pair { |k,v| @user.stat.incr(k, v.to_i) }; end
+        end
+      else
+        @cloud.zone(@body[0]).users << @params['From'].gsub('%2B', '+')
+      end
       handle!
     end   
     def call
@@ -166,17 +205,20 @@ module NOMADIC
       if @params.has_key? :Digits
         if boss? || admin?
           twilio.calls.create(
-            url: 'https://calebmartinconstruction.us/out',
+            url: 'https://propedicab.com/out',
             to: @cloud.jid[@params[:Digits]],
             from: ENV['PHONE']
           )
         else
-          @cloud.zone(@params[:Digits]).users << @params['From']
-          send_job!
+          if Redis::HAshKey.new('voicemail').has_key? @params[:Digits]
+            send_page!
+          else
+            @cloud.zone(@params[:Digits]).users << @params['From']
+            send_job!
+          end
         end
       end
-    end
-    
+    end    
     def sms
       Redis.new.publish "DEBUG.sms", "#{admin?} #{@body} #{@params}"
       handle!
