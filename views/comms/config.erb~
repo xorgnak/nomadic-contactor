@@ -21,22 +21,14 @@ button { border-radius: 10px; border: thick solid black; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
-<datalist id='actions'>
-<option value='HI'>
-<option value='SETUP'>
-<option value='HELP'>
-</datalist>
 
 <form style='height: 100vh; width: 100vw;'>
-<div id="reader" width="600px"></div>
-<div id='output'></div>
+<label for='name'>name</label><input type='text' id='name' name='name' value='<%= @me.attr['name'] %>' placeholder='name'>
+
 
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <h1 id='bottom'>
-<button id='ready' class='material-icons fr input'>&nbsp;</button>
-<a id='scan' class='material-icons input' onclick='scan();'>camera</a>
-<a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
-<a href='/q/rcode?uid=<%= @me.attr['uid'] %>&tgt=u&lvl=<%= @me.attr['rank'] %>&shield=<%= @me.attr['shield'] %>&border=<%= @me.attr['border'] %>&branded=true' class='material-icons input'>badge</a>
+<button id='ready' class='material-icons input'>save</button>
 </h1>
 
 </form>
@@ -44,8 +36,8 @@ button { border-radius: 10px; border: thick solid black; }
 $(function() {
 $('#to').hide();
 $('.input').hide();
-$("#ready").css('background-color', 'blue');
+$("#ready").css('background-color', 'green');
 $(document).on('click', '.to', function(ev) { ev.preventDefault(); $(".input").show(); $('.ready').hide(); $("#to").val($(this).val()); });
-$(document).on('click', '#ready', function(ev) { ev.preventDefault(); msg("user/", getFormData()); $('form')[0].reset(); $("to").val("<%= @me.attr['uid'] %>"); });
+$(document).on('click', '#ready', function(ev) { ev.preventDefault(); msg("user/", getFormData()); $('form')[0].reset(); $("to").val("<%= @me.attr['uid'] %>"); window.location = '/comms/user?tok=<%= params[:tok] %>';});
 });
 </script>

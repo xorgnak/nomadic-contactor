@@ -4039,3 +4039,1177 @@ D, [2021-06-25T09:53:39.034374 #1673] DEBUG -- : No activity is over timeout, di
 D, [2021-06-25T09:53:39.034566 #1673] DEBUG -- : Disconnecting from localhost.
 D, [2021-06-25T09:54:34.251043 #1673] DEBUG -- : No activity is over timeout, disconnecting from localhost.
 D, [2021-06-25T09:54:34.251265 #1673] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-25T12:56:40.723649 #3737] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-25T12:56:40.732176 #3737] DEBUG -- : Connection accepted
+D, [2021-06-25T12:56:40.732470 #3737] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-25T12:56:40.737364 #3737] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-25T12:56:40.740835 #3737] DEBUG -- : Connection accepted
+D, [2021-06-25T12:56:40.741030 #3737] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-25T12:56:40.742527 #3737] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-06-25T12:56:40.742820 #3737]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-25T12:56:40.745680 #3737] DEBUG -- : Connection accepted
+D, [2021-06-25T12:56:40.746005 #3737] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-25T12:56:40.781204 #3737]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-25T12:56:40.784265 #3737]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-25T12:57:24.372475 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-25T12:57:24.374464 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-25T12:57:24.381130 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-25T12:57:24.384078 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-25T12:57:24.390710 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-25T12:57:24.399831 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-25T12:57:24.404459 #3737]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-06-25T12:57:46.786305 #3737] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-25T12:57:46.786730 #3737] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-25T12:58:30.397505 #3737] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-25T12:58:30.397872 #3737] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-25T12:58:30.421509 #3737] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-25T12:58:30.421713 #3737] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-25T15:12:30.512383 #1539] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-25T15:12:30.524750 #1539] DEBUG -- : Connection accepted
+D, [2021-06-25T15:12:30.524926 #1539] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-25T15:12:30.526706 #1539] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-25T15:12:30.529260 #1539] DEBUG -- : Connection accepted
+D, [2021-06-25T15:12:30.529396 #1539] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-25T15:12:30.530375 #1539] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-06-25T15:12:30.531608 #1539]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-25T15:12:30.533140 #1539] DEBUG -- : Connection accepted
+D, [2021-06-25T15:12:30.533371 #1539] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-25T15:12:30.564990 #1539]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-25T15:12:30.575250 #1539]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-25T15:13:36.535481 #1539] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-25T15:13:36.536042 #1539] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-25T15:13:36.574152 #1539] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-25T15:13:36.574414 #1539] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-25T15:13:36.578364 #1539] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-25T15:13:36.578557 #1539] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-27T20:16:07.002323 #3588] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-27T20:16:07.008709 #3588] DEBUG -- : Connection accepted
+D, [2021-06-27T20:16:07.008878 #3588] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-27T20:16:07.010203 #3588] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-27T20:16:07.011899 #3588] DEBUG -- : Connection accepted
+D, [2021-06-27T20:16:07.012058 #3588] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-27T20:16:07.013824 #3588] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-27T20:16:07.015251 #3588] DEBUG -- : Connection accepted
+D, [2021-06-27T20:16:07.015447 #3588] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-27T20:16:07.017523 #3588]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-27T20:16:07.057067 #3588]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-27T20:16:07.061724 #3588]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-27T20:17:13.024986 #3588] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-27T20:17:13.025633 #3588] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-27T20:17:13.061484 #3588] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-27T20:17:13.061787 #3588] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-27T20:17:13.064537 #3588] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-27T20:17:13.064715 #3588] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:15:11.064881 #2064] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:11.070893 #2064] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:11.071033 #2064] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:15:11.072188 #2064] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:11.073695 #2064] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:11.073826 #2064] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:15:11.074761 #2064] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:11.076285 #2064] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:11.076413 #2064] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:15:11.083640 #2064]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:15:11.084467 #2064]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:15:11.105928 #2064]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:15:22.130356 #2082] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:22.134585 #2082] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:22.134924 #2082] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:15:22.136334 #2082] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:22.137794 #2082] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:22.137964 #2082] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:15:22.139317 #2082] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:22.141133 #2082] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:22.141274 #2082] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:15:22.149054 #2082]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:15:22.178686 #2082]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:15:22.188952 #2082]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:15:50.057142 #2102] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:50.060031 #2102] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:50.060204 #2102] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:15:50.061813 #2102] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:50.063154 #2102] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:50.063283 #2102] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:15:50.064232 #2102] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:15:50.066107 #2102] DEBUG -- : Connection accepted
+D, [2021-06-28T13:15:50.066273 #2102] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:15:50.073603 #2102]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:15:50.095730 #2102]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:15:50.100252 #2102]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:16:56.077577 #2102] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:16:56.077852 #2102] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:16:56.096257 #2102] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:16:56.096373 #2102] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:16:56.102454 #2102] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:16:56.102606 #2102] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:21:53.755741 #1688] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:21:53.761832 #1688] DEBUG -- : Connection accepted
+D, [2021-06-28T13:21:53.762145 #1688] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:21:53.763245 #1688] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:21:53.764510 #1688] DEBUG -- : Connection accepted
+D, [2021-06-28T13:21:53.764627 #1688] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:21:53.765773 #1688] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:21:53.767203 #1688] DEBUG -- : Connection accepted
+D, [2021-06-28T13:21:53.767326 #1688] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:21:53.769762 #1688]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:21:53.790886 #1688]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:21:53.798026 #1688]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:22:59.778366 #1688] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:22:59.778649 #1688] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:22:59.794925 #1688] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:22:59.795056 #1688] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:22:59.801385 #1688] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:22:59.801517 #1688] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:38:59.763366 #1737] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:38:59.766701 #1737] DEBUG -- : Connection accepted
+D, [2021-06-28T13:38:59.766870 #1737] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:38:59.768260 #1737] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:38:59.769659 #1737] DEBUG -- : Connection accepted
+D, [2021-06-28T13:38:59.769810 #1737] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:38:59.770783 #1737] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:38:59.772233 #1737] DEBUG -- : Connection accepted
+D, [2021-06-28T13:38:59.772353 #1737] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:38:59.778966 #1737]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:38:59.799950 #1737]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:38:59.800219 #1737]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:40:05.786060 #1737] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:40:05.786597 #1737] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:40:05.802906 #1737] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:40:05.803119 #1737] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:40:05.803710 #1737] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:40:05.803864 #1737] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:40:46.233835 #1759] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:40:46.236780 #1759] DEBUG -- : Connection accepted
+D, [2021-06-28T13:40:46.236945 #1759] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:40:46.238141 #1759] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:40:46.239743 #1759] DEBUG -- : Connection accepted
+D, [2021-06-28T13:40:46.239864 #1759] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:40:46.240867 #1759] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:40:46.242393 #1759] DEBUG -- : Connection accepted
+D, [2021-06-28T13:40:46.242526 #1759] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:40:46.249333 #1759]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:40:46.269876 #1759]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:40:46.270010 #1759]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:41:52.262977 #1759] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:41:52.263283 #1759] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:41:52.271333 #1759] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:41:52.271576 #1759] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:41:52.272468 #1759] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:41:52.272607 #1759] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:51:35.970939 #1800] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:51:35.973764 #1800] DEBUG -- : Connection accepted
+D, [2021-06-28T13:51:35.973907 #1800] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:51:35.975107 #1800] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:51:35.976635 #1800] DEBUG -- : Connection accepted
+D, [2021-06-28T13:51:35.976770 #1800] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T13:51:35.977807 #1800] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T13:51:35.979400 #1800] DEBUG -- : Connection accepted
+D, [2021-06-28T13:51:35.979526 #1800] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T13:51:35.986080 #1800]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:51:35.989762 #1800]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T13:51:36.006931 #1800]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T13:52:41.987880 #1800] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:52:41.988240 #1800] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:52:41.996078 #1800] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:52:41.996337 #1800] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T13:52:42.011143 #1800] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T13:52:42.011373 #1800] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:13:18.782574 #1850] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:13:18.785333 #1850] DEBUG -- : Connection accepted
+D, [2021-06-28T14:13:18.785473 #1850] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:13:18.786815 #1850] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:13:18.788327 #1850] DEBUG -- : Connection accepted
+D, [2021-06-28T14:13:18.788474 #1850] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:13:18.789427 #1850] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:13:18.791037 #1850] DEBUG -- : Connection accepted
+D, [2021-06-28T14:13:18.791172 #1850] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T14:13:18.817004 #1850]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:13:18.817175 #1850]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:13:18.820554 #1850]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T14:14:24.818198 #1850] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:14:24.818455 #1850] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:14:24.820957 #1850] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:14:24.821059 #1850] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:14:24.822354 #1850] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:14:24.822445 #1850] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:14:33.450745 #1870] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:14:33.453453 #1870] DEBUG -- : Connection accepted
+D, [2021-06-28T14:14:33.453647 #1870] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:14:33.454856 #1870] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:14:33.456246 #1870] DEBUG -- : Connection accepted
+D, [2021-06-28T14:14:33.456369 #1870] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:14:33.457251 #1870] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:14:33.458794 #1870] DEBUG -- : Connection accepted
+D, [2021-06-28T14:14:33.458924 #1870] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T14:14:33.474268 #1870]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:14:33.487802 #1870]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:14:33.487382 #1870]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T14:15:39.488659 #1870] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:15:39.489016 #1870] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:15:39.489913 #1870] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:15:39.490226 #1870] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:15:39.491974 #1870] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:15:39.492107 #1870] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:22:48.934478 #1855] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:22:48.940622 #1855] DEBUG -- : Connection accepted
+D, [2021-06-28T14:22:48.940795 #1855] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:22:48.941932 #1855] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:22:48.943341 #1855] DEBUG -- : Connection accepted
+D, [2021-06-28T14:22:48.943535 #1855] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:22:48.944489 #1855] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:22:48.946077 #1855] DEBUG -- : Connection accepted
+D, [2021-06-28T14:22:48.946195 #1855] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T14:22:48.948073 #1855]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:22:48.972234 #1855]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:22:48.974907 #1855]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T14:23:56.662641 #1901] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:23:56.665732 #1901] DEBUG -- : Connection accepted
+D, [2021-06-28T14:23:56.665894 #1901] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:23:56.666990 #1901] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:23:56.668271 #1901] DEBUG -- : Connection accepted
+D, [2021-06-28T14:23:56.668407 #1901] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:23:56.669439 #1901] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:23:56.670747 #1901] DEBUG -- : Connection accepted
+D, [2021-06-28T14:23:56.670897 #1901] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T14:23:56.673186 #1901]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:23:56.678697 #1901]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:23:56.701467 #1901]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T14:25:02.681585 #1901] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:25:02.681788 #1901] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:25:02.698088 #1901] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:25:02.698216 #1901] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:25:02.702746 #1901] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:25:02.702854 #1901] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:25:07.991332 #1933] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:25:07.996887 #1933] DEBUG -- : Connection accepted
+D, [2021-06-28T14:25:07.997156 #1933] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-06-28T14:25:07.999426 #1933] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:25:08.004922 #1933] DEBUG -- : Connection accepted
+D, [2021-06-28T14:25:08.005457 #1933] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T14:25:08.005270 #1933]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-06-28T14:25:08.006859 #1933] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-06-28T14:25:08.011343 #1933] DEBUG -- : Connection accepted
+D, [2021-06-28T14:25:08.011660 #1933] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-06-28T14:25:08.032463 #1933]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:25:08.072369 #1933]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-06-28T14:25:49.918449 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-28T14:25:49.918640 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-28T14:25:49.929345 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-28T14:25:49.933270 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-28T14:25:49.935745 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-28T14:25:49.938829 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-06-28T14:25:49.941658 #1933]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-06-28T14:26:14.075023 #1933] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:26:14.075420 #1933] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:26:56.006406 #1933] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:26:56.006752 #1933] DEBUG -- : Disconnecting from localhost.
+D, [2021-06-28T14:26:56.007540 #1933] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-06-28T14:26:56.007735 #1933] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-07T00:57:40.041118 #1961] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-07T00:57:40.051581 #1961] DEBUG -- : Connection accepted
+D, [2021-07-07T00:57:40.051885 #1961] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-07T00:57:40.055247 #1961] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-07T00:57:40.059345 #1961] DEBUG -- : Connection accepted
+D, [2021-07-07T00:57:40.059678 #1961] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-07T00:57:40.062311 #1961]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-07T00:57:40.062966 #1961] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-07T00:57:40.067632 #1961] DEBUG -- : Connection accepted
+D, [2021-07-07T00:57:40.067960 #1961] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-07T00:57:40.130516 #1961]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-07T00:57:40.144166 #1961]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-07T00:58:46.065422 #1961] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-07T00:58:46.065751 #1961] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-07T00:58:46.134471 #1961] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-07T00:58:46.134814 #1961] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-07T00:58:46.147443 #1961] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-07T00:58:46.147659 #1961] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T22:58:03.489471 #1825] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T22:58:03.495914 #1825] DEBUG -- : Connection accepted
+D, [2021-07-15T22:58:03.496081 #1825] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T22:58:03.497315 #1825] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T22:58:03.498779 #1825] DEBUG -- : Connection accepted
+D, [2021-07-15T22:58:03.498917 #1825] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T22:58:03.500328 #1825] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T22:58:03.502024 #1825] DEBUG -- : Connection accepted
+D, [2021-07-15T22:58:03.502225 #1825] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T22:58:03.543958 #1825]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T22:58:03.548890 #1825]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T22:58:03.549481 #1825]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T22:59:09.548059 #1825] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T22:59:09.548406 #1825] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T22:59:09.551405 #1825] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T22:59:09.551605 #1825] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T22:59:09.553122 #1825] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T22:59:09.553278 #1825] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:02:40.645321 #1859] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:02:40.650222 #1859] DEBUG -- : Connection accepted
+D, [2021-07-15T23:02:40.650394 #1859] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:02:40.651591 #1859] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:02:40.653380 #1859] DEBUG -- : Connection accepted
+D, [2021-07-15T23:02:40.653526 #1859] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:02:40.655010 #1859] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:02:40.656744 #1859] DEBUG -- : Connection accepted
+D, [2021-07-15T23:02:40.657032 #1859] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:02:40.657561 #1859]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:02:40.664534 #1859]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:02:40.686992 #1859]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:02:55.733928 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:02:55.738104 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:02:55.738260 #1876] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:02:55.739434 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:02:55.741143 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:02:55.741269 #1876] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:02:55.742652 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:02:55.744485 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:02:55.744812 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:02:55.744996 #1876]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:02:55.758047 #1876]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:02:55.772554 #1876]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:03:16.593715 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:03:16.596795 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:03:16.597015 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:03:16.618716 #1876]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:04:01.749579 #1876] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:04:01.749986 #1876] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:04:01.771773 #1876] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:04:01.772000 #1876] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:04:01.774822 #1876] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:04:01.774996 #1876] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:04:22.620737 #1876] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:04:22.620980 #1876] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:04:35.679114 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:04:35.682184 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:04:35.682449 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:04:35.708001 #1876]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:05:36.487210 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:05:36.491156 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:05:36.491403 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:05:36.507799 #1876]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:05:39.229495 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:05:39.233765 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:05:39.234219 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:05:39.248474 #1876]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:05:39.253506 #1876]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:05:41.710873 #1876] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:05:41.711046 #1876] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:06:03.244457 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:03.247545 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:03.247770 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:03.261924 #1876]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:06:09.869095 #1876] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:09.872408 #1876] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:09.872708 #1876] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:09.889231 #1876]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:06:18.056946 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:18.062162 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:18.062319 #1919] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:06:18.063403 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:18.065198 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:18.065327 #1919] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:06:18.066787 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:18.068538 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:18.068662 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:18.070643 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:06:18.082411 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:06:18.096752 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:06:26.401242 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:26.403115 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:26.403239 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:26.415962 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:06:29.935112 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:29.936427 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:29.936531 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:29.945841 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:06:29.947220 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:06:29.949336 #1919]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:06:56.124951 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:56.128829 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:56.129465 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:56.148603 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:06:59.793496 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:06:59.799274 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:06:59.799827 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:06:59.817298 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:07:06.859293 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:07:06.862841 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:07:06.863101 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:07:06.879273 #1919]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:07:08.411641 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:07:08.412969 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:07:08.413092 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:07:08.422790 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:08.423396 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:08.424103 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:08.424876 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:08.427795 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:08.429972 #1919]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:07:12.533566 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:07:12.538371 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:07:12.538610 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:07:12.555168 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:12.559350 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:12.560923 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:12.555838 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:12.562346 #1919]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-15T23:07:12.563806 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-15T23:07:22.282998 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:07:22.286366 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:07:22.286608 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:07:22.299560 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:22.302677 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:22.304766 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:22.305570 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:22.306896 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:22.307545 #1919]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:07:24.084411 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:07:24.084600 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:07:24.098647 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:07:24.098800 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:07:24.916894 #1919] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:07:24.918812 #1919] DEBUG -- : Connection accepted
+D, [2021-07-15T23:07:24.918948 #1919] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:07:24.928392 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:24.928590 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:24.928812 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:24.928972 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:07:24.931637 #1919]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-15T23:07:24.929112 #1919]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-15T23:07:35.949947 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:07:35.950135 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:14.433342 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:14.433632 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:18.563408 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:18.563686 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:28.311178 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:28.311477 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:30.931439 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:30.931730 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:30.932123 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:30.932679 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:30.931871 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:30.933301 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:30.933540 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:30.933732 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:30.934327 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:30.934468 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:08:30.936064 #1919] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:08:30.936290 #1919] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:10:10.431275 #1950] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:10:10.434049 #1950] DEBUG -- : Connection accepted
+D, [2021-07-15T23:10:10.434205 #1950] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:10:10.447591 #1950]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:10:10.471231 #1950] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:10:10.472930 #1950] DEBUG -- : Connection accepted
+D, [2021-07-15T23:10:10.473076 #1950] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:10:10.474046 #1950] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:10:10.475400 #1950] DEBUG -- : Connection accepted
+D, [2021-07-15T23:10:10.475521 #1950] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:10:10.476588 #1950] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:10:10.478037 #1950] DEBUG -- : Connection accepted
+D, [2021-07-15T23:10:10.478178 #1950] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:10:10.480210 #1950]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:10:10.502147 #1950]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:10:10.504212 #1950]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:10:44.575813 #1950] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:10:44.578323 #1950] DEBUG -- : Connection accepted
+D, [2021-07-15T23:10:44.578510 #1950] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:10:44.593788 #1950]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:10:44.597714 #1950]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-15T23:10:44.597977 #1950]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-15T23:11:15.683676 #1969] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:11:15.686229 #1969] DEBUG -- : Connection accepted
+D, [2021-07-15T23:11:15.686382 #1969] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:11:15.700503 #1969]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:11:15.729884 #1969] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:11:15.731586 #1969] DEBUG -- : Connection accepted
+D, [2021-07-15T23:11:15.731846 #1969] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:11:15.732940 #1969] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:11:15.734431 #1969] DEBUG -- : Connection accepted
+D, [2021-07-15T23:11:15.734586 #1969] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:11:15.735642 #1969] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:11:15.737299 #1969] DEBUG -- : Connection accepted
+D, [2021-07-15T23:11:15.737439 #1969] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:11:15.739614 #1969]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:11:15.781738 #1969]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:11:15.784664 #1969]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:11:33.785667 #1969] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:11:33.790656 #1969] DEBUG -- : Connection accepted
+D, [2021-07-15T23:11:33.790978 #1969] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:11:33.799088 #1969]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:11:33.802795 #1969]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:11:33.806957 #1969]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:12:31.080310 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:12:31.082516 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:12:31.082720 #1990] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:12:31.096362 #1990]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:12:31.119816 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:12:31.121505 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:12:31.121646 #1990] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:12:31.122659 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:12:31.123895 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:12:31.124023 #1990] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:12:31.125255 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:12:31.126608 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:12:31.126728 #1990] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:12:31.133595 #1990]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:12:31.154581 #1990]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:12:31.156486 #1990]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:12:37.614220 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:12:37.615665 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:12:37.615782 #1990] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:12:37.627548 #1990]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:12:37.630822 #1990]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:12:37.633626 #1990]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:13:37.158746 #1990] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:13:37.159052 #1990] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:13:37.160784 #1990] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:13:37.160923 #1990] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:13:42.294804 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:13:42.298541 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:13:42.298792 #1990] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:13:42.313263 #1990]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:13:42.316775 #1990]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:13:43.636428 #1990] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:13:43.636712 #1990] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:13:55.055097 #1990] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:13:55.059159 #1990] DEBUG -- : Connection accepted
+D, [2021-07-15T23:13:55.059450 #1990] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:13:55.078215 #1990]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:13:55.081068 #1990]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:14:31.827396 #2023] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:14:31.829699 #2023] DEBUG -- : Connection accepted
+D, [2021-07-15T23:14:31.829916 #2023] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:14:31.840606 #2023]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:14:31.865910 #2023] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:14:31.868963 #2023] DEBUG -- : Connection accepted
+D, [2021-07-15T23:14:31.869123 #2023] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:14:31.870092 #2023] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:14:31.871933 #2023] DEBUG -- : Connection accepted
+D, [2021-07-15T23:14:31.872192 #2023] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:14:31.873312 #2023] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:14:31.875144 #2023] DEBUG -- : Connection accepted
+D, [2021-07-15T23:14:31.875407 #2023] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:14:31.875274 #2023]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:14:31.900435 #2023]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:14:31.903766 #2023]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:14:35.028461 #2023] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:14:35.031433 #2023] DEBUG -- : Connection accepted
+D, [2021-07-15T23:14:35.031680 #2023] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:14:35.049444 #2023]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:14:35.061248 #2023]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:14:35.063548 #2023]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:15:37.903470 #2023] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:15:37.903770 #2023] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:15:37.904588 #2023] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:15:37.904738 #2023] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:15:43.340540 #2048] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:15:43.343201 #2048] DEBUG -- : Connection accepted
+D, [2021-07-15T23:15:43.343381 #2048] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:15:43.353915 #2048]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:15:43.378645 #2048] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:15:43.380716 #2048] DEBUG -- : Connection accepted
+D, [2021-07-15T23:15:43.380867 #2048] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:15:43.382591 #2048] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:15:43.384401 #2048] DEBUG -- : Connection accepted
+D, [2021-07-15T23:15:43.384708 #2048] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:15:43.386336 #2048] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:15:43.387963 #2048] DEBUG -- : Connection accepted
+D, [2021-07-15T23:15:43.388613 #2048] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:15:43.390471 #2048]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:15:43.436206 #2048]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:15:43.437950 #2048]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:16:05.317297 #2048] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:16:05.320057 #2048] DEBUG -- : Connection accepted
+D, [2021-07-15T23:16:05.320497 #2048] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:16:05.340018 #2048]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:16:05.343987 #2048]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:16:05.346164 #2048]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:16:49.566073 #2069] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:16:49.568267 #2069] DEBUG -- : Connection accepted
+D, [2021-07-15T23:16:49.568422 #2069] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:16:49.606870 #2069] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-15T23:16:49.607459 #2069]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:16:49.608832 #2069] DEBUG -- : Connection accepted
+D, [2021-07-15T23:16:49.609001 #2069] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:16:49.610020 #2069] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:16:49.611378 #2069] DEBUG -- : Connection accepted
+D, [2021-07-15T23:16:49.611497 #2069] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:16:49.612697 #2069] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:16:49.614062 #2069] DEBUG -- : Connection accepted
+D, [2021-07-15T23:16:49.614192 #2069] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:16:49.639648 #2069]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:16:49.642493 #2069]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:16:49.647158 #2069]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:16:59.339637 #2069] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:16:59.341260 #2069] DEBUG -- : Connection accepted
+D, [2021-07-15T23:16:59.341391 #2069] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:16:59.352545 #2069]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:16:59.353450 #2069]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:16:59.357218 #2069]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:17:55.642955 #2069] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:17:55.643302 #2069] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:17:55.651417 #2069] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:17:55.651644 #2069] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:18:34.979308 #2164] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:18:34.982127 #2164] DEBUG -- : Connection accepted
+D, [2021-07-15T23:18:34.982290 #2164] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:18:34.984404 #2164] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:18:34.985975 #2164] DEBUG -- : Connection accepted
+D, [2021-07-15T23:18:34.986284 #2164] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:18:34.987210 #2164] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:18:34.988689 #2164] DEBUG -- : Connection accepted
+D, [2021-07-15T23:18:34.988992 #2164] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:18:34.988903 #2164]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:18:34.990342 #2164] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:18:34.991860 #2164] DEBUG -- : Connection accepted
+D, [2021-07-15T23:18:34.991986 #2164] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:18:34.994098 #2164]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:18:35.020002 #2164]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:18:35.020308 #2164]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:18:37.153953 #2164] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:18:37.155947 #2164] DEBUG -- : Connection accepted
+D, [2021-07-15T23:18:37.156236 #2164] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:18:37.167179 #2164]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:18:37.168911 #2164]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:18:37.174766 #2164]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-15T23:19:41.024399 #2164] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:19:41.024751 #2164] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:19:41.025452 #2164] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:19:41.025666 #2164] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:19:43.176684 #2164] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:19:43.176976 #2164] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:19:43.177383 #2164] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:19:43.177638 #2164] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:19:58.834356 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:19:58.837110 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:19:58.837273 #2197] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:19:58.839435 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:19:58.841021 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:19:58.841311 #2197] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-15T23:19:58.842263 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:19:58.843563 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:19:58.843801 #2197] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:19:58.844880 #2197]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:19:58.845390 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:19:58.846784 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:19:58.846915 #2197] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:19:58.848618 #2197]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:19:58.875440 #2197]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-15T23:19:58.875819 #2197]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-15T23:20:01.699132 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:20:01.700808 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:20:01.701106 #2197] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:20:01.713570 #2197]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-15T23:20:01.714042 #2197]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:20:01.716580 #2197]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-15T23:20:24.578084 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:20:24.580864 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:20:24.582220 #2197] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:20:24.595755 #2197]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-15T23:20:24.599697 #2197]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-15T23:20:24.602245 #2197]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-15T23:20:24.603750 #2197] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-15T23:20:24.606804 #2197] DEBUG -- : Connection accepted
+D, [2021-07-15T23:20:24.607107 #2197] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-15T23:20:24.614482 #2197]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-15T23:20:24.614887 #2197]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-15T23:21:04.876346 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:04.876731 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:21:04.878175 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:04.878359 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:21:07.715835 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:07.716106 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:21:30.603351 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:30.603880 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:21:30.609930 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:30.610135 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:21:30.617823 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:30.618080 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-15T23:21:30.620159 #2197] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-15T23:21:30.620298 #2197] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:16:52.654588 #4400] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:16:52.657898 #4400] DEBUG -- : Connection accepted
+D, [2021-07-16T02:16:52.658632 #4400] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:16:52.660443 #4400] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:16:52.662604 #4400] DEBUG -- : Connection accepted
+D, [2021-07-16T02:16:52.662739 #4400] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:16:52.663644 #4400] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:16:52.665010 #4400]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T02:16:52.665633 #4400] DEBUG -- : Connection accepted
+D, [2021-07-16T02:16:52.665846 #4400] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:16:52.667027 #4400] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:16:52.668722 #4400]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T02:16:52.669385 #4400] DEBUG -- : Connection accepted
+D, [2021-07-16T02:16:52.669607 #4400] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:16:52.695222 #4400]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T02:16:52.698383 #4400]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T02:17:58.666796 #4400] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:17:58.666995 #4400] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:17:58.671522 #4400] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:17:58.671652 #4400] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:17:58.700552 #4400] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:17:58.700799 #4400] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:17:58.700680 #4400] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:17:58.700909 #4400] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:28:59.437623 #4530] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:28:59.440699 #4530] DEBUG -- : Connection accepted
+D, [2021-07-16T02:28:59.440862 #4530] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:28:59.442858 #4530] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:28:59.444224 #4530] DEBUG -- : Connection accepted
+D, [2021-07-16T02:28:59.444362 #4530] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:28:59.445374 #4530] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:28:59.446856 #4530] DEBUG -- : Connection accepted
+D, [2021-07-16T02:28:59.447028 #4530] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:28:59.448231 #4530] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:28:59.448825 #4530]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T02:28:59.449933 #4530] DEBUG -- : Connection accepted
+D, [2021-07-16T02:28:59.450070 #4530] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:28:59.452314 #4530]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T02:28:59.460634 #4530]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T02:28:59.478175 #4530]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T02:29:33.381703 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:33.383262 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:33.395985 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:33.398232 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:33.401203 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:33.409178 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:33.412759 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.948313 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.952136 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.959525 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.962691 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.966482 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.970301 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:29:37.974690 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:30:05.462551 #4530] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:30:05.462989 #4530] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:30:05.479956 #4530] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:30:05.480204 #4530] DEBUG -- : Disconnecting from localhost.
+I, [2021-07-16T02:30:05.752542 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.454759 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.456376 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.467454 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.471358 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.475067 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.479060 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:30:06.482924 #4530]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:31:12.466846 #4530] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:31:12.467102 #4530] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:31:12.492193 #4530] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:31:12.492368 #4530] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:43:57.760905 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:43:57.765362 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:43:57.765525 #4715] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:43:57.767599 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:43:57.769389 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:43:57.769517 #4715] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:43:57.770937 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:43:57.772845 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:43:57.773114 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:43:57.774467 #4715]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T02:43:57.774858 #4715] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:43:57.776768 #4715]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T02:43:57.777213 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:43:57.777382 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:43:57.794460 #4715]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T02:43:57.794595 #4715]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T02:44:26.426038 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:26.430684 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:26.439976 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:26.444434 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:26.452059 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:26.461000 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:26.469141 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.577878 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.582428 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.589024 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.592388 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.599022 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.602421 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:29.605748 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:35.249281 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:35.249414 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:44:35.261976 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:44:35.264285 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.264469 #4715] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:44:35.268214 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:44:35.270229 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.270400 #4715] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:44:35.273392 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:44:35.275547 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.277834 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:44:35.286004 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T02:44:35.278510 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T02:44:35.289178 #4715] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:44:35.291714 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T02:44:35.294171 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.294464 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:44:35.288833 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:44:35.298291 #4715] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T02:44:35.301359 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.301576 #4715] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T02:44:35.321310 #4715] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:44:35.322534 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:35.324805 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T02:44:35.326124 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.326632 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:44:35.327157 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:35.333264 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:44:35.337479 #4715] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:44:35.339926 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T02:44:35.341575 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:44:35.344162 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.344446 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:44:35.349327 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T02:44:35.361342 #4715] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:44:35.364802 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:35.378390 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T02:44:35.384452 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.391313 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:44:35.386946 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:44:35.399890 #4715] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T02:44:35.407775 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T02:44:35.410329 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:44:35.418280 #4715] DEBUG -- : Connection accepted
+D, [2021-07-16T02:44:35.425594 #4715] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T02:44:35.453409 #4715]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T02:44:35.455103 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.159544 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.167183 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.174126 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.178703 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.183667 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.193131 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:44:36.199856 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:45:03.778836 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:03.779424 #4715] DEBUG -- : Disconnecting from localhost.
+I, [2021-07-16T02:45:15.559590 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:45:15.565568 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:45:15.574374 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:45:15.593314 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:45:15.609519 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:45:15.627204 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T02:45:15.635164 #4715]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T02:45:41.288960 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.289197 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.292951 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.293162 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.297481 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.297636 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.329334 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.329600 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.345842 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.346004 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.356721 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.356874 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.394116 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.394744 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.425987 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.426183 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.444755 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.444908 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:45:41.456342 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:45:41.456487 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:46:21.673174 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:46:21.673409 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T02:46:21.675477 #4715] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T02:46:21.675571 #4715] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:10:08.539399 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:10:08.542804 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:10:08.542963 #4983] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:10:08.544852 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:10:08.546545 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:10:08.546838 #4983] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:10:08.547746 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:10:08.549114 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:10:08.549387 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:10:08.549762 #4983]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T03:10:08.551285 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:10:08.552748 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:10:08.552880 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:10:08.555046 #4983]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T03:10:08.563147 #4983]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T03:10:08.582471 #4983]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T03:10:37.039679 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:37.040095 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:37.042918 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:37.049981 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:37.058509 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:37.060857 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:37.066027 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.188106 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.190203 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.199801 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.204034 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.208284 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.214391 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:10:41.216287 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:12.524272 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:12.525324 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.535318 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:11:12.539011 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.539350 #4983] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:11:12.545026 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:11:12.546715 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.546901 #4983] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:11:12.553935 #4983] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:11:12.558347 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:11:12.560330 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.562082 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:11:12.564456 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:11:12.560682 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.571849 #4983] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:11:12.573994 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.582688 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.582955 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:11:12.583771 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.596794 #4983] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:11:12.603775 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:11:12.605359 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.612444 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.614501 #4983] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:11:12.618659 #4983] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:11:12.627785 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.628376 #4983] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:11:12.633865 #4983] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:11:12.635268 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:11:12.636324 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.639045 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:11:12.638086 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:11:12.637823 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.651190 #4983] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:11:12.654091 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:11:12.654494 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:12.668296 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.668488 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:11:12.671773 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:12.687420 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:11:12.688934 #4983] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:11:12.689943 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:12.693524 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:11:12.695759 #4983] DEBUG -- : Connection accepted
+D, [2021-07-16T03:11:12.695928 #4983] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:11:12.701862 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:12.704767 #4983]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:11:13.325435 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:13.336032 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:13.366911 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:13.369166 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:13.374738 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:13.377233 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:11:13.380958 #4983]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:11:14.561204 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:11:14.561419 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.560072 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.560573 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.566955 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.567451 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.605866 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.606030 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.642231 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.642407 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.649647 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.649825 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.661638 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.661865 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.689280 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.689443 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.698061 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.701849 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.711115 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.718186 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:18.733477 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:18.733682 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:19.353041 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:19.353217 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:12:19.389613 #4983] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:12:19.389748 #4983] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:15:59.267886 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:15:59.271113 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:15:59.271281 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:15:59.273107 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:15:59.274915 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:15:59.275158 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:15:59.275986 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:15:59.277237 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:15:59.278047 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:15:59.279405 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:15:59.279600 #5081]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-16T03:15:59.280838 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:15:59.280960 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:15:59.283281 #5081]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T03:15:59.309844 #5081]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T03:15:59.310274 #5081]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-16T03:16:30.677564 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:30.679640 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:30.683333 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:30.685659 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:30.696678 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:30.700728 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:30.705450 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.798360 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.800624 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.815428 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.818154 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.820540 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.822709 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:16:33.828845 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:01.948188 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:01.948447 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:01.971414 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:17:01.975329 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:01.975550 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:01.978935 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:17:01.982492 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:01.986771 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:01.990203 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:01.996711 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:01.986432 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.001721 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:02.003291 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:02.003594 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.006049 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:02.010432 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:02.015136 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.017879 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:02.021269 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.021464 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:02.024907 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:17:02.036848 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.037052 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:02.058041 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:02.058607 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:02.044567 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.047689 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:02.073512 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:02.079086 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.083248 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:02.093603 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:02.097415 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:02.106393 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.106641 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:02.109956 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:02.110855 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:02.115561 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.123337 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:02.127404 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.127612 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:02.139631 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:02.140429 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.151193 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:02.151533 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:02.151843 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:02.156625 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.162730 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:02.750090 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.754092 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.791343 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.798045 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.801535 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.805272 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:02.809136 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:05.291173 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:17:05.291446 #5081] DEBUG -- : Disconnecting from localhost.
+I, [2021-07-16T03:17:06.501508 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:06.505713 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:06.511488 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:06.526112 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:06.531386 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:06.537040 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:06.545044 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:15.930560 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:15.934876 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:15.959586 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:17:15.963724 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:15.964614 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:15.969784 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:15.971477 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:15.979365 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:15.984222 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:15.985555 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:16.000567 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:16.004010 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:16.024022 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:16.028337 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.031243 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:16.036975 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:17:16.046464 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.046930 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:16.050464 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:16.056427 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.065058 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:16.058241 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.072882 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:16.068022 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:16.082963 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:16.084267 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.095255 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:16.099097 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.100516 #5081] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-16T03:17:16.103716 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:16.104628 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:16.110843 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.116730 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:16.116337 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.134239 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.136555 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:16.143103 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:16.146402 #5081] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-16T03:17:16.151206 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.151383 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:16.160527 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:17:16.161535 #5081] DEBUG -- : Attempt to connect to host: localhost...
+I, [2021-07-16T03:17:16.169139 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+D, [2021-07-16T03:17:16.174596 #5081] DEBUG -- : Connection accepted
+D, [2021-07-16T03:17:16.175787 #5081] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-16T03:17:16.184079 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.188461 #5081]  INFO -- : New packet PahoMqtt::Packet::Puback received.
+I, [2021-07-16T03:17:16.846876 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.850272 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.891442 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.895897 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.900998 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.906158 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+I, [2021-07-16T03:17:16.914884 #5081]  INFO -- : New packet PahoMqtt::Packet::Publish received.
+D, [2021-07-16T03:18:07.994354 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:07.994552 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.004991 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.006934 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.024204 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.024823 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.061339 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.061707 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.076731 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.077143 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.112718 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.113085 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.125962 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.126746 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.152649 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.152891 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:08.163653 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:08.163803 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:21.981686 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:21.982298 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.027527 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.027836 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.079595 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.079903 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.098389 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.098584 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.110140 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.110321 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.144324 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.144674 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.146910 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.147022 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.175879 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.176038 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.189589 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.189777 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.190665 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.190739 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.869501 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.869666 #5081] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-16T03:18:22.924470 #5081] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-16T03:18:22.924629 #5081] DEBUG -- : Disconnecting from localhost.

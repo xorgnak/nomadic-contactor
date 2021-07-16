@@ -1,6 +1,34 @@
+<style>
+#bg { width: 100%; height: 100%; z-index: -1; }
+
+#title { position: fixed; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.4); color: white; padding: 2%; border-radius: 50px; }
+form { z-index: 1; margin: 0; padding: 0; width: 100%; position: fixed; bottom: 0; text-align: left;}
+form > * { font-size: x-large; vertical-align: middle; }
+#help { width: 100%; text-align: center; }
+#help > span { border: thin solid black; border-radius: 50px; background-color: rgba(0,0,0,0.4); padding: 2%; color: white; }
+#help > span > code { color: orange; }
+#focus {
+    padding: 3%;
+        border: none;
+	    width: 100%;
+	    }
+
+#click {
+    margin-left: -30%;
+        width: 20%;
+	    border-radius: 20px;
+	    }
+
+</style> 
+
+<img id="bg" src="/bg.img">
+
+<h1 id='title'>You were sent a pin via text message.</h1>
+
 <form action='/' method='post'>
 <input type='hidden' name='goto' value='/comms/user?tok=<%= params[:q] %>'>
 <input type='hidden' name='q' value='<%= params[:q] %>'>
-<input type='text' name='a'>
-<button>PIN</button>
+<p id='help'><span>use format <code>123456</code></span></p>
+<input id='focus' type='text' name='a' placeholder='pin' pattern="[0-9]{6}" autofocus>
+<button id='click' class='material-icons'>lock</button>
 </form>

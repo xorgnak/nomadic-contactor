@@ -40,7 +40,10 @@ module NOMADIC
       end
     end
     def self.record tx, h={}
-      Redis::HashKey.new("tx:#{tx}").bulk_set(h)
+      if h.keys.length > 0
+        Redis::HashKey.new("tx:#{tx}").bulk_set(h)
+      end
+      return Redis::HashKey.new("tx:#{tx}")
     end
     class Block
       
@@ -114,6 +117,9 @@ module NOMADIC
         Bank.record @last.hash, @last.to_h
         @chain << @last
       end
+      def lookup tx
+        Bank.record tx
+      end
       def blocks
         @chain
       end
@@ -129,8 +135,11 @@ module NOMADIC
       def borrow amt
         @c.add from: 'World', to: 'Bank', what: @t, qty: amt
       end
+      def [] k
+        @c.lookup k
+      end
       def tx h={}
-        @c.add from: h[:from] || 'Bank', to: h[:to] || 'Bank', what: @t, qty: h[:qty] || 0, payload: h[:payload] 
+          @c.add from: h[:from] || 'Bank', to: h[:to] || 'Bank', what: @t, qty: h[:qty] || 0, payload: h[:payload]
       end
     end
     def self.of k

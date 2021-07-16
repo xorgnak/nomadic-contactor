@@ -1,8 +1,0 @@
-module NOMADIC
-  class Gif
-    def initialize u, k
-      
-     Redis.new.publish "GIF", `convert -delay 100 -loop 0 public/#{u}/#{k}*.jpeg public/#{u}-#{k}.gif`
-    end
-  end
-end

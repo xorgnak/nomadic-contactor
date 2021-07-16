@@ -1,0 +1,137 @@
+<style>
+#bg { width: 100%; height: 100%; z-index: -1; }
+#title { position: fixed; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.4); color: white;
+padding: 0 2% 0 2%; border-radius: 50px; text-align: center;
+}
+.place { margin: 4% 0 4% 0; display: block; font-size: xx-large;  text-decoration: none; color: white;
+ border: thin solid orange; border-radius: 50px; color: white; width: 93%; background-color: rgba(0,0,0,0.1);
+ box-shadow: 0 0 3px white;
+ }
+ #foot { position: fixed; bottom: 0; }
+ #foot > * { vertical-align: middle; color: white; text-shadow: 0 0 10px orange; }
+#logo { height: 10%; width: 10%; }
+li { text-align: left; font-weight: bold; }
+</style>
+
+
+<img id="bg" src="/bg.img">
+<nav id='title'>
+<div id='page-0' class='page'>
+  <h1>we offer the finest in...</h1>
+  <ul>
+  <li>first-person</li>
+  <li>influencer-driven</li>
+  <li>experiential marketing</li>
+  <li>leveraging emerging social media platforms</li>
+  <li>and in the real world</li>
+  </ul>
+<h1><button id='start'>LEARN MORE</button></h1>
+</div>
+<div id='page-1' class='page'>
+  <h1>Traditional advertisment</h1>
+  <ul>
+    <li>priced by square footage.</li>
+    <li>expensive and time consuming to update.</li>
+    <li>generic.</li>
+  </ul>
+  <h1>Pedicab sponsorship</h1>
+  <ul>
+    <li>priced by rider's brand interaction.</li>
+    <li>accessible and interactive.</li>
+    <li>innovateive and dynamic.</li>
+  </ul>
+</div>
+<div id='page-2' class='page'>
+  <h1>Rider Package</h1>
+  <ul>
+    <li>QR code to profile app</li>
+    <li>Traffic report</li>
+    <li>Talent branding package</li>
+  </ul>
+  <h1>Zone Package</h1>
+  <ul>
+    <li>crypto "special offer" tokens.</li>
+    <li>promotional media</li>
+    <li>radio dispatch</li>
+  </ul>
+</div>
+<div id='page-3' class='page'>
+  <h1>Rider Team</h1>
+  <ul>
+    <li>predictable, dependable service from known and trusted riders.</li>
+    <li>exclusive co-branding for rider and sponsor.</li>
+    <li>cohesive brand identity for media.</li>
+  </ul>
+</div>
+<div id='page-4' class='page'>
+  <h1>printed materials</h1>
+  <h3><span style='color: red;'>*</span> Anything works, but we recommend...</h3>
+  <ul>
+    <li>3"x3" high quality vynal</li>
+    <li>clear, bold artwork</li>
+    <li>focused on a branding goal</li>
+    <li>approximately 100 per rider per month</li>
+  </ul>
+  <h3>...because...</h3>
+  <ul>
+    <li>every sticker grows your brand</li>
+    <li>good stickers become iconic</li>
+    <li>everyone likes free things</li>
+  </ul>
+</div>
+<div id='page-4' class='page'>
+  <h1>team uniforms</h1>
+  <ul>
+    <li>shirt</li>
+    <li>hat<li>
+    <li>socks</li>
+    <li>fanny pack</li>
+    <li>lighters</li>
+    <li>much, much more...</li>
+  </ul>
+</div>
+<div id='page-5' class='page'>
+  <h1>narrative concepts</h1>
+  <ul>
+    <li>#supportthearts</li>
+    <li>#enjoy_city_</li>
+  </ul>
+</div>
+<div id='page-6' class='page'>
+  <h1>available tropes</h1>
+  <ul>
+    <li>#anightout</li>
+    <li>#artcrawl</li>
+    <li>#bestintown</li>
+    <li>#mineisbetter</li>
+  </ul>
+  <h1>custom tropes available.</h1>
+</div>
+<div id='page-7' class='page'>
+  <h1>Thank you for your time.</h1>
+  <h1>Your local agent can answer any further questions you have.</h1>
+</div>
+</nav>
+<h1 id='foot'>
+<span>propedicab.com</span>
+<img id="logo" src="/logo.img">
+</h1>
+
+<script>
+$(function() {
+    $('.page').hide();
+    $('#page-0').show();
+    var i = 2;
+    $(document).on('click', '#start', function(ev) {
+	ev.preventDefault();
+	$('.page').hide();
+	$('#page-1').fadeIn();
+	setInterval(function() {
+	    $(".page").hide();
+	    $("#page-" + i).fadeIn();
+	    console.log('page ' + i);
+	    if ( i <= 7 ) { i ++ } else { window.location = '/comms/auth' };
+	}, 7500);
+    });
+});
+</script>

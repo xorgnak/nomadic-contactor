@@ -1,7 +1,37 @@
+<style>
+#bg { width: 100%; height: 100%; z-index: -1; }
+
+#title { position: fixed; top: 0; width: 100%; }
+#title > span { background-color: rgba(0, 0, 0, 0.4); color: white; padding: 2%; border-radius: 50px; }
+form { z-index: 1; margin: 0; padding: 0; width: 100%; position: fixed; bottom: 0; text-align: left;}
+form > * { font-size: x-large; vertical-align: middle; }
+#help { width: 100%; text-align: center; }
+#help > span { border: thin solid black; border-radius: 50px; background-color: rgba(0,0,0,0.4); padding: 2%; color: white; }
+#help > span > code { color: orange; }
+#focus {
+    padding: 3%;
+    border: none;
+    width: 100%;
+}
+
+#click {
+    margin-left: -30%;
+    width: 20%;
+    border-radius: 20px;
+}
+
+</style>
+
 <% @r = []; 16.times { @r << rand(16).to_s(16) }; @here.ticket(@r.join('')).activate(name: 'auth', ttl: 10000, value: 'challange'); %>
+<img id="bg" src="/bg.img">
+
+<h1 id='title'><span>LOGIN</span></h1>
+
 <form action='/' method='post'>
 <input type='hidden' name='goto' value='/comms/pin?q=<%= @r.join('') %>'>
 <input type='hidden' name='q' value='<%= @r.join('') %>'>
-<input type='tel' name='user'>
-<button>LOGIN</button>
+<p id='help'><span>use format <code>+12345551212</code></span></p>
+<input id='focus'  type='tel' name='user' placeholder='phone' pattern="\+1[0-9]{10}" autofocus>
+<button id='click' class='material-icons'>sms_failed</button>
 </form>
+

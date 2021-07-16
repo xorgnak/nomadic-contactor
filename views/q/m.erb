@@ -20,7 +20,7 @@
       border-radius: 0 0 0 20px;
   }
 #pig { position: fixed; top: 0; }
-#team > * { display: block; color: grey; }
+#team > .t { display: block; color: grey; }
   .s { padding: 25% 0 25% 0; font-size: xx-large; }
   #name {
     position: fixed;
@@ -64,14 +64,14 @@
 <img id='bg' src='<%= @a['img'] %>'>
 
 <h1 id='head' class='i'>
+    <% if @a.has_key? 'name' %>
+    <span id='name' class='i'><%= @a['name'] %></span>
+    <% else %>
     <span id='name' class='i'><%= @mo %>x<%= @id %></span>
+    <% end %>
     <span id="skills">
     <%= @b.badges %>
     </span>
-  <% if params.has_key? :u %>
-  <%# @here.venmo( to: @a['venmo'], amt: @a['tip'], note: CGI.escape(@a['thanks'] || 'thanks') ) %>
-  <a id='pig' class='material-icons nav i' href='#'>savings</a>
-    <% end %>
     <span id='team'>
   <span id='heart' class='material-icons s badge'>favorite_border</span>
   <span id='star' class='material-icons s badge'>star_border</span>
@@ -86,6 +86,8 @@
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
   <a class='material-icons nav i input' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>pp<%= @u.voicemailbox || '#' %>'>phone</a>
+  <%# @here.venmo( to: @a['venmo'], amt: @a['tip'], note: CGI.escape(@a['thanks'] || 'thanks') ) %>
+    <a id='pig' class='material-icons nav i' href='#'>savings</a>
   <% end %>
   <a class='material-icons nav i input' onclick='scan();'>camera</a>
   <a class='material-icons nav i input' style='right: 0; background-color: blue; color: silver;' href='<%= @a['social'] %>'>link</a>

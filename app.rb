@@ -29,6 +29,16 @@ ME = '+17205522104'
 
 # sudscribe to channel. "#" is a channel wildcard
 
+@here.sub(Redis::List.new('SEED').values[-1]) do |t, p|
+  case p['method']
+  when 'ping'
+    @here.pub(p['target'], JSON.generate({ alive: Time.now.utc.to_i }))
+  else
+    Redis.new.publish("NODE.#{t}", p)
+  end
+end
+
+
 @here.sub('connect') {|t, o|
   tik = @here.ticket(o['tok']).active?('token')
   u = @here.cloud.user(tik)
@@ -40,19 +50,25 @@ ME = '+17205522104'
 @here.sub('user/') {|t, o|
   Redis.new.publish("USER", "#{o}")
   from = @here.cloud.user(@here.ticket(o['tok']).active?('token')) 
-  to = @here.cloud.user(Redis::HashKey.new('uid')[o['to']]);
-  @here.pub("user/#{to.attr['tok']}", { to: from.attr['uid'], html: "<span>#{o['input']}</span>"})
+  if o['method'] == 'save'
+    ['name', 'tagline', 'img', 'venmo', 'tip', 'social', 'thanks', 'shield', 'border'].each do |e|
+      from.attr[e] = o[e]
+      @here.pub("user/#{o['tok']}", { to: from.attr['uid'], html: "<span>#{e}</span><span>#{@me.attr[e]}</span>"})
+    end
+  else
+    @here.pub("user/#{o['tok']}", { to: from.attr['uid'], html: "<span>#{o}</span>"})
+  end
 }
 
 # publish object to channel
 #@here.pub('utc', { utc: Time.now.utc })
+
 
 # set rider,influencer, or customer attributes
 #@here.track[ENV['PHONE_ADMIN']] = { name: 'Erik', job: 'pedicabber' }
 
 # track location visits and affinity
 #@co = @here.cloud.zone('00000').special name: 'test special', ttl: 60 * 60, value: 'hope and pray.'
-
 #@here.cloud.user(ME).special(@co)
 
 
@@ -62,12 +78,17 @@ ME = '+17205522104'
 #@here.game.vs(ENV['PHONE_ADMIN'], ME)
 
 
+@tokens = {}
 
-#@bank = @here.bank.of 'my new token'
-##
-# Borrow funds from the world as necessary.
-#@bank[:branch].borrow(1000000)
-
+def token t, *a
+  b = @tokens[t] = @here.bank.of(t)
+  if !@tokens.has_key? t
+    if b[:vault].account['World'] >= 0
+      b[:branch].borrow(a[0] || 1)
+    end
+  end
+  return b
+end
 ##
 # generate transactions
 #
