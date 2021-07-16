@@ -1,11 +1,11 @@
 {
     "theme_color": "#f69435",
     "background_color": "#f69435",
-    "display": "standalone",
+    "display": "fullscreen",
     "scope": "/",
-    "start_url": "/comms/user?tok=<%= params[:tok] %>",
-    "name": "propedicab.com",
-    "short_name": "pedicab",
+    "start_url": "https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>",
+    "name": "pedicab",
+    "short_name": "propedicab.com",
     "description": "the propedicab.com user interface",
     "icons": [
 	{
