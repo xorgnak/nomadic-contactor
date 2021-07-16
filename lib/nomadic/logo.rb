@@ -21,11 +21,11 @@ module NOMADIC
       
       svg.rect x: 824, y: 0, width: 200, height: 200, fill: h[:fg] || '#000'
       start = 260
-      qr = RQRCodeCore::QRCode.new("https://#{ENV['DOMAIN']}/q/#{h[:method]}?#{h[:object]}=#{h[:object].upcase}x#{index}")
-      ex = qr.to_s.gsub(' ', '_').gsub('x', '█')
+      qr = RQRCodeCore::QRCode.new("https://#{ENV['DOMAIN']}/q/#{h[:method]}?#{h[:object]}=#{h[:object].upcase}x#{index}", level: :l)
+      ex = qr.to_s( dark: '█', light: '_')
       ex.split("\n").each do |e|
-        svg.text e, x: 25, y: start, font_family: 'monospace', font_weight: 'bold', font_size: 44, fill: h[:fg] || '#000'
-        start += 30
+        svg.text e, x: 180, y: start, font_family: 'monospace', font_weight: 'bold', font_size: 38, fill: h[:fg] || '#000'
+        start += 38
       end
       if h[:object] == 'i'
         svg. polygon points: "848,180 924,24 1000,180", fill: h[:bg] || '#fff'

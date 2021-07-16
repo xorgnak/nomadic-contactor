@@ -211,6 +211,7 @@
 	// handle the scanned code as you like, for example:
 	$('.input').show();
 	$('#ready').hide();
+	msg(me, {topic: 'scan', html: decodedResult});
 	console.log(`Code matched = ${decodedText}`, decodedResult);
     }
 
