@@ -38,12 +38,3 @@ button { border-radius: 10px; border: thick solid black; }
 </h1>
 <div id='output'></div>
 </form>
-<script>
-$(function() {
-$('#to').hide();
-$('.input').hide();
-$("#ready").css('background-color', 'blue');
-$(document).on('click', '.to', function(ev) { ev.preventDefault(); $(".input").show(); $('.ready').hide(); $("#to").val($(this).val()); });
-$(document).on('click', '#ready', function(ev) { ev.preventDefault(); msg("user/", getFormData()); $('form')[0].reset(); $("to").val("<%= @me.attr['uid'] %>"); });
-});
-</script>
