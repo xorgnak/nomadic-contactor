@@ -4,7 +4,7 @@ module NOMADIC
       @h = h
     end
     def to_link
-      return "<a class='material-icons nav' id='venmo' href='#{to_s}'>savings</a>"
+      return "<a class='material-icons nav i' id='pig' href='#{to_s}'>savings</a>"
     end
     def to_s
       r = ["venmo://paycharge?"]
