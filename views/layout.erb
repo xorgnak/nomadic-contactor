@@ -197,15 +197,20 @@ function connect() {
 }
     connect();
     <% end %>
-function onScanSuccess(decodedText, decodedResult) {
-    // handle the scanned code as you like, for example:
-    $('#reader').hide();
-    $('.input').show();
-    $('#ready').hide();
-    msg(me, {topic: 'scan', html: '<h3><a href="' + decodedText + '">valid.</h3>'});
-    console.log(`Code matched = ${decodedText}`, decodedResult);
-}
-
+    var scans = {};
+    function onScanSuccess(decodedText, decodedResult) {
+	if ( scans[decodedText] === false || scans[decodedText] === undefined ) {
+	    scans[decodedText] = true;
+	    setTimeout(function() { scans[decodedText] = false }, 10000);
+	    // handle the scanned code as you like, for example:
+	    $('#reader').hide();
+	    $('.input').show();
+	    $('#ready').hide();
+	    msg(me, {topic: 'scan', html: '<h3><a href="' + decodedText + '">valid.</h3>'});
+	    console.log(`Code matched = ${decodedText}`, decodedResult);
+	}
+    }
+    
 function onScanFailure(error) {
     // handle scan failure, usually better to ignore and keep scanning.
     // for example:
