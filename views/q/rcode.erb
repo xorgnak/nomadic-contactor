@@ -24,5 +24,5 @@
 <h1 id='bottom' class='x'><%= ENV['DOMAIN'] %></h1>
 
 <script>
-$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= params[:tgt] %>=<%= params[:tgt].upcase %>x<%= params[:uid] %>");
+$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= params[:tgt] %>=<%= params[:uid] %>");
 </script>
