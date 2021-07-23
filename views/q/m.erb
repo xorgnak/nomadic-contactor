@@ -27,7 +27,7 @@
     left: 0;
     top: 0;
       padding: 2%;
-      color: grey;
+      color: white;
       border-radius: 0 0 20px 0px;
       background-color: rgba(0, 0, 0, 0.4);
   }
@@ -46,7 +46,7 @@
   display: block;
   margin: 1%;
   }
-  #foot { position: fixed; bottom: 0; }
+  #foot { position: fixed; bottom: 30%; width: 100%; padding: 2% 0 2% 0; background-color: black; color: white; }
   #nav { position: fixed; bottom: 0; width: 100%; }
   .nav {
   width: 20%;
@@ -69,35 +69,36 @@
     <% else %>
     <span id='name' class='i'><%= @mo %>x<%= @id %></span>
     <% end %>
-    <span id="skills">
-    <%= @b.badges %>
-    </span>
     <span id='team'>
-  <span id='heart' class='material-icons s badge'>favorite_border</span>
-  <span id='star' class='material-icons s badge'>star_border</span>
-  <span id='high' class='material-icons s badge'>pan_tool</span>
-  <span id='cheer' class='material-icons s badge'>accessibility_new</span>
+  <!-- <span id='badge' class='material-icons s badge' style='color: red;'>favorite_border</span> -->
+  <span id='badge' class='material-icons s badge' style='color: gold;'>star_border</span>
+  <!-- <span id='badge' class='material-icons s badge' style='color: yellow;'>pan_tool</span> -->
+  <!-- <span id='badge' class='material-icons s badge' style='color: yellow;'>accessibility_new</span> -->
+  <span id="skills">
+      <%= @b.badges %>
+  </span>
   </span>
 </h1>
 
-<h2 id='foot' class='i'><%= @a['tagline'] %></h2>
+<h2 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h2>
 
 <div id="reader" width="600px"></div>
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
-  <a class='material-icons nav i input' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>,<%= @u.voicemailbox || '#' %>'>phone</a>
+  <a class='material-icons nav i input' style='left: 0; background-color: green; color: white;' href='tel:<%= ENV['PHONE'] %>,<%= @u.voicemailbox || '#' %>'>phone</a>
   <% end %>
-  <a class='material-icons nav i input' onclick='scan();'>camera</a>
-  <a class='material-icons nav i input' style='right: 0; background-color: blue; color: silver;' href='<%= @a['social'] %>'>link</a>
+  <a class='material-icons nav i input' onclick='scan();' style='background-color: black; color: white;'>camera</a>
+  <a class='material-icons nav i input' style='right: 0; background-color: blue; color: white;' href='<%= @a['social'] %>'>link</a>
 </nav>
 <script>
     $(function() {
 	var counts = { heart: 0, star: 0, high: 0, cheer: 0 };
-	$(document).on('click', '.badge' , function() {
+	$(document).on('click', '.ic' , function() {
 	    counts[$(this).attr('id')]++;
-	    $(this).css('color', 'white');
+	    $(this).css('background-color', 'gold');
+	    $('#skills').hide();
+	    $('#badge').show();	
 	    var tgt = $(this).attr('id');
-	    setTimeout(function() { $("#" + tgt).css('color', 'grey'); }, 3000);
 	    msg('user/', {
 		topic: "<span class='material-icons box'>info</span>", to: '<%= @id %>',
 		html: "<span>" + tok + "</span><code>" + JSON.stringify(counts) + "</code>"
@@ -105,13 +106,12 @@
 	    console.log(tgt, counts[tgt], $(this));
 	});
 
-	$(document).on('click', '#name' , function() {
-	    $('#skills').toggle();
-	    $('#name').toggle();
+	$(document).on('click', '#badge' , function() {
+	    $('#badge').hide();
+	    $('#skills').show();
 	    console.log('name');
 	});
-	    <%= @b.badges_js %>
-	    
+	<%= @b.badges_js %>    
     });
 
 </script>

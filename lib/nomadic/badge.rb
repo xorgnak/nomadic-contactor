@@ -47,7 +47,7 @@ module NOMADIC
       r = []
       BADGES.each_pair do |b, i|
         r << %[var #{b}s = 0; ]
-        r << %[$(document).on('click', '##{b}' , function() { #{b}s++; $("##{b}").css('color', 'green'); console.log('#{b} ' + #{b}s); $('#skills').toggle(); $('#name').toggle(); });\n]
+        r << %[$(document).on('click', '##{b}' , function() { #{b}s++; $("##{b}").css('color', 'green'); console.log('#{b} ' + #{b}s); $('#skills').hide(); $('#badge').show(); });\n]
       end
       return r.join('')
     end
