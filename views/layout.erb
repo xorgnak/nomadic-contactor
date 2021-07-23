@@ -41,7 +41,6 @@
 	localStorage.setItem('token', tk);
 	tok = localStorage.getItem('token');
     }
-    <% end %>
     console.log("TOK:1", tok);
 
     
@@ -200,7 +199,8 @@ function connect() {
 		    <% end %>
 		   });
 }
-<% if params.has_key?(:tok) || params.has_key?(:u) %>connect();<% end %>
+    connect();
+    <% end %>
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     $('.input').show();
