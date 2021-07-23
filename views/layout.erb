@@ -193,11 +193,7 @@ function onMessageArrived(message) {
 function connect() {
     client.onConnectionLost = onConnectionLost;
     client.onMessageArrived = onMessageArrived;
-    client.connect({onSuccess:onConnect
-		    <% if request.ssl? %>
-		    , useSSL: true,
-		    <% end %>
-		   });
+    client.connect({ onSuccess: onConnect, useSSL: true });
 }
     connect();
     <% end %>
