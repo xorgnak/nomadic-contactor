@@ -16,8 +16,9 @@ ME = '+17205522104'
 # setup administrator
 #
 # create user
-#@here.cloud.user ENV['PHONE_ADMIN']
-# elevate userOB
+@here.cloud.user ENV['PHONE_ADMIN']
+@here.cloud.user ME
+# elevate user
 @here.cloud.hire! '00000', ENV['PHONE_ADMIN']
 ['00000', '11111', '22222'].each { |e| @here.cloud.hire! e, ME }
 

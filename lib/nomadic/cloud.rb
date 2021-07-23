@@ -173,7 +173,7 @@ module NOMADIC
       self.at.has_key? u
     end
     def hire! z, u
-      if !self.at.has_key? u
+      if !user(u).attr.has_key? 'uid'
         b = []; 4.times { b << rand(9) }
         Redis::HashKey.new('voicemailbox')[u] = b.join('')
         Redis::HashKey.new('voicemail')[b.join('')] = u
@@ -184,7 +184,7 @@ module NOMADIC
         Redis::HashKey.new('uid')[b.join('')] = u
         user(u).attr['uid'] = b.join('')
         
-        user(u).attr['rank'] = 3
+        user(u).attr['rank'] = 0
       end
       self.at[u] = z
       user(u).zones << z

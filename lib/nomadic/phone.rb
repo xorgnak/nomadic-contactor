@@ -183,6 +183,15 @@ module NOMADIC
     # INTERNAL HANDLING CALLS
     ##
 
+    def auth
+      send_sms({
+                 from: ENV['PHONE'],
+                 to: @params[:From],
+                 body: "your pin: #{@params[:pin]}"
+               })
+    end
+
+    
     def web
       Redis.new.publish("DEBUG.web", "#{admin?} #{@body} #{@user} #{@params}")
       if admin? || boss?
@@ -205,12 +214,12 @@ module NOMADIC
       if @params.has_key? :Digits
         if boss? || admin?
           twilio.calls.create(
-            url: 'https://propedicab.com/out',
+            url: "https://#{ENV['DOMAIN']}/out",
             to: @cloud.jid[@params[:Digits]],
             from: ENV['PHONE']
           )
         else
-          if Redis::HAshKey.new('voicemail').has_key? @params[:Digits]
+          if Redis::HashKey.new('voicemail').has_key? @params[:Digits]
             send_page!
           else
             @cloud.zone(@params[:Digits]).users << @params['From']
