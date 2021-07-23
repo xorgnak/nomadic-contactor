@@ -142,3 +142,27 @@ D, [2021-07-23T18:11:01.772038 #4951] DEBUG -- : No activity is over timeout, di
 D, [2021-07-23T18:11:01.772056 #4951] DEBUG -- : Disconnecting from localhost.
 D, [2021-07-23T18:11:01.772138 #4951] DEBUG -- : No activity is over timeout, disconnecting from localhost.
 D, [2021-07-23T18:11:01.772160 #4951] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T18:39:58.777015 #6029] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T18:39:58.778302 #6029] DEBUG -- : Connection accepted
+D, [2021-07-23T18:39:58.778351 #6029] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-23T18:39:58.780100 #6029] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T18:39:58.780761 #6029] DEBUG -- : Connection accepted
+D, [2021-07-23T18:39:58.780805 #6029] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-23T18:39:58.781871 #6029] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T18:39:58.783911 #6029] DEBUG -- : Connection accepted
+D, [2021-07-23T18:39:58.783948 #6029] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-23T18:39:58.784169 #6029] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T18:39:58.784656 #6029] DEBUG -- : Connection accepted
+D, [2021-07-23T18:39:58.784684 #6029] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-23T18:39:58.786053 #6029]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-23T18:39:58.789686 #6029]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-23T18:39:58.798316 #6029]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-23T18:39:58.800706 #6029]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-23T18:41:04.787594 #6029] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T18:41:04.787683 #6029] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T18:41:04.792019 #6029] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T18:41:04.792066 #6029] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T18:41:04.798807 #6029] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T18:41:04.798864 #6029] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T18:41:04.801251 #6029] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T18:41:04.801303 #6029] DEBUG -- : Disconnecting from localhost.

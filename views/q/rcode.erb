@@ -4,7 +4,9 @@
   #top > * { vertical-align: middle;  }
   #uid { }
   #lvl { float: right; }
-  #qrcode { padding: 1%; background-color: <%= params[:shield] %>; border: thick solid <%= params[:border] %>; }
+  #wrap { padding: 2%; }
+  #qrcode { padding: 5%; background-color: <%= params[:shield] %>; border: thick solid <%= params[:border] %>; }
+  #qrcode > canvas { border: thick solid white; }
   #bottom { position: fixed; bottom: 0; margin-bottom: 0; width: 100%; }
   .x {
   background-color: <%= params[:shield] || 'black' %>;
@@ -18,10 +20,10 @@
   <span id='uid' class='x'><%= params[:uid] %></span>
 </h1>
 
-<div id="qrcode"></div>
+<div id='wrap'><div id="qrcode"></div></div>
 
 
-<h1 id='bottom' class='x'><%= ENV['DOMAIN'] %></h1>
+<h1 id='bottom'><span class='x'><%= ENV['DOMAIN'] %></span</h1>
 
 <script>
 $('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= params[:tgt] %>=<%= params[:uid] %>");

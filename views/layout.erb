@@ -198,7 +198,7 @@ function connect() {
     function onScanSuccess(decodedText, decodedResult) {
 	if ( scans[decodedText] === false || scans[decodedText] === undefined ) {
 	    scans[decodedText] = true;
-	    setTimeout(function() { scans[decodedText] = false }, 10000);
+	    setTimeout(function() { scans[decodedText] = false }, 60000);
 	    // handle the scanned code as you like, for example:
 	    $('#reader').hide();
 	    $('.input').show();
