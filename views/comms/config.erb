@@ -4,7 +4,7 @@ button { border-radius: 10px; border: thick solid black; }
 .top { position: fixed; top: 0; width: 100%; left: 0; text-align: left; }
 .top > a { margin: 1%; border-radius: 10px; border: thick solid silver; background-color: white; text-decoration: none; }
 #bottom { position: fixed; bottom: 0; width: 100%; right: 0; height: 10%; margin: 0; }
-#save { font-size: xx-large; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 4% 0 4%; padding: 1%; position: fixed; right: 0; bottom: 0; }
+#save { font-size: xx-large; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 4% 0 4%; padding: 1%; }
 .pm { color: darkgrey; }
 .dm { }
 .chan { padding: 1%; border-radius: 10px; box-shadow: 0 0 5px white; }
@@ -46,7 +46,8 @@ input { margin-left: 5%; }
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
 <h1 id='bottom'>
-<button id='save' class='material-icons input'>save</button>
+  <button id='save' class='material-icons input'>save</button>
+  <span>SAVE</span>
 </h1>
 
 </form>
