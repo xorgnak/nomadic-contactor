@@ -85,7 +85,7 @@
 <div id="reader" width="600px"></div>
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
-  <a class='material-icons nav i input' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>pp<%= @u.voicemailbox || '#' %>'>phone</a>
+  <a class='material-icons nav i input' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>,<%= @u.voicemailbox || '#' %>'>phone</a>
   <% end %>
   <a class='material-icons nav i input' onclick='scan();'>camera</a>
   <a class='material-icons nav i input' style='right: 0; background-color: blue; color: silver;' href='<%= @a['social'] %>'>link</a>
