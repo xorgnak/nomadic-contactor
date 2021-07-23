@@ -73,6 +73,11 @@ module NOMADIC
             params[:goto] = '/comms/auth'
           end
         end
+
+        if params.has_key? :config
+          Redis.new.publish('DEBUG.post.config', "#{params[:config]}")
+        end
+        
         Redis.new.publish('DEBUG.post.post', "#{params}")
         redirect params[:goto]
       end
