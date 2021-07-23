@@ -53,17 +53,14 @@ module NOMADIC
           erb :result
         end
       else
-        #Redis.new.publish('DEBUG.post.pre', "#{@q} " + JSON.generate(params))
+        Redis.new.publish('DEBUG.post.pre', "#{@q} " + JSON.generate(params))
         if params.has_key?(:q) && !params.has_key?(:a) && @here.ticket(params[:q]).active?('auth') == 'challange'
           r = []; 6.times {r << rand(9) }
           @here.ticket(params[:q]).activate(name: 'challange', ttl: 1000, value: params[:From]);
           @here.ticket(params[:q] + ':pin').activate(name: 'challange', ttl: 1000, value: r.join(''));
           params[:pin] = r.join('')
           Phone.new(:auth, request, params)
-          # 
-          # send sms with code
-          #
-          #Redis.new.publish("AUTH.test", "#{params}")
+          Redis.new.publish("AUTH.test", "#{params}")
         end
         
         if params.has_key?(:a)
@@ -76,7 +73,7 @@ module NOMADIC
             params[:goto] = '/comms/auth'
           end
         end
-        #Redis.new.publish('DEBUG.post.post', "#{params}")
+        Redis.new.publish('DEBUG.post.post', "#{params}")
         redirect params[:goto]
       end
     end
