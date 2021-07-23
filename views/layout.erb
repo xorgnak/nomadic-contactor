@@ -201,7 +201,7 @@ function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     $('.input').show();
     $('#ready').hide();
-    msg(me, {topic: 'scan', html: decodedResult});
+    msg(me, {topic: 'scan', html: '<h3>' + decodedText + '</h3>'});
     console.log(`Code matched = ${decodedText}`, decodedResult);
 }
 

@@ -28,7 +28,7 @@ button { border-radius: 10px; border: thick solid black; }
 <h1 id='ui'>
 <a id='scan' class='material-icons input' onclick='scan();'>camera</a>
 <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
-<a href='/q/rcode?uid=<%= @me.attr['uid'] %>&tgt=u&lvl=<%= @me.attr['rank'] || 0 %>&shield=<%= @me.attr['shield'] || 'white' %>&border=<%= @me.attr['border'] || 'black' %>' class='material-icons input'>badge</a>
+<a href='/q/rcode?uid=<%= @me.attr['uid'] %>&tgt=<%= @me.attr['type'] || 'u' %>&lvl=<%= @me.attr['rank'] || 0 %>&shield=<%= @me.attr['shield'] || 'white' %>&border=<%= @me.attr['border'] || 'black' %>' class='material-icons input'>badge</a>
 </h1>
 <div id='output'></div>
 </form>
