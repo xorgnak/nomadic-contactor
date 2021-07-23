@@ -21,15 +21,28 @@ input { margin-left: 5%; }
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 
-<form style='height: 100vh; width: 100vw;'>
-<p><label for='name'>name</label><input type='text' id='name' name='name' value='<%= @me.attr['name'] %>' placeholder='name'></p>
-<p><label for='tagline'>tagline</label><input type='text' id='tagline' name='tagline' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
+<form action='/' method='post' style='height: 100vh; width: 100vw;'>
+<p><input type='text' id='name' name='name' value='<%= @me.attr['name'] %>' placeholder='name'></p>
+<p><input type='text' id='tagline' name='tagline' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
 <p><label for='img'>img</label><input type='text' id='img' name='img' value='<%= @me.attr['img'] %>' placeholder='img'></p>
-<p><label for='venmo'>venmo</label><input type='text' id='venmo' name='venmo' value='<%= @me.attr['venmo'] %>' placeholder='venmo'></p>
-<p><label for='thanks'>thanks</label><input type='text' id='thanks' name='thanks' value='<%= @me.attr['thanks'] %>' placeholder='thanks'></p>
-<p><label for='social'>social</label><input type='text' id='social' name='social' value='<%= @me.attr['social'] %>' placeholder='social'></p>
-<p><label for='shield'>shield</label><input type='text' id='shield' name='shield' value='<%= @me.attr['shield'] %>' placeholder='shield'></p>
-<p><label for='border'>border</label><input type='text' id='border' name='border' value='<%= @me.attr['border'] %>' placeholder='border'></p>
+<p><input type='text' id='social' name='social' value='<%= @me.attr['social'] %>' placeholder='social'></p>
+<p><select name='shield'>
+	<option selected disabled>area</option>
+	<option value='green'>road</option>
+	<option value='yellow'>tour</option>
+	<option value='blue'>garage</option>
+	<option value='purple'>media</option>
+	<option value='red'>office</option>
+</select></p>
+<p><select name='border'>
+        <option selected disabled>position</option>	
+	<option value='red'>junior</option>
+	<option value='green'>average</option>
+	<option value='blue'>senior</option>
+	<option value='silver'>manager</option>
+	<option value='gold'>owner</option>
+</select></p>
+
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
 <h1 id='bottom'>
@@ -37,8 +50,3 @@ input { margin-left: 5%; }
 </h1>
 
 </form>
-<script>
-$(function() {
-$(document).on('click', '#save', function(ev) { ev.preventDefault(); msg("user/", getFormData()); window.location = '/comms/user?tok=<%= params[:tok] %>';});
-});
-</script>
