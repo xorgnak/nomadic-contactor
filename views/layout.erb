@@ -5,10 +5,7 @@
 <% if params.has_key?(:tok) || params.has_key?(:u) %>
 <link rel="manifest" href="https://<%= ENV['DOMAIN'] %>/manifest.webmanifest?tok=<%= params[:tok] %>" crossorigin="use-credentials" />
 <% end %>
-<script
-  src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>
 
