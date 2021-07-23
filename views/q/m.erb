@@ -86,8 +86,6 @@
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
   <a class='material-icons nav i input' style='left: 0; background-color: green;' href='tel:<%= ENV['PHONE'] %>pp<%= @u.voicemailbox || '#' %>'>phone</a>
-  <%= @here.venmo( to: @a['venmo'], amt: @a['tip'] || '20', note: CGI.escape(@a['thanks'] || 'thanks!') ) %>
-    <!-- <a id='pig' class='material-icons nav i' href='#'>savings</a> -->
   <% end %>
   <a class='material-icons nav i input' onclick='scan();'>camera</a>
   <a class='material-icons nav i input' style='right: 0; background-color: blue; color: silver;' href='<%= @a['social'] %>'>link</a>
