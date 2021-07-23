@@ -65,4 +65,8 @@ rm lib/nomadic/*~
 rm views/*~
 rm public/*~
 
-ruby exe/shell.rb $*
+if [[ `gem list -i "^rvm$"` == true ]]; then
+    rvm all do ruby exe/shell.rb $*
+else
+    ruby exe/shell.rb $*
+fi
