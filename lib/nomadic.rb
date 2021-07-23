@@ -14,7 +14,8 @@
   'pry' => "interactive, dynamic, and colorful ruby shell.",
   'device_detector' => "web request device fingerprinteing.",
   'twilio-ruby' => "sip gateway.",
-  'cinch' => 'A generic irc bot framework.'
+  'cinch' => 'A generic irc bot framework.',
+  'rqrcode' => 'pure ruby qr code generator.'
 }.each_pair { |k,v| puts "loading #{k}: #{v}"; require k }
 
 if ENV['DB'] == 'wipe'

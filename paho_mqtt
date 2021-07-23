@@ -1,0 +1,24 @@
+D, [2021-07-23T11:55:34.678765 #11367] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T11:55:34.684029 #11367] DEBUG -- : Connection accepted
+D, [2021-07-23T11:55:34.684074 #11367] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-23T11:55:34.685742 #11367] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T11:55:34.686911 #11367] DEBUG -- : Connection accepted
+D, [2021-07-23T11:55:34.686947 #11367] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-23T11:55:34.687535 #11367] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T11:55:34.688013 #11367] DEBUG -- : Connection accepted
+D, [2021-07-23T11:55:34.688045 #11367] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-23T11:55:34.688238 #11367] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-23T11:55:34.688762 #11367] DEBUG -- : Connection accepted
+D, [2021-07-23T11:55:34.688824 #11367] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-23T11:55:34.698640 #11367]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-23T11:55:34.699112 #11367]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-23T11:55:34.699236 #11367]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-23T11:55:34.700821 #11367]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-23T11:56:40.699470 #11367] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T11:56:40.699577 #11367] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T11:56:40.700743 #11367] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T11:56:40.700817 #11367] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T11:56:40.703086 #11367] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T11:56:40.703153 #11367] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-23T11:56:40.703370 #11367] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-23T11:56:40.703419 #11367] DEBUG -- : Disconnecting from localhost.

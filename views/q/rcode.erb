@@ -1,19 +1,28 @@
-<% @here.logo( params[:uid], lvl: params[:lvl], method: 'm', object: params[:tgt] || 'i', fg: params[:fg], bg: params[:bg], branded: params[:branded]) %>
 <style>
-
-body { height: 100%; width: 100%; text-align: center; background-color: <%= params[:base] || params[:fg] || '#000' %>;}
-body > * { vertical-align: middle; }
-img {
-    height: 95%;
-    width: 93%;
-    padding: 2%;
-    border: thick solid <%= params[:border] || params[:fg] || '#000' %>;
-    border-radius: 20px;
-    background-color: <%= params[:shield] || '#fff' %>;
-}
-
+  body { overflow-y: hidden; background-color: <%= params[:field] || 'black' %>;}
+  #top { text-align: left; margin-top: 0; }
+  #top > * { vertical-align: middle;  }
+  #uid { }
+  #lvl { float: right; }
+  #qrcode { padding: 1%; background-color: <%= params[:shield] %>; border: thick solid <%= params[:border] %>; }
+  #bottom { position: fixed; bottom: 0; margin-bottom: 0; }
+  .x {
+  background-color: <%= params[:shield] || 'black' %>;
+  border: thick solid <%= params[:border] || 'white' %>;
+  color: <%= params[:border] || 'white' %>;
+  }
 </style>
 
+<h1 id='top'>
+  <span id='lvl' class='x'><%= params[:tgt] %><%= params[:lvl] %></span>
+  <span id='uid' class='x'><%= params[:uid] %></span>
+</h1>
+
+<div id="qrcode"></div>
 
 
-<img src='/<%= params[:uid] %>.svg'>
+<h1 id='bottom' class='x'><%= ENV['DOMAIN'] %></h1>
+
+<script>
+$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= params[:tgt] %>=<%= params[:tgt].upcase %>x<%= params[:uid] %>");
+</script>

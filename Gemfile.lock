@@ -1,0 +1,82 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    chunky_png (1.4.0)
+    cinch (2.3.4)
+    coderay (1.1.3)
+    daemons (1.4.0)
+    device_detector (1.0.5)
+    eventmachine (1.2.7)
+    faraday (1.5.1)
+      faraday-em_http (~> 1.0)
+      faraday-em_synchrony (~> 1.0)
+      faraday-excon (~> 1.1)
+      faraday-httpclient (~> 1.0.1)
+      faraday-net_http (~> 1.0)
+      faraday-net_http_persistent (~> 1.1)
+      faraday-patron (~> 1.0)
+      multipart-post (>= 1.2, < 3)
+      ruby2_keywords (>= 0.0.4)
+    faraday-em_http (1.0.0)
+    faraday-em_synchrony (1.0.0)
+    faraday-excon (1.1.0)
+    faraday-httpclient (1.0.1)
+    faraday-net_http (1.0.1)
+    faraday-net_http_persistent (1.2.0)
+    faraday-patron (1.0.0)
+    jwt (2.2.3)
+    method_source (1.0.0)
+    multipart-post (2.1.1)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
+    nokogiri (1.11.7-x86_64-linux)
+      racc (~> 1.4)
+    paho-mqtt (1.0.12)
+    pry (0.14.1)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    racc (1.5.2)
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
+    redis (4.3.1)
+    redis-objects (1.5.1)
+      redis (~> 4.2)
+    rqrcode (2.0.0)
+      chunky_png (~> 1.0)
+      rqrcode_core (~> 1.0)
+    rqrcode_core (1.1.0)
+    ruby2_keywords (0.0.5)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    thin (1.8.1)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (>= 1, < 3)
+    tilt (2.0.10)
+    twilio-ruby (5.57.0)
+      faraday (>= 0.9, < 2.0)
+      jwt (>= 1.5, <= 2.5)
+      nokogiri (>= 1.6, < 2.0)
+    victor (0.3.3)
+
+PLATFORMS
+  x86_64-linux
+
+DEPENDENCIES
+  cinch
+  device_detector
+  paho-mqtt
+  pry
+  redis-objects
+  rqrcode
+  sinatra
+  thin
+  twilio-ruby
+  victor
+
+BUNDLED WITH
+   2.2.7
