@@ -57,7 +57,7 @@
     }
     const me = "user/<%= params[:tok] %>";
     let client = new Paho.MQTT.Client('vango.me', 8083, '<%= params[:tok] %>');
-    let html5QrcodeScanner = new Html5QrcodeScanner( "reader", { fps: 10, qrbox: 250 }, false);
+    let html5QrcodeScanner = new Html5QrcodeScanner( "reader", { fps: 10, qrbox: 250 }, true);
 
 const random = (n) => {
     var r = "";
@@ -202,7 +202,7 @@ function onScanSuccess(decodedText, decodedResult) {
     $('#reader').hide();
     $('.input').show();
     $('#ready').hide();
-    msg(me, {topic: 'scan', html: '<h3><a href="' + decodedText + '">' + decodedText + '</h3>'});
+    msg(me, {topic: 'scan', html: '<h3><a href="' + decodedText + '">valid.</h3>'});
     console.log(`Code matched = ${decodedText}`, decodedResult);
 }
 
@@ -212,7 +212,7 @@ function onScanFailure(error) {
     console.warn(`Code scan error = ${error}`);
 }
 
-function scan() {
+    function scan() {
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
     $('.input').hide();
 }
