@@ -1,11 +1,11 @@
 <style>
-  body { overflow-y: hidden; background-color: <%= params[:field] || 'black' %>;}
+  body { overflow-y: hidden; background-color: <%= params[:field] || 'black' %>; color: <%= params[:border] || 'white' %>;}
   #top { text-align: left; margin-top: 0; }
   #top > * { vertical-align: middle;  }
   #uid { }
   #lvl { float: right; }
   #qrcode { padding: 1%; background-color: <%= params[:shield] %>; border: thick solid <%= params[:border] %>; }
-  #bottom { position: fixed; bottom: 0; margin-bottom: 0; }
+  #bottom { position: fixed; bottom: 0; margin-bottom: 0; width: 100%; }
   .x {
   background-color: <%= params[:shield] || 'black' %>;
   border: thick solid <%= params[:border] || 'white' %>;
