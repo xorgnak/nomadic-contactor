@@ -30,7 +30,9 @@ module NOMADIC
       set :public_folder, "#{Dir.pwd}/public/"
     end
     
-    before { @fields = Fields.new; @cloud = Cloud.new; @here = Nomadic.new }
+    before {
+      headers "Access-Control-Allow-Origin" => "https://#{ENV['DOMAIN']}"
+      @fields = Fields.new; @cloud = Cloud.new; @here = Nomadic.new }
 
 
     get('/service.js') { content_type 'application/javascript'; erb :service, layout: false }
