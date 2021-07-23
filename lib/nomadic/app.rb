@@ -76,6 +76,9 @@ module NOMADIC
 
         if params.has_key? :config
           Redis.new.publish('DEBUG.post.config', "#{params[:config]}")
+          u = @here.ticket(params[:tok]).active?('token')
+          us = @here.cloud.user(u)
+          params[:config].each_pair { |k,v| us.attr[k] = v }
         end
         
         Redis.new.publish('DEBUG.post.post', "#{params}")
