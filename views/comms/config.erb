@@ -13,8 +13,8 @@ button { border-radius: 10px; border: thick solid black; }
 .payload { margin: 0 2% 0 2%; }
 .topic { margin: 1%; padding: 1%; }
 .payload { text-break: anywhere; }
-label { margin-right: 5%; }
-input { margin-left: 5%; }
+select { width: 60%; }
+input { }
 .fr {float: right; }
 #ready { }
 </style>
@@ -22,11 +22,11 @@ input { margin-left: 5%; }
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
-<p><input type='text' id='name' name='name' value='<%= @me.attr['name'] %>' placeholder='name'></p>
-<p><input type='text' id='tagline' name='tagline' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
-<p><label for='img'>img</label><input type='text' id='img' name='img' value='<%= @me.attr['img'] %>' placeholder='img'></p>
-<p><input type='text' id='social' name='social' value='<%= @me.attr['social'] %>' placeholder='social'></p>
-<p><select name='shield'>
+<p><input type='text' id='name' name='config[name]' value='<%= @me.attr['name'] %>' placeholder='name'></p>
+<p><input type='text' id='tagline' name='config[tagline]' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
+<p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
+<p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
+<p><select name='config[shield]'>
 	<option selected disabled>area</option>
 	<option value='green'>road</option>
 	<option value='yellow'>tour</option>
@@ -34,7 +34,7 @@ input { margin-left: 5%; }
 	<option value='purple'>media</option>
 	<option value='red'>office</option>
 </select></p>
-<p><select name='border'>
+<p><select name='config[border]'>
         <option selected disabled>position</option>	
 	<option value='red'>junior</option>
 	<option value='green'>average</option>
