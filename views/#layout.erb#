@@ -202,7 +202,7 @@ function onScanSuccess(decodedText, decodedResult) {
     $('#reader').hide();
     $('.input').show();
     $('#ready').hide();
-    msg(me, {topic: 'scan', html: '<h3><a href="' + decodedText + '">' + decodedText + '</h3>'});
+    msg(me, {topic: 'scan', html: '<h3><a href="' + decodedText + '">' + decodedTex</h3>'});
     console.log(`Code matched = ${decodedText}`, decodedResult);
 }
 
