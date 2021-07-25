@@ -1,0 +1,165 @@
+<style>
+#bg { width: 100%; height: 100%; z-index: -1; }
+#title { position: fixed; top: 0; width: 100%; background-color: rgba(0, 0, 0, 0.4); color: white;
+border-radius: 50px; text-align: center;
+       }
+#title > ul { text-align: left; list-style: none; padding-left: 0; margin: 0 2% 0 2%; }
+.place { margin: 4% 0 4% 0; display: block; font-size: xx-large;  text-decoration: none; color: white;
+ border: thin solid orange; border-radius: 50px; color: white; width: 93%; background-color: rgba(0,0,0,0.1);
+ box-shadow: 0 0 3px white;
+       }
+#plan { border: thin solid white; margin: 5%; }
+ #foot { position: fixed; bottom: 0; }
+ #foot > * { vertical-align: middle; color: white; text-shadow: 0 0 10px orange; }
+#logo { height: 10%; width: 10%; }
+</style>
+
+
+<img id="bg" src="/bg.img">
+<nav id='title'>
+
+  <h4>sponsorship plan</h4>
+  <ul>
+    <li><select id='scope' name='scope' class='opt'>
+	<option selected disabled>scope</option>
+	<option value='2'>direct</option>
+	<option value='1'>shared</option>
+	<option value='0'>general</option>
+      </select>
+      <span id='scope-desc'>How directly should your sponsorship align your brand to propedicab.com services?</span>
+    </li>
+    
+    <li><select id='scale' name='scale' class='opt'>
+	<option selected disabled>scale</option>
+	<option value='H'>high</option>
+	<option value='M'>medium</option>
+	<option value='L'>low</option>
+      </select>
+      <span id='scale-desc'>How heavily will you be relying on propedicab.com services for your campaign?</span>
+    </li>
+    
+    <li><select id='intensity' name='intensity' class='opt'>
+	<option selected disabled>intensity</option>
+	<option value='h'>high</option>
+	<option value='m'>medium</option>
+	<option value='l'>low</option>
+      </select>
+      <span id='intensity-desc'>How heavily will your brand rely on propedicab.com media for your campaign?</span>
+    </li>
+    
+    <li><select id='duration' name='duration'>
+	<option value='12'>year</option>
+	<option value='3'>quarter</option>
+	<option value='1' selected>month</option>
+      </select>
+      <span id='intensity-desc'>How long will your brand be part of the campaign?</span>
+    </li>
+  </ul>
+  <div id='plan'>
+    <p>total: $<span id='total'></span></p>
+    <p>discount: -$<span id='discount'></span></p>
+    <hr>
+    <h3>cost: $<span id='cost'></span></h3>
+    <hr>
+    <p>code: <span id='code'></span></p>
+  </div>
+  
+</nav>
+<h1 id='foot'>
+<span>propedicab.com</span>
+<img id="logo" src="/logo.img">
+</h1>
+
+    <script>
+var conf = {
+    scope: {
+	"0": "Your brand will be placed as part of the overall city marketing plan.",
+	"1": "Your brand will be placed as part of an area within the city marketing plan.",
+	"2": "Your brand will be placed as a focus within the city marketing plan."
+    },
+    scale: {
+	"L": "Propedicab.com will provide occasional special services for your brand.",
+	"M": "Propedicab.com will regularly provide special services for your brand.",
+	"H": "Propedicab.com will dedicate resources to providing services for your brand."
+    },
+    intensity: {
+	"l": "Propedicab.com media will occasionally feature your brand.",
+	"m": "Propedicab.com media will regularly feature your brand.",
+	"h": "Propedicab.com will produce media dedicated to your brand."
+    }
+};
+
+var startup = {
+    scope: {
+	"0": 100,
+	"1": 250,
+	"2": 500
+    },
+    scale: {
+	"L": 100,
+	"M": 250,
+	"H": 500
+    },
+    intensity: {
+	"l": 100,
+	"m": 250,
+	"h": 500
+    }
+};
+
+var monthly = {
+    scope: {
+	"0": 100,
+	"1": 250,
+	"2": 500
+    },
+    scale: {
+	"L": 100,
+	"M": 250,
+	"H": 500
+    },
+    intensity: {
+	"l": 100,
+	"m": 250,
+	"h": 500
+    }
+};
+var discount = {
+    "1": 1,
+    "3": 0.95,
+    "12": 0.9
+};
+
+
+
+var s = 0;
+var m = 0;
+var t = 0;
+var d = 0;
+var c = 0;
+
+$(function() {
+    function updateCost() {
+	s = parseInt(startup['scope'][$('#scope').val()]) + parseInt(startup['scale'][$('#scale').val()]) + parseInt(startup['intensity'][$('#intensity').val()]);
+	m = parseInt(monthly['scope'][$('#scope').val()]) + parseInt(monthly['scale'][$('#scale').val()]) + parseInt(monthly['intensity'][$('#intensity').val()]);
+	t = ( s + ( m * parseInt($("#duration").val()) ));
+	d = t * ( 1 - discount[$("#duration").val()]);
+	c = t - d;
+	var cd = $("#scope").val() + $("#scale").val() + $("#intensity").val() +  $("#duration").val();
+	console.log(s, m, t, d, c);
+	$("#total").text(t);
+	$("#discount").text(Math.round(d));
+	$("#cost").text(c);
+	$("#code").text(cd);
+    }
+    $(document).on('change', '.opt', function() { 
+	console.log($(this).attr('id'));
+	$('#' + $(this).attr('id') + '-desc').text(conf[$(this).attr('id')][$(this).val()]);
+	updateCost();
+    });
+    $(document).on('change', '#duration', function() {
+	updateCost();
+    });
+    updateCost();
+});
+</script>
