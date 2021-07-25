@@ -5,7 +5,7 @@ button { border-radius: 10px; border: thick solid black; }
 .top > a { margin: 1%; border-radius: 10px; border: thick solid silver; background-color: white; text-decoration: none; }
 #ui { position: fixed; top: 0; width: 100%; right: 0; height: 10%; margin: 0; z-index: 10; }
 #output { text-align: left; line-break: anywhere; overflow-y: scroll; height: 90%; }
-#ui > * { vertical-align: middle; font-size: xx-large; width: 10%; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 4% 0 4%; padding: 1%; }
+#ui > * { vertical-align: middle; font-size: xx-large; width: 10%; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 1% 0 1%; padding: 1%; }
 .pm { color: darkgrey; }
 .dm { }
 .chan { padding: 1%; border-radius: 10px; box-shadow: 0 0 5px white; }
@@ -27,8 +27,12 @@ button { border-radius: 10px; border: thick solid black; }
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <h1 id='ui'>
 <a id='scan' class='material-icons input' onclick='scan();'>camera</a>
+<% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
+<a href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
+<a href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
+<% end %>
 <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
-<a href='/q/rcode?uid=<%= @me.attr['uid'] %>&tgt=<%= @me.attr['type'] || 'u' %>&lvl=<%= @me.attr['rank'] || 0 %>&shield=<%= @me.attr['shield'] || 'white' %>&border=<%= @me.attr['border'] || 'black' %>' class='material-icons input'>badge</a>
+<a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
 <div id='output'></div>
 </form>

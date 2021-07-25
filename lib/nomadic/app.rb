@@ -81,6 +81,15 @@ module NOMADIC
           params[:config].each_pair { |k,v| us.attr[k] = v }
         end
         
+        if params.has_key? :magic
+          Redis.new.publish('DEBUG.post.config', "#{params[:config]}")
+          u = @here.ticket(params[:tok]).active?('token')
+          us = @here.cloud.user(params[:usr])
+          params[:magic].each_pair { |k,v| us.attr[k] = v }
+        end
+        
+        
+        
         Redis.new.publish('DEBUG.post.post', "#{params}")
         redirect params[:goto]
       end

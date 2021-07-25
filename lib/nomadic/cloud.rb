@@ -169,6 +169,9 @@ module NOMADIC
       self.assigned.delete(i)
       user(u).jobs.delete(i)
     end
+    def boss? u
+      u == ENV['PHONE_ADMIN']
+    end
     def admin? u
       self.at.has_key? u
     end

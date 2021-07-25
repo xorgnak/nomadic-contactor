@@ -22,12 +22,11 @@ input { }
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
-<p><input type='text' id='name' name='config[name]' value='<%= @me.attr['name'] %>' placeholder='name'></p>
-<p><input type='text' id='tagline' name='config[tagline]' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
-<p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
-<p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
-<p><select name='config[shield]'>
-	<option selected disabled>area</option>
+
+<p><input type='text' id='user' name='user' placeholder='phone'></p>
+
+<p><select name='shield'>
+	<option selected disabled>field</option>
 	<option value='green'>road</option>
 	<option value='yellow'>tour</option>
 	<option value='blue'>garage</option>
@@ -35,11 +34,21 @@ input { }
 	<option value='red'>office</option>
 </select></p>
 
+<p><select name='border'>
+        <option selected disabled>position</option>	
+	<option value='red'>new</option>
+	<option value='green'>general</option>
+	<option value='blue'>manager</option>
+	<option value='silver'>legend</option>
+	<option value='gold'>god</option>
+</select></p>
+
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' id='goto' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
 <h1 id='bottom'>
   <button id='save' class='material-icons input'>save</button>
+  <span>SAVE</span>
 </h1>
 
 </form>

@@ -1,22 +1,26 @@
+<% @u = @here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]) %>
 <style>
-  body { overflow-y: hidden; background-color: <%= params[:field] || 'black' %>; color: <%= params[:border] || 'white' %>;}
+  body { overflow-y: hidden; background-color: <%= @u.attr['field'] || 'black' %>; color: white;}
   #top { text-align: left; margin-top: 0; }
   #top > * { vertical-align: middle;  }
   #uid { }
-  #lvl { float: right; }
+  .lvl { float: right; }
   #wrap { padding: 2%; margin-top: 35%; }
-  #qrcode { padding: 5%; background-color: <%= params[:shield] %>; border: thick solid <%= params[:border] %>; }
+  #qrcode { padding: 5%; background-color: <%= @u.attr['shield'] %>; border: thick solid <%= @u.attr['border'] %>; }
   #qrcode > canvas { border: thick solid white; }
   #bottom { position: fixed; bottom: 0; margin-bottom: 0; width: 100%; }
   .x {
-  background-color: <%= params[:shield] || 'black' %>;
-  border: thick solid <%= params[:border] || 'white' %>;
-  color: <%= params[:border] || 'white' %>;
+  background-color: <%= @u.attr['border'] || 'black' %>;
+  border: thick solid <%= @u.attr['border'] || 'white' %>;
+  color: black;
   }
 </style>
 
 <h1 id='top'>
-  <span id='lvl' class='x'><%= params[:tgt] %><%= params[:lvl] %></span>
+    <% @ic = { "u" => "check_box_outline_blank", "i" => "change_history", "z" => "circle" } %>
+    <% @u.attr['lvl'].to_i.times do |t| %>
+  <span class='material-icons lvl x' class='x'><%= @ic[@u.attr['type']] %></span>
+  <% end %>
   <span id='uid' class='x'><%= params[:uid] %></span>
 </h1>
 
@@ -26,5 +30,5 @@
 <h1 id='bottom'><span class='x'><%= ENV['DOMAIN'] %></span</h1>
 
 <script>
-$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= params[:tgt] %>=<%= params[:uid] %>");
+$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= @u.attr['type'] %>=<%= params[:uid] %>");
 </script>
