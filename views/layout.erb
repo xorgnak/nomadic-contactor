@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <head>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	      rel="stylesheet">
 <% if params.has_key?(:tok) || params.has_key?(:u) %>
 <link rel="manifest" href="https://<%= ENV['DOMAIN'] %>/manifest.webmanifest?tok=<%= params[:tok] %>" crossorigin="use-credentials" />
 <% end %>
