@@ -31,7 +31,8 @@ button { border-radius: 10px; border: thick solid black; }
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 
 <form style='height: 100vh; width: 100vw;'>
-<input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
+    <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
+    <canvas id="canvas"></canvas>
 <h1 id='ui'>
 <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
     <a id='zap' href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
@@ -40,7 +41,6 @@ button { border-radius: 10px; border: thick solid black; }
     <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
-<canvas id="canvas"></canvas>
     <div id='output'>
     <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <h4>hello, <%= @me.attr['name'] %></h4>
