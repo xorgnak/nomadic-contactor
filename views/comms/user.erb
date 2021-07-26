@@ -68,6 +68,9 @@ button { border-radius: 10px; border: thick solid black; }
     <script>
     var hi = `<h4>hello, <%= @me.attr['name'] || @me.attr['uid'] %></h4><p>When you scan a badge, the info will be displayed here.</p>`;
 var zap = '/comms/magic?tok=<%= params[:tok] %>'
+    <% if params.has_key? :boss %>
+    zap += "boss=1";
+<% end %>
 var rsvp = '/comms/invite?tok=<%= params[:tok] %>'
 var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
