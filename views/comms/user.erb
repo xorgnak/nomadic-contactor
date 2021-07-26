@@ -34,7 +34,7 @@ button { border-radius: 10px; border: thick solid black; }
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <h1 id='ui'>
 <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
-    <a href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
+    <a id='zap' href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
     <a href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
 <% end %>
     <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
@@ -43,7 +43,13 @@ button { border-radius: 10px; border: thick solid black; }
 <canvas id="canvas"></canvas>
     <div id='output'>
     <h4>hello, <%= @me.attr['name'] || @me.attr['uid'] %></h4>
-    <p></p>
+    <ul>
+    <li><span class='material-icons'>auto_fix_high</span><span>zap</span></li>
+    <li><span class='material-icons'>mail</span><span>invite</span></li>
+    <li><span class='material-icons'>settings</span><span>settings</span></li>
+    <li><span class='material-icons'>badge</span><span></span></li>
+    </ul>
+    <p><span class='material-icons'>hiker</span> by <a href='https://github.com/xorgnak/nomadic'>nomadic</a> linux. &copy; 2021</p>
 </div>
     <p id='foot'>
       <span id='rank'>
@@ -60,6 +66,8 @@ button { border-radius: 10px; border: thick solid black; }
     </p>
 </form>
     <script>
+    var hi = `<h4>hello, <%= @me.attr['name'] || @me.attr['uid'] %></h4><p>When you scan a badge, the info will be displayed here.</p>`;
+    var zap = '/comms/magic?tok=<%= params[:tok] %>'
 var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
@@ -81,14 +89,29 @@ function tick() {
 	var dom = /https:\/\/<%= ENV['DOMAIN'] %>/g;
 	if (code) {
 	    if (dom.test(code.data)) {
-		var o = code.data.split('?')
-		console.log(o)
-		$("#output").text(o);
+		var o = code.data.split('?');
+		var oo = o.split('=');
+		var ty = 'rando';
+		if (oo[0] == 'i') {
+		    ty = 'influencer'
+		} else if (oo[0] == 'z') {
+		    ty = "sponsor"
+		} else if (oo[0] == 'u') {
+		    ty = 'rider'
+		}
+		console.log(oo)
+		$('#zap').attr('href', zap + "&usr=" 00[1]);
+		$('#zap').css('background-color', 'orange');
+		$("#output").text("<h1>" + oo[1] +"</h1><h3>" + ty + "</h3>");
 	    } else {
+		$('#zap').attr('href', zap);
+		$('#zap').css('background-color', 'grey');
 		$("#output").text(code.data);
 	    }
 	} else {
-	    $("#output").text("no code");
+	    $('#zap').attr('href', zap);
+	    $('#zap').css('background-color', 'grey');
+	    $("#output").text(hi);
 	}
     }
     requestAnimationFrame(tick);
