@@ -12,8 +12,8 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.2/mqttws31.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery.qrcode@1.0.3/jquery.qrcode.min.js"></script>
-<script src="https://<%= ENV['DOMAIN'] %>/html5-qrcode.min.js"></script>
-     
+<!-- <script src="https://<%= ENV['DOMAIN'] %>/html5-qrcode.min.js"></script> -->
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>     
 </head>
 <body style="width: 100vw; height: 100vh; text-align: center; margin: 0; padding: 0;">
   <%# Redis.new.publish("LAYOUT", "#{params}") %>
@@ -56,7 +56,7 @@
     }
     const me = "user/<%= params[:tok] %>";
     let client = new Paho.MQTT.Client('<%= ENV["DOMAIN"] %>', 8083, '<%= params[:tok] %>');
-    let html5QrcodeScanner = new Html5QrcodeScanner( "reader", { fps: 10, qrbox: 250 }, true);
+//    let html5QrcodeScanner = new Html5QrcodeScanner( "reader", { fps: 10, qrbox: 250 }, true);
 
 const random = (n) => {
     var r = "";
@@ -65,6 +65,7 @@ const random = (n) => {
     }
     return r;
 };
+		      
 function getFormData(){
     var unindexed_array = $('form').serializeArray();
     var indexed_array = {};
@@ -87,58 +88,6 @@ function onConnect() {
     console.log("onConnect");
     //	client.subscribe('#');
     client.subscribe(me);
-    var x = {}
-	<% Redis.new.publish("M", "#{@me} #{@to}") %>
-	msg('<%= @mode %>', { tok: tok, to: '<%= @me.attr["uid"] %>:<%= @now %>' });
-    
-    s = '';
-    s += "<span>powered by <span class='material-icons'>hiking</span>";
-    s += " <a style='color: grey;' href='https://github.com/xorgnak/nomadic'>nomadic linux</a> &copy; 2020</span>"
-    msg(me, {
-	topic: "<span style='background-color: black; color: white; border: thick solid white;' class='material-icons box'>power</span>",
-	html: s
-    });
-    
-    s = '';
-    s += "<span>running for <a href='https://<%= ENV['DOMAIN'] %>'><%= ENV['DOMAIN'] %></a> &copy; 2020</span>"
-    msg(me, {
-	topic: "<span style='background-color: black; color: white; border: thick solid white;' class='material-icons box'>power</span>",
-	html: s
-    });
-    
-    
-    msg(me, {
-	topic: "<span class='box material-icons' style='background-color: green; color: white; border: thick solid white;'>directions_run</span>",
-	html: "<span><%= Time.now.utc %></span>"
-    });
-
-    s = "";
-    s += "<ul>";
-    s += "<li><span class='material-icons'>military_tech</span><span><%= @me.attr['rank'] %></span></li>";
-    s += "<li><span class='material-icons'>call</span><span><%= @me.attr['voicemailbox'] %></span></li>";
-    s += "<li><span>name</span><span><%= @me.attr['name'] %></span></li>";
-    s += "<li><span>tagline</span><span><%= @me.attr['tagline'] %></span></li>";
-    s += "<li><span>venmo</span><span><%= @me.attr['venmo'] %></span></li>";
-	s += "<li><span>shield</span><span><%= @me.attr['shield'] %></span></li>";
-    s += "<li><span>border</span><span><%= @me.attr['border'] %></span></li>";
-    s += "</ul>";
-    msg(me, {
-	topic: "<span class='box material-icons' style='background-color: black; color: white; border: thick solid white;'>account_box</span>",
-	html: s
-    });
-    s = "";
-    s += "<ul>";
-    s += "<li><span class='material-icons'>camera</span><span>scan badges</span></li>";
-    s += "<li><span class='material-icons'>badge</span><span>your badge</span></li>";
-    s += "<li><span class='material-icons'>settings</span><span>update your info</span></li>";
-	s += "</ul>";
-    msg(me, {
-	topic: "<span class='box material-icons' style='background-color: black; color: white; border: thick solid white;'>support</span>",
-	html: s
-    });
-    $(".input").show();
-    $("#ready").css('background-color', 'grey');
-    $("#ready").hide();
 }
 
 function onConnectionLost(responseObject) {
@@ -182,11 +131,6 @@ function onMessageArrived(message) {
     chan = "<p class='dm'><span class='to'>" + json.topic + "</button>";
     $('#output').prepend( chan + "<span class='payload'>" + op + '</span></p>');
     console.log("onMessageArrived",  topic, json);
-    /*
-     *
-     * INSERT HANDLING HERE
-     *
-     */
 }
 
 function connect() {
@@ -219,6 +163,13 @@ function onScanFailure(error) {
     function scan() {
     html5QrcodeScanner.render(onScanSuccess, onScanFailure);
     $('.input').hide();
+
+
+
+
+
+
+    
 }
 
 
