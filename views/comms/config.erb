@@ -26,7 +26,7 @@ input { }
 <p><input type='text' id='tagline' name='config[tagline]' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
 <p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
 <p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
-<p><select name='config[shield]'>
+<p><select id='shield' name='config[shield]'>
 	<option selected disabled>area</option>
 	<option value='green'>road</option>
 	<option value='yellow'>tour</option>
@@ -43,3 +43,8 @@ input { }
 </h1>
 
 </form>
+<script>
+$(function() {
+$('#shield').val('<%= @me.attr['shield'] %>');
+});
+</script>
