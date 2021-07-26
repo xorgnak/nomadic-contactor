@@ -4,7 +4,7 @@ button { border-radius: 10px; border: thick solid black; }
 .top { position: fixed; top: 0; width: 100%; left: 0; text-align: left; }
 .top > a { margin: 1%; border-radius: 10px; border: thick solid silver; background-color: white; text-decoration: none; }
 #ui { width: 100%; margin: 0; z-index: 10; }
-#output { text-align: left; line-break: anywhere; overflow-y: scroll; height: 50%; border: thin solid black; }
+#output { line-break: anywhere; overflow-y: scroll; height: 50%; border: thin solid black; }
 #ui > * { vertical-align: middle; font-size: xx-large; width: 10%; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 1% 0 1%; padding: 1%; }
 .pm { color: darkgrey; }
 .dm { }
@@ -26,7 +26,7 @@ button { border-radius: 10px; border: thick solid black; }
 #copy { color: white; font-size: xx-small; }
 #rank { left: 0; }
 #lvl { right: 0; }
-ul { }
+h5 { text-align: left; }
 li { list-style: none; text-align: right; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
