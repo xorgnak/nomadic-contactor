@@ -47,6 +47,7 @@ button { border-radius: 10px; border: thick solid black; }
     <% else %>
     <h4>welcome, <%= @me.attr['uid'] %></h4>
     <% end %>
+    <h5>help</h5>
     <ul>
     <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
     <li><span class='material-icons'>auto_fix_high</span><span>zap</span></li>
@@ -54,10 +55,12 @@ button { border-radius: 10px; border: thick solid black; }
     <% end %>
     <li><span class='material-icons'>settings</span><span>settings</span></li>
     <li><span class='material-icons'>badge</span><span>badge</span></li>
+    </ul>
+    <h5>stats</h5>
+    <ul>
     <li><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></li>
     <li><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></li>
     </ul>
-    <p id='foot'><span style='color: brown; background-color: green; border: thin solid black; box-shadow: 0 2px black;' class='material-icons'>hiking</span> by <a href='https://github.com/xorgnak/nomadic'>nomadic</a> linux. &copy; 2021</p>
 </div>
 </form>
     <script>
