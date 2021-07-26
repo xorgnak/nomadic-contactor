@@ -38,6 +38,7 @@ WELCOME="Welcome to the caleb martin construction some help in town job managmen
 # audio/thanks.mp3 will be played if available, otherwise...
 THANKS="Our local representative will contact you shortly";
 
+
 #####################
 #   CONFIGURATION   #
 #####################
