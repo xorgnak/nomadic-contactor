@@ -42,7 +42,11 @@ button { border-radius: 10px; border: thick solid black; }
 </h1>
 <canvas id="canvas"></canvas>
     <div id='output'>
-    <h4>hello, <%= @me.attr['name'] || @me.attr['uid'] if @me.attr['name'] == '' %></h4>
+    <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
+    <h4>hello, <%= @me.attr['name'] %></h4>
+    <% else %>
+    <h4>welcome, <%= @me.attr['uid'] %></h4>
+    <% end %>
     <ul>
     <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
     <li><span class='material-icons'>auto_fix_high</span><span>zap</span></li>
