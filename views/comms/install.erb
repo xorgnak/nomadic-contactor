@@ -23,12 +23,4 @@ form > * { font-size: x-large; vertical-align: middle; }
 
 <img id="bg" src="/bg.img">
 
-<h1 id='title'>You were sent a pin via text message.</h1>
-
-<form action='/' method='post'>
-<input type='hidden' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/install?tok=<%= params[:q] %>'>
-<input type='hidden' name='q' value='<%= params[:q] %>'>
-<p id='help'><span>use format <code>123456</code></span></p>
-<input id='focus' type='text' name='a' placeholder='pin' pattern="[0-9]{6}" autofocus>
-<button id='click' class='material-icons'>lock</button>
-</form>
+<h1 id='title'>please add to home screen to continue.</h1>
