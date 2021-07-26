@@ -51,15 +51,17 @@ li { list-style: none; text-align: right; }
     <h4>welcome, <%= @me.attr['uid'] %></h4>
     <% end %>
     -->
-    <h5><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></h5>
-    <h5><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></h5>
+    <ul>
+    <li><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></li>
+    <li><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></li>
+    </ul>
     <ul>
     <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
-    <li><span>zap</span><span class='material-icons'>auto_fix_high</span></li>
-    <li><span>invite</span><span class='material-icons'>mail</span></li>
+    <li class='h'><span>zap</span><span class='material-icons'>auto_fix_high</span></li>
+    <li class='h'><span>invite</span><span class='material-icons'>mail</span></li>
     <% end %>
-    <li><span>settings</span><span class='material-icons'>settings</span></li>
-    <li><span>badge</span><span class='material-icons'>badge</span></li>
+    <li class='h'><span>settings</span><span class='material-icons'>settings</span></li>
+    <li class='h'><span>badge</span><span class='material-icons'>badge</span></li>
     </ul>
 </div>
 </form>
