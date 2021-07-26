@@ -61,9 +61,7 @@ input { }
 </form>
 <script>
   $(function() {
-  <% if params.has_key? :usr %>
-  $("#border").val('<%= @u.attr['border'] %>');
-  $("#type").val('<%= @u.attr['type'] %>');
-  <% end %>
+  $("#border").val('<%= @usr.attr['border'] %>');
+  $("#type").val('<%= @usr.attr['type'] %>');
   });
 </script>
