@@ -85,10 +85,9 @@
 <div id="reader" width="600px"></div>
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
-  <a class='material-icons nav i input' style='left: 0; background-color: green; color: white;' href='tel:<%= ENV['PHONE'] %>,<%= @u.voicemailbox || '#' %>'>phone</a>
+  <a class='material-icons nav i input' style='left: 0; background-color: green; color: white;' href='/comms/pager?box=<%= @u.voicemailbox %>'>bike_scooter</a>
   <% end %>
-  <a class='material-icons nav i input' onclick='scan();' style='background-color: black; color: white;'>camera</a>
-  <a class='material-icons nav i input' style='right: 0; background-color: blue; color: white;' href='<%= @a['social'] %>'>link</a>
+  <a class='material-icons nav i input' style='right: 0; background-color: red; color: white;' href='<%= @a['social'] %>'>link</a>
 </nav>
 <script>
     $(function() {
