@@ -1,4 +1,4 @@
-<% @ranks = { 0 => 'solid', 1 => 'double', 2 => 'ridge', 3 => 'dashed' } %>
+<% @ranks = { 0 => 'ridge', 1 => 'double', 2 => 'dashed' } %>
 <% @u = @here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]) %>
 <% @d = 0; @r = 0; @l = @u.attr['lvl'].to_i; %>
 <% @d = "#{@l}".length - 1; @r = @l / (10 ** @d);  %>
@@ -19,7 +19,8 @@
   color: black;
   }
   #rank {
-  border-right: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
+  
+  border-left: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
   border-bottom: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
   border-right: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
   }
