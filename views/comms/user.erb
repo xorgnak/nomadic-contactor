@@ -102,9 +102,13 @@ function tick() {
 		}
 		console.log(oo)
 		$('#zap').attr('href', zap + "&usr=" + oo[1]);
-		$('#rsvp').attr('href', rsvp + "&usr=" + 00[1]);
+		if ( ty == 'rider' ) {
+		    $('#rsvp').attr('href', rsvp + "&usr=" + 00[1]);
+		    $('#rsvp').css('background-color', 'orange');
+		} else {
+		    $('#rsvp').css('background-color', 'grey');
+		}
 		$('#zap').css('background-color', 'orange');
-		$('#rsvp').css('background-color', 'orange');
 		$("#output").html("<h1>" + oo[1] +"</h1><h3>" + ty + "</h3>");
 	    } else {
 		$('#zap').attr('href', zap);
