@@ -20,7 +20,7 @@ input { }
 #lvl { width: 15%; }
 #wrap {}
 #qrcode { padding: 2%; background-color: white; }
-
+#logo { }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
@@ -62,10 +62,14 @@ input { }
     <option value='influencer'>influencer</option>
       </select></p>
     <% end %>
- <% end %>
+    <% end %>
+    <fieldset>
+    <legend>invite</legend>
 <div id='wrap'>
   <div id='qrcode'>
-</div>
+    </div>
+    </fieldset>
+    <img id='logo' src='/logo.img'>
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' id='goto' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
