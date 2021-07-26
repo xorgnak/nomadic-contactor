@@ -78,8 +78,13 @@ function tick() {
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
 	var code = jsQR(imageData.data, imageData.width, imageData.height, {});
+	var dom = /https:\/\/<%= ENV['DOMAIN'] %>/g;
 	if (code) {
-	    $("#output").text(code.data);
+	    if (dom.test(code.data)) {
+		var o = code.data.split('?')
+		$("#output").text(o);
+	    } else {
+		$("#output").text(code.data);
 	} else {
 	    $("#output").text("no code");
 	}
