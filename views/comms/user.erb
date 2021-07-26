@@ -44,12 +44,15 @@ ul { text-align: left; }
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
     <div id='output'>
+    <!--
     <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <h4>hello, <%= @me.attr['name'] %></h4>
     <% else %>
     <h4>welcome, <%= @me.attr['uid'] %></h4>
     <% end %>
-    <h5>help</h5>
+    -->
+    <h5><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></h5>
+    <h5><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></h5>
     <ul>
     <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
     <li><span class='material-icons i'>auto_fix_high</span><span>zap</span></li>
@@ -57,11 +60,6 @@ ul { text-align: left; }
     <% end %>
     <li><span class='material-icons i'>settings</span><span>settings</span></li>
     <li><span class='material-icons i'>badge</span><span>badge</span></li>
-    </ul>
-    <h5>stats</h5>
-    <ul>
-    <li><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></li>
-    <li><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></li>
     </ul>
 </div>
 </form>
