@@ -22,6 +22,7 @@
   #rank {
   border-right: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
   border-bottom: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
+  border-right: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
   }
   .xx { color: gold; }
 </style>
@@ -29,7 +30,7 @@
 <h1 id='top'>
     <% @ic = { "u" => "check_box_outline_blank", "i" => "change_history", "z" => "circle" } %>
     <span id='rank'>
-    <% @l.times do |t| %>
+    <% @rr.times do |t| %>
     <% if @dd == 1 %>
   <span class='material-icons lvl x xx'><%= @ic[@u.attr['type']] %></span>
   <% else %>
