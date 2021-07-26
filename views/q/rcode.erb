@@ -1,7 +1,7 @@
 <% @ranks = { 0 => 'dashed', 1 => 'solid', 2 => 'double', 3 => 'ridge' } %>
 <% @u = @here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]) %>
 <% @d = 0; @dd = 0; @r = 0; @l = @u.attr['lvl'].to_i; %>
-<% if @l > 10; @r = @l - 10; @d = 1; elsif @l > 100; @r = @l - 100; @d = 2; elsif @l > 1000; @r = @l - 1000; @d = 3; end %>
+<% if @l > 10; @r = @l / 10; @d = 1; elsif @l > 100; @r = @l / 100; @d = 2; elsif @l > 1000; @r = @l / 1000; @d = 3; end %>
 <% if @r > (5 * (10 ** @d)); @rr = @r - (5 * (10 ** @d)); @dd = 1; else; @rr = @r; @dd = 0; end %>
 <% @debug = { d: @d, dd: @dd, l: @l, r: @r, rr: @rr } %>
 <style>
