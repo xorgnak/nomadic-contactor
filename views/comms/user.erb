@@ -54,22 +54,11 @@ button { border-radius: 10px; border: thick solid black; }
     <% end %>
     <li><span class='material-icons'>settings</span><span>settings</span></li>
     <li><span class='material-icons'>badge</span><span>badge</span></li>
+    <li><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></li>
+    <li><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></li>
     </ul>
-    <p><span style='color: brown; background-color: green; border: thin solid black; box-shadow: 0 2px black;' class='material-icons'>hiking</span> by <a href='https://github.com/xorgnak/nomadic'>nomadic</a> linux. &copy; 2021</p>
+    <p id='foot'><span style='color: brown; background-color: green; border: thin solid black; box-shadow: 0 2px black;' class='material-icons'>hiking</span> by <a href='https://github.com/xorgnak/nomadic'>nomadic</a> linux. &copy; 2021</p>
 </div>
-    <p id='foot'>
-      <span id='rank'>
-        <span class='material-icons'>military_tech</span>
-        <span><%= @me.attr['lvl'] %></span>
-      </span>
-    <!--    <a id='plug' href='https://github.com/xorgnak/nomadic'><span class='material-icons' id='nomad'>hiking</span><span id='copy'>&copy; 2019</span></a> -->
-      <%= @me.attr['uid'] %>
-
-      <span id='lvl'>
-        <span><%= @me.stat['lvl'] %></span>
-        <span class='material-icons'>loyalty</span>
-      </span>
-    </p>
 </form>
     <script>
     var hi = $('#output').html();
