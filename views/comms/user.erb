@@ -26,6 +26,8 @@ button { border-radius: 10px; border: thick solid black; }
 #copy { color: white; font-size: xx-small; }
 #rank { left: 0; }
 #lvl { right: 0; }
+ul { text-align: left; }
+    .i { float: right; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
@@ -50,11 +52,11 @@ button { border-radius: 10px; border: thick solid black; }
     <h5>help</h5>
     <ul>
     <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
-    <li><span class='material-icons'>auto_fix_high</span><span>zap</span></li>
-    <li><span class='material-icons'>mail</span><span>invite</span></li>
+    <li><span class='material-icons i'>auto_fix_high</span><span>zap</span></li>
+    <li><span class='material-icons i'>mail</span><span>invite</span></li>
     <% end %>
-    <li><span class='material-icons'>settings</span><span>settings</span></li>
-    <li><span class='material-icons'>badge</span><span>badge</span></li>
+    <li><span class='material-icons i'>settings</span><span>settings</span></li>
+    <li><span class='material-icons i'>badge</span><span>badge</span></li>
     </ul>
     <h5>stats</h5>
     <ul>
