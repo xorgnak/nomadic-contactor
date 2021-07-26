@@ -1,7 +1,7 @@
 <% @ranks = { 0 => 'dashed', 1 => 'solid', 2 => 'double', 3 => 'ridge' } %>
 <% @u = @here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]) %>
 <% @d = 0; @r = 0; @l = @u.attr['lvl'].to_i; %>
-<% @d = "#{@l}".length - 1; @r = @l / (10 * @d);  %>
+<% @d = "#{@l}".length - 1; @r = @l / (10 ** @d);  %>
 <% @debug = { d: @d, l: @l, r: @r } %>
 <style>
   body { overflow-y: hidden; background-color: <%= @u.attr['field'] || 'black' %>; color: white;}
