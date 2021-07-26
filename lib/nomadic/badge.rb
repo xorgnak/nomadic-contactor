@@ -39,7 +39,7 @@ module NOMADIC
     def badges
       r = []
       BADGES.each_pair do |b, i|
-        r << %[<span class='badge'><input class='tickbox' type='checkbox' id='c-#{b}' name='badges[#{b}]'><span id='#{b}' class='material-icons ic'>#{i}</span><span class='bdg'>#{b}</span></span>]
+        r << %[<span class='badge'><input class='tickbox' type='checkbox' id='c-#{b}' name='badge-#{b}'><span id='#{b}' class='material-icons ic'>#{i}</span><span class='bdg'>#{b}</span></span>]
       end
       return r.join('')
     end

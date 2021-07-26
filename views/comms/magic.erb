@@ -18,39 +18,41 @@ input { }
 .fr {float: right; }
 #ready { }
 #lvl { width: 15%; }
-#fields > p { text-align: left; }
+#fields > p { }
+#border { width: 30% }
+#type { width: 30% }
+.badge { display: block; text-align: left; }
+.ic { border: thick solid grey; border-radius: 10px; }
+.tickbox { float: right; }
+.badge > * { display: inline; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 <% if params.has_key?(:usr); @usr = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]]); else @usr = @me; end %>
 <% @b = @here.badge(@usr) %>
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
-
-
-<p>
-    <input type='text' id='user' name='usr' value='<%= @usr.id %>'>
-    <% if @here.cloud.boss? @me %>
-    <input type='number' id='lvl' name='magic[lvl]' value='<%= @usr.attr['lvl'] %>'>
-    <% end %>
-</p>
+    <h3><%= @usr.attr['uid'] %></h3>
+    <input type='hidden' name='usr' value='<%= @usr.id %>'>
 <div id='fields'>
-<p><select id='border' name='magic[border]'>	
+<% if params.has_key? :boss %>
+<p>
+<select id='border' name='magic[border]'>	
 	<option value='red'>new</option>
 	<option value='green' selected>general</option>
 	<option value='blue'>manager</option>
 	<option value='silver'>legend</option>
 	<option value='gold'>god</option>
-</select><span id='border-desc'>the rider's position on the team.</span></p>
-
-<% if @here.cloud.boss? @me %>
-<p><select id='type' name='magic[type]'>
+</select>
+<select id='type' name='magic[type]'>
     <option value='u'>rider</option>
     <option value='i' selected>influencer</option>
     <option value='z'>sponsor</option>
-  </select><span id='border-desc'>the user's type.</span></p>
-</div>
+  </select>
+<input type='number' id='lvl' name='magic[lvl]' value='<%= @usr.attr['lvl'] %>'>
+</p>
 <% end %>
 <%= @b.badges %>
+</div>
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' id='goto' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
@@ -63,5 +65,6 @@ input { }
   $(function() {
   $("#border").val('<%= @usr.attr['border'] %>');
   $("#type").val('<%= @usr.attr['type'] %>');
+  <%=  %>
   });
 </script>

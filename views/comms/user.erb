@@ -35,7 +35,7 @@ button { border-radius: 10px; border: thick solid black; }
 <h1 id='ui'>
 <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
     <a id='zap' href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
-    <a href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
+    <a id='rsvp' href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
 <% end %>
     <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
@@ -67,7 +67,8 @@ button { border-radius: 10px; border: thick solid black; }
 </form>
     <script>
     var hi = `<h4>hello, <%= @me.attr['name'] || @me.attr['uid'] %></h4><p>When you scan a badge, the info will be displayed here.</p>`;
-    var zap = '/comms/magic?tok=<%= params[:tok] %>'
+var zap = '/comms/magic?tok=<%= params[:tok] %>'
+var rsvp = '/comms/invite?tok=<%= params[:tok] %>'
 var video = document.createElement("video");
 var canvasElement = document.getElementById("canvas");
 var canvas = canvasElement.getContext("2d");
@@ -101,11 +102,15 @@ function tick() {
 		}
 		console.log(oo)
 		$('#zap').attr('href', zap + "&usr=" + oo[1]);
+		$('#rsvp').attr('href', rsvp + "&usr=" + 00[1]);
 		$('#zap').css('background-color', 'orange');
+		$('#rsvp').css('background-color', 'orange');
 		$("#output").html("<h1>" + oo[1] +"</h1><h3>" + ty + "</h3>");
 	    } else {
 		$('#zap').attr('href', zap);
+		$('#rsvp').attr('href', rsvp);
 		$('#zap').css('background-color', 'grey');
+		$('#rsvp').css('background-color', 'grey');
 		$("#output").html(code.data);
 	    }
 	} else {

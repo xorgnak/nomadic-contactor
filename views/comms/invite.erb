@@ -18,35 +18,72 @@ input { }
 .fr {float: right; }
 #ready { }
 #lvl { width: 15%; }
+#wrap {}
+#qrcode { padding: 2%; background-color: white; }
+
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
-
-
-<p>
-    <input type='text' id='user' name='usr' placeholder='phone'>
-</p>
-<div id='fields'>
-
-<p><select id='type' name='magic[type]'>
-    <option value='u'>rider</option>
-    <option value='i' selected>influencer</option>
-    <option value='z'>sponsor</option>
+    <% if !params.has_key? :usr %>
+<p><select id='type' name='invite[type]' hidden>
+    <option value='none' selected disabled>type</option>   
+    <option value='rider'>rider</option>
+    <option value='influencer'>influencer</option>
+    <option value='sponsor'>sponsor</option>
   </select></p>
+  <p><select id='area' name='invite[area]'>
+    <option value='none' selected disabled>area</option>
+    <optgroup label='zone 4'>
+      <option value='MBC'>myrtle beach, sc</option>
+      <option value='MIA'>maimi, fl</option>
+    </optgroup>
+    <optgroup label='zone 3'>
+    <option value='ROC'>rochester, ny</option>
+    <option value='BNA'>buffalo, ny</option>
+    <option value='DTW'>detroit, mi</option>
+    </optgroup>
+    <optgroup label='zone 2'>
+    <option value='BNA'>nashville, tn</option>
+    <option value='JCK'>jackson, ms</option>
+    <option value='NLA'>new oreleans, la</option>
+    <option value='AST'>austin, tx</option>
+    </optgroup>
+    <optgroup label='zone 1'>
+    <option value='DIA'>denver, co</option>
+    </optgroup>
+    </select></p>
+ <% end %>
+<div id='wrap'>
+  <div id='qrcode'>
 </div>
-
-
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' id='goto' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
-<h1 id='bottom'>
-  <button id='save' class='material-icons input'>send</button>
-</h1>
 
 </form>
 <script>
-  $(function() {
- 
-  });
-</script>
+    $(function() {
+	    <% if params.has_key? :usr %>
+	$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/comms/hire?zone=<%= @me.attr['uid'] %>");
+	    <% else %>
+	$(document).on('change', 'select', function() {
+	    if ( $("#type").val() != null ) {
+		$('#area').show();
+		$('#type').hide();
+	    } else {
+		$('#area').hide();
+		$('#type').show();
+	    }
+	});
+	$(document).on('change', 'select', function() {
+	    if ( $("#area").val() != null && $("#type").val() != null ) {
+		$('#qrcode').html('');
+		$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/" + $('#type').val() + "/welcome?from=<%= @me.attr['uid'] %>&area=" + $('#area').val());
+	    }
+	});
+	$('#type').val('none');
+	$('#area').val('none');
+	<% end %>
+    });
+      </script>
