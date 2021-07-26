@@ -82,9 +82,11 @@ function tick() {
 	if (code) {
 	    if (dom.test(code.data)) {
 		var o = code.data.split('?')
+		console.log(o)
 		$("#output").text(o);
 	    } else {
 		$("#output").text(code.data);
+	    }
 	} else {
 	    $("#output").text("no code");
 	}
