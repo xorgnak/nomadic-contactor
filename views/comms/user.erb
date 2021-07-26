@@ -90,7 +90,7 @@ function tick() {
 	if (code) {
 	    if (dom.test(code.data)) {
 		var o = code.data.split('?');
-		var oo = o.split('=');
+		var oo = o[1].split('=');
 		var ty = 'rando';
 		if (oo[0] == 'i') {
 		    ty = 'influencer'
