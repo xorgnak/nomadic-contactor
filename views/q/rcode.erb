@@ -1,14 +1,15 @@
-<% @ranks = { 0 => 'dotted', 1 => 'dashed', 2 => 'solid', 3 => 'double', 4 => 'ridge' } %>
+<% @ranks = { 0 => 'dashed', 1 => 'solid', 2 => 'double', 3 => 'ridge' } %>
 <% @u = @here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]) %>
 <% @d = 0; @dd = 0; @r = 0; @l = @u.attr['lvl'].to_i; %>
 <% if @l > 10; @r = @l - 10; @d = 1; elsif @l > 100; @r = @l - 100; @d = 2; elsif @l > 1000; @r = @l - 1000; @d = 3; end %>
 <% if @r > (5 * (10 ** @d)); @rr = @r - (5 * (10 ** @d)); @dd = 1; else; @rr = @r; @dd = 0; end %>
+<% @debug = { d: @d, dd: @dd, l: @l, r: @r, rr: @rr } %>
 <style>
   body { overflow-y: hidden; background-color: <%= @u.attr['field'] || 'black' %>; color: white;}
-  #top { text-align: left; margin-top: 0; }
+  #top { margin-top: 0; }
   #top > * { vertical-align: middle;  }
   #uid { }
-  .lvl { float: right; }
+  .lvl { }
   #wrap { padding: 5%; }
   #qrcode { padding: 10% 0 10% 0; background-color: <%= @u.attr['shield'] %>; border: thick solid <%= @u.attr['border'] %>; }
   #qrcode > canvas { border: thick solid white; }
@@ -43,5 +44,6 @@
 <h1 id='bottom'><span class='x'><%= ENV['DOMAIN'] %></span</h1>
 
 <script>
+console.log("debug <%= @debug %>");
 $('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= @u.attr['type'] %>=<%= params[:uid] %>");
 </script>
