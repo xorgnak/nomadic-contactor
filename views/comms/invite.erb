@@ -26,9 +26,11 @@ input { }
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
     <% if !params.has_key? :usr %>
+    <% if @me.id == ENV['PHONE_ADMIN'] %>
 <p><select id='type' name='invite[type]' hidden>
     <option value='none' selected disabled>type</option>   
     <option value='rider'>rider</option>
+    <option value='staff'>staff</option>
     <option value='influencer'>influencer</option>
     <option value='sponsor'>sponsor</option>
   </select></p>
@@ -53,6 +55,13 @@ input { }
     <option value='DIA'>denver, co</option>
     </optgroup>
     </select></p>
+    <% else %>
+    <p><select id='type' name='invite[type]' hidden>
+    <option value='none' selected disabled>type</option>
+    <option value='staff'>staff</option>
+    <option value='influencer'>influencer</option>
+      </select></p>
+    <% end %>
  <% end %>
 <div id='wrap'>
   <div id='qrcode'>
@@ -67,6 +76,7 @@ input { }
 	    <% if params.has_key? :usr %>
 	$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/comms/hire?zone=<%= @me.attr['uid'] %>");
 	    <% else %>
+	    <% if @me.id == ENV['PHONE_ADMIN'] %>
 	$(document).on('change', 'select', function() {
 	    if ( $("#type").val() != null ) {
 		$('#area').show();
@@ -84,6 +94,9 @@ input { }
 	});
 	$('#type').val('none');
 	$('#area').val('none');
+	    <% else %>
+	    
+	<% end %>
 	<% end %>
     });
       </script>
