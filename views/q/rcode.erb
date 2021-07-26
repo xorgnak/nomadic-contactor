@@ -1,4 +1,8 @@
+<% @ranks = { 0 => 'dotted', 1 => 'dashed', 2 => 'solid', 3 => 'double', 4 => 'ridge' } %>
 <% @u = @here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]) %>
+<% @d = 0; @dd = 0; @r = 0; @l = @u.attr['lvl'].to_i; %>
+<% if @l > 10; @r = @l - 10; @d = 1; elsif @l > 100; @r = @l - 100; @d = 2; elsif @l > 1000; @r = @l - 1000; @d = 3; end %>
+<% if @r > (5 * (10 ** @d)); @rr = @r - (5 * (10 ** @d)); @dd = 1; else; @rr = @r; @dd = 0; end %>
 <style>
   body { overflow-y: hidden; background-color: <%= @u.attr['field'] || 'black' %>; color: white;}
   #top { text-align: left; margin-top: 0; }
@@ -14,13 +18,24 @@
   border: thick solid <%= @u.attr['border'] || 'white' %>;
   color: black;
   }
+  #rank {
+  border-right: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
+  border-bottom: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
+  }
+  .xx { color: gold; }
 </style>
 
 <h1 id='top'>
     <% @ic = { "u" => "check_box_outline_blank", "i" => "change_history", "z" => "circle" } %>
-    <% @u.attr['lvl'].to_i.times do |t| %>
-  <span class='material-icons lvl x' class='x'><%= @ic[@u.attr['type']] %></span>
+    <span id='rank'>
+    <% @l.times do |t| %>
+    <% if @dd == 1 %>
+  <span class='material-icons lvl x xx'><%= @ic[@u.attr['type']] %></span>
+  <% else %>
+  <span class='material-icons lvl x'><%= @ic[@u.attr['type']] %></span>
   <% end %>
+  <% end %>
+  </span>
   <span id='uid' class='x'><%= params[:uid] %></span>
 </h1>
 
