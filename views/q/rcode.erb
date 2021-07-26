@@ -40,8 +40,10 @@
   </span>
 </h1>
 
+<fieldset>
+<legend><%= params[:uid] %></legend>
 <div id='wrap'><div id="qrcode"></div></div>
-<span id='uid' class='x'><%= params[:uid] %></span>
+</fieldset>
 <h1 id='bottom'><span class='x'><%= ENV['DOMAIN'] %></span</h1>
 
 <script>
