@@ -61,7 +61,7 @@
 #pig { background-color: black; color: pink; }
 </style>
 
-<img id='bg' src='<%= @a['img'] || '/bg.img' %>'>
+<img id='bg' src='/bg.img'>
 
 <h1 id='head' class='i'>
     <% if @a.has_key? 'name' %>
@@ -70,13 +70,7 @@
     <span id='name' class='i'><%= @mo %>x<%= @id %></span>
     <% end %>
     <span id='team'>
-  <!-- <span id='badge' class='material-icons s badge' style='color: red;'>favorite_border</span> -->
   <span id='badge' class='material-icons s badge' style='color: gold;'>star_border</span>
-  <!-- <span id='badge' class='material-icons s badge' style='color: yellow;'>pan_tool</span> -->
-  <!-- <span id='badge' class='material-icons s badge' style='color: yellow;'>accessibility_new</span> -->
-  <span id="skills">
-      <%= @b.badges %>
-  </span>
   </span>
 </h1>
 
@@ -91,26 +85,7 @@
 </nav>
 <script>
     $(function() {
-	var counts = { heart: 0, star: 0, high: 0, cheer: 0 };
-	$(document).on('click', '.ic' , function() {
-	    counts[$(this).attr('id')]++;
-	    $(this).css('background-color', 'gold');
-	    $('#skills').hide();
-	    $('#badge').show();	
-	    var tgt = $(this).attr('id');
-	    msg('user/', {
-		topic: "<span class='material-icons box'>info</span>", to: '<%= @id %>',
-		html: "<span>" + tok + "</span><code>" + JSON.stringify(counts) + "</code>"
-	    });
-	    console.log(tgt, counts[tgt], $(this));
-	});
-
-	$(document).on('click', '#badge' , function() {
-	    $('#badge').hide();
-	    $('#skills').show();
-	    console.log('name');
-	});
-	<%= @b.badges_js %>    
+    
     });
 
 </script>
