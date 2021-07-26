@@ -102,16 +102,16 @@ function tick() {
 		console.log(oo)
 		$('#zap').attr('href', zap + "&usr=" + oo[1]);
 		$('#zap').css('background-color', 'orange');
-		$("#output").text("<h1>" + oo[1] +"</h1><h3>" + ty + "</h3>");
+		$("#output").html("<h1>" + oo[1] +"</h1><h3>" + ty + "</h3>");
 	    } else {
 		$('#zap').attr('href', zap);
 		$('#zap').css('background-color', 'grey');
-		$("#output").text(code.data);
+		$("#output").html(code.data);
 	    }
 	} else {
 	    $('#zap').attr('href', zap);
 	    $('#zap').css('background-color', 'grey');
-	    $("#output").text(hi);
+	    $("#output").html(hi);
 	}
     }
     requestAnimationFrame(tick);
