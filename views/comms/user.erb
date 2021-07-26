@@ -44,10 +44,12 @@ button { border-radius: 10px; border: thick solid black; }
     <div id='output'>
     <h4>hello, <%= @me.attr['name'] || @me.attr['uid'] %></h4>
     <ul>
+    <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
     <li><span class='material-icons'>auto_fix_high</span><span>zap</span></li>
     <li><span class='material-icons'>mail</span><span>invite</span></li>
+    <% end %>
     <li><span class='material-icons'>settings</span><span>settings</span></li>
-    <li><span class='material-icons'>badge</span><span></span></li>
+    <li><span class='material-icons'>badge</span><span>badge</span></li>
     </ul>
     <p><span class='material-icons'>hiker</span> by <a href='https://github.com/xorgnak/nomadic'>nomadic</a> linux. &copy; 2021</p>
 </div>
@@ -66,7 +68,7 @@ button { border-radius: 10px; border: thick solid black; }
     </p>
 </form>
     <script>
-    var hi = `<h4>hello, <%= @me.attr['name'] || @me.attr['uid'] %></h4><p>When you scan a badge, the info will be displayed here.</p>`;
+    var hi = $('#output').html();
 var zap = '/comms/magic?tok=<%= params[:tok] %>'
     <% if @me.id == ENV['PHONE_ADMIN'] %>
     zap += "&boss=1";
