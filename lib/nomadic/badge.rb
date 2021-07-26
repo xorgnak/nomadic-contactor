@@ -39,7 +39,7 @@ module NOMADIC
     def badges
       r = []
       BADGES.each_pair do |b, i|
-        r << %[<span id='#{b}' class='material-icons ic'>#{i}</span>]
+        r << %[<span class='badge'><input class='tickbox' type='checkbox' id='c-#{b}' name='badges[#{b}]'><span id='#{b}' class='material-icons ic'>#{i}</span><span class='bdg'>#{b}</span></span>]
       end
       return r.join('')
     end
@@ -47,7 +47,7 @@ module NOMADIC
       r = []
       BADGES.each_pair do |b, i|
         r << %[var #{b}s = 0; ]
-        r << %[$(document).on('click', '##{b}' , function() { #{b}s++; $("##{b}").css('color', 'green'); console.log('#{b} ' + #{b}s); $('#skills').hide(); $('#badge').show(); });\n]
+        r << %[$(document).on('click', '##{b}' , function() { $("#c-#{b}").checked = 'true'; });\n]
       end
       return r.join('')
     end
