@@ -62,12 +62,16 @@ input { }
     </optgroup>
     </select></p>
     <% else %>
-    <p><select id='type' name='invite[type]' hidden>
+    <p><select id='type' name='invite[type]'>
     <option value='none' selected disabled>type</option>
     <option value='staff'>staff</option>
     <option value='influencer'>influencer</option>
       </select></p>
     <% end %>
+    <% else %>
+    <p><select id='type' name='invite[type]'>
+	<option value='influencer' selected>influencer</option>
+    </select></p>
     <% end %>
     <fieldset>
     <legend>invite</legend>
@@ -80,7 +84,7 @@ input { }
 <script>
     $(function() {
 	    <% if params.has_key? :usr %>
-	$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/comms/welcome?mode=" + $('#type').val() || 'influencer' + "&sponsor=<%= @me.attr['uid'] %>&usr=<%= params[:usr] %>&zone=<%= @me.attr['zone'] %>&hire=true");
+	$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/comms/welcome?mode=" + $('#type').val() + "&sponsor=<%= @me.attr['uid'] %>&usr=<%= params[:usr] %>&zone=<%= @me.attr['zone'] %>&hire=true");
 	    <% else %>
 	    <% if @me.id == ENV['PHONE_ADMIN'] %>
 	$(document).on('change', 'select', function() {
