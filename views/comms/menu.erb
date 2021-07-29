@@ -20,7 +20,7 @@ border-radius: 50px; text-align: center;
 
   <h4>sponsorship plan</h4>
   <ul>
-    <li><select id='scope' name='scope' class='opt'>
+    <li><select id='scope' name='sponsor[scope]' class='opt'>
 	<option value='x' selected>none</option>
 	<option value='2'>direct</option>
 	<option value='1'>shared</option>
@@ -29,7 +29,7 @@ border-radius: 50px; text-align: center;
       <span id='scope-desc'>How directly should your sponsorship align your brand to propedicab.com services?</span>
     </li>
     
-    <li><select id='scale' name='scale' class='opt'>
+    <li><select id='scale' name='sponsor[scale]' class='opt'>
 	<option value='x' selected>none</option>
 	<option value='H'>high</option>
 	<option value='M'>medium</option>
@@ -38,7 +38,7 @@ border-radius: 50px; text-align: center;
       <span id='scale-desc'>How heavily will you be relying on propedicab.com services for your campaign?</span>
     </li>
     
-    <li><select id='intensity' name='intensity' class='opt'>
+    <li><select id='intensity' name='sponsor[intensity]' class='opt'>
 	<option value='x' selected>none</option>
 	<option value='h'>high</option>
 	<option value='m'>medium</option>
@@ -47,7 +47,7 @@ border-radius: 50px; text-align: center;
       <span id='intensity-desc'>How heavily will your brand rely on propedicab.com media for your campaign?</span>
     </li>
     
-    <li><select id='duration' name='duration'>
+    <li><select id='duration' name='sponsor[duration]'>
 	<option value='12'>1 year</option>
 	<option value='3'>90 days</option>
 	<option value='1' selected>30 days</option>
@@ -63,8 +63,9 @@ border-radius: 50px; text-align: center;
     <hr>
     <p>code: <span id='code'>xxxx</span></p>
   </div>
-  
+  <a id='join' disabled>begin</a>
 </nav>
+
 <h1 id='foot'>
 <span>propedicab.com</span>
 <img id="logo" src="/logo.img">
@@ -161,6 +162,8 @@ $(function() {
 	$("#discount").text(Math.round(d));
 	$("#cost").text(c);
 	$("#code").text(cd);
+	$("#join").attr('href', 'https://<%= ENV['DOMAIN'] %>/comms/auth %>&code=' + cd);
+	$("#join").attr('disabled', 'false');
     }
     $(document).on('change', '.opt', function() { 
 	console.log($(this).attr('id'));

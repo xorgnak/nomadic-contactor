@@ -302,3 +302,51 @@ D, [2021-07-26T05:07:57.347662 #7030] DEBUG -- : No activity is over timeout, di
 D, [2021-07-26T05:07:57.347688 #7030] DEBUG -- : Disconnecting from localhost.
 D, [2021-07-26T05:07:57.352179 #7030] DEBUG -- : No activity is over timeout, disconnecting from localhost.
 D, [2021-07-26T05:07:57.352229 #7030] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:37:16.467646 #3538] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:37:16.682557 #3538] DEBUG -- : Connection accepted
+D, [2021-07-29T01:37:16.682624 #3538] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-29T01:37:16.684798 #3538] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:37:16.685357 #3538] DEBUG -- : Connection accepted
+D, [2021-07-29T01:37:16.685389 #3538] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-29T01:37:16.685653 #3538] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:37:16.686175 #3538] DEBUG -- : Connection accepted
+D, [2021-07-29T01:37:16.686207 #3538] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-29T01:37:16.686400 #3538] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:37:16.687081 #3538] DEBUG -- : Connection accepted
+D, [2021-07-29T01:37:16.687149 #3538] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-29T01:37:16.689545 #3538]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-29T01:37:16.691190 #3538]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-29T01:37:16.798714 #3538]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-29T01:37:16.799384 #3538]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-29T01:38:22.689845 #3538] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:38:22.689922 #3538] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:38:22.691452 #3538] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:38:22.691500 #3538] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:38:22.801842 #3538] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:38:22.801905 #3538] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:38:22.801985 #3538] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:38:22.802071 #3538] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:38:40.100233 #3746] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:38:40.101254 #3746] DEBUG -- : Connection accepted
+D, [2021-07-29T01:38:40.101309 #3746] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-29T01:38:40.103191 #3746] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:38:40.103672 #3746] DEBUG -- : Connection accepted
+D, [2021-07-29T01:38:40.103711 #3746] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-29T01:38:40.103939 #3746] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:38:40.104392 #3746] DEBUG -- : Connection accepted
+D, [2021-07-29T01:38:40.104427 #3746] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-07-29T01:38:40.104710 #3746] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-07-29T01:38:40.105737 #3746] DEBUG -- : Connection accepted
+D, [2021-07-29T01:38:40.105879 #3746] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-07-29T01:38:40.107624 #3746]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-29T01:38:40.115863 #3746]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-29T01:38:40.116036 #3746]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-07-29T01:38:40.118648 #3746]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-07-29T01:39:46.108698 #3746] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:39:46.108781 #3746] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:39:46.117994 #3746] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:39:46.118076 #3746] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:39:46.120191 #3746] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:39:46.120410 #3746] DEBUG -- : Disconnecting from localhost.
+D, [2021-07-29T01:39:46.123388 #3746] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-07-29T01:39:46.123454 #3746] DEBUG -- : Disconnecting from localhost.

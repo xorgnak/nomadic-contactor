@@ -17,7 +17,15 @@ li { text-align: left; font-weight: bold; }
 <img id="bg" src="/bg.img">
 <nav id='title'>
 <div id='page-0' class='page'>
-  <h1>we offer the finest in...</h1>
+<h4>propedicab.com blends traditional feet-on-the-ground marketing techniques with cutting edge ultra-targeted social marketing to paint our work environment in the best possible light.</h4>
+<h4>we would like to invite you to our team.</h4>
+<div>
+<p><%= params[:zone] %></p>
+<p><%= params[:sponsor] %></p>
+</div>
+<h3>We are glad to have you on our team.</h3>
+
+  <h3>we offer the finest in...</h3>
   <ul>
   <li>first-person</li>
   <li>influencer-driven</li>
@@ -132,7 +140,13 @@ $(function() {
 	    $(".page").hide();
 	    $("#page-" + i).fadeIn();
 	    console.log('page ' + i);
-	    if ( i <= 7 ) { i ++ } else { window.location = '/sponsor/menu' };
+	    if ( i <= 7 ) { i ++ } else {
+	    <% if params[:mode] == 'sponsor' %>
+	    window.location = '/comms/menu';
+	    <% else %>
+	    window.location = '/comms/auth';
+	    <% end %>
+	    };
 	}, 7500);
     });
 });
