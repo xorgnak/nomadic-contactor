@@ -33,7 +33,7 @@ li { text-align: left; font-weight: bold; }
   <li>leveraging emerging social media platforms</li>
   <li>and in the real world</li>
   </ul>
-  <% if params[:hire] == true %>
+  <% if params[:hire] == 'true' %>
 <h1><button id='start'>JOIN</button></h1>
   <% else %>
 <h1><button id='start'>LEARN MORE</button></h1>
@@ -138,7 +138,7 @@ $(function() {
     var i = 2;
     $(document).on('click', '#start', function(ev) {
 	ev.preventDefault();
-	<% if params[:hire] == true %>
+	<% if params[:hire] == 'true' %>
 	   window.location = '/comms/auth?usr=<%= params[:usr] %>&zone=<%= params[:zone] %>&sponsor=<%= params[:sponsor] %>&hire=true';
 	<% else %>
 	$('.page').hide();
