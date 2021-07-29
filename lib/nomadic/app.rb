@@ -90,12 +90,12 @@ module NOMADIC
 
         if params.has_key? :create
           Redis.new.publish('DEBUG.post.create', "#{params}")
-          if params[:hire] == true && Redis::HashKey.new('uid')[params[:create][:usr]]
+          if params[:hire] == 'true' && Redis::HashKey.new('uid')[params[:create][:usr]]
             @here.cloud.hire!(params[:create][:sponsor], params[:From])
             @here.cloud.hire!(params[:create][:zone], params[:From])
             us = @here.cloud.user(params[:From])
             us.sponsors << params[:create][:sponsor]
-            end
+          end
         end
         
         Redis.new.publish('DEBUG.post.post', "#{params}")
