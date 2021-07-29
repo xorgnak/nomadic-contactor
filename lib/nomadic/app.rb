@@ -68,6 +68,15 @@ module NOMADIC
             u = @here.ticket(params[:q]).active?('challange')
             @here.ticket(u).activate(name: 'token', ttl: 60 * 60 * 24, value: params[:q]);
             @here.ticket(params[:q]).activate(name: 'token', ttl: 60 * 60 * 24, value: u);
+            if params.has_key? :create
+              Redis.new.publish('DEBUG.post.create', "#{params}")
+              if params[:hire] == 'true'
+                @here.cloud.hire!(params[:create][:sponsor], u)
+                @here.cloud.hire!(params[:create][:zone], u)
+                us = @here.cloud.user(params[:From])
+                us.sponsors << params[:create][:sponsor]
+              end
+            end
             Redis.new.publish("AUTH.test", "#{u} #{params}")
           else
             params[:goto] = '/comms/auth'
@@ -88,15 +97,6 @@ module NOMADIC
           params[:magic].each_pair { |k,v| us.attr[k] = v }
         end
 
-        if params.has_key? :create
-          Redis.new.publish('DEBUG.post.create', "#{params}")
-          if params[:hire] == 'true' && Redis::HashKey.new('uid')[params[:create][:usr]]
-            @here.cloud.hire!(params[:create][:sponsor], params[:From])
-            @here.cloud.hire!(params[:create][:zone], params[:From])
-            us = @here.cloud.user(params[:From])
-            us.sponsors << params[:create][:sponsor]
-          end
-        end
         
         Redis.new.publish('DEBUG.post.post', "#{params}")
         redirect params[:goto]

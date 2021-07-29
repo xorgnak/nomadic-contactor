@@ -44,6 +44,7 @@ module NOMADIC
     # places and groups user has connection to.
     set :zones
     # jobs assigned to user.
+    set :sponsors
     set :jobs
     def initialize i
       @id = i
