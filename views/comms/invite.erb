@@ -53,6 +53,12 @@ input { }
     </optgroup>
     <optgroup label='zone 1'>
     <option value='DIA'>denver, co</option>
+    <option value='DIA'>denver, co - updn</option>
+    <option value='DIA'>denver, co - civic center</option>
+    <option value='DIA'>denver, co - rhino</option>
+    <option value='DIA'>denver, co - cap hill</option>
+    <option value='DIA'>denver, co - lodo</option>
+    <option value='DIA'>denver, co - larimer square</option>
     </optgroup>
     </select></p>
     <% else %>
@@ -74,7 +80,7 @@ input { }
 <script>
     $(function() {
 	    <% if params.has_key? :usr %>
-	$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/comms/welcome?mode=" + $('#type').val() + "&sponsor=<%= @me.attr['uid'] %>&usr=<%= params[:usr] %>&zone=<%= @me.attr['zone'] %>");
+	$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/comms/welcome?mode=" + $('#type').val() + "&sponsor=<%= @me.attr['uid'] %>&usr=<%= params[:usr] %>&zone=<%= @me.attr['zone'] %>&hire=true");
 	    <% else %>
 	    <% if @me.id == ENV['PHONE_ADMIN'] %>
 	$(document).on('change', 'select', function() {

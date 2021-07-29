@@ -82,18 +82,21 @@ module NOMADIC
         end
         
         if params.has_key? :magic
-          Redis.new.publish('DEBUG.post.magin', "#{params}")
+          Redis.new.publish('DEBUG.post.magic', "#{params}")
           u = @here.ticket(params[:tok]).active?('token')
           us = @here.cloud.user(params[:usr])
           params[:magic].each_pair { |k,v| us.attr[k] = v }
         end
 
-        if params.has_key? :accept
-          Redis.new.publish('DEBUG.post.accept', "#{params}")
-          us = @here.cloud.user(params[:From])
-          params[:accept].each_pair { |k,v| us.attr[k] = v }
+        if params.has_key? :create
+          Redis.new.publish('DEBUG.post.create', "#{params}")
+          if params[:hire] == true && Redis::HashKey.new('uid')[params[:create][:usr]]
+            @here.cloud.hire!(params[:create][:sponsor], params[:From])
+            @here.cloud.hire!(params[:create][:zone], params[:From])
+            us = @here.cloud.user(params[:From])
+            us.sponsors << params[:create][:sponsor]
+          end
         end
-        
         
         Redis.new.publish('DEBUG.post.post', "#{params}")
         redirect params[:goto]

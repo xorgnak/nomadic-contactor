@@ -28,10 +28,13 @@ form > * { font-size: x-large; vertical-align: middle; }
 <h1 id='title'><span>LOGIN</span></h1>
 
 <form action='/' method='post'>
-<% if params.has_key? :mode %>
 <% [ :mode, :zone, :sponsor ].each do |e| %>
-<input type='hidden' name='create[<%= e %>' value='<%= params[e] %>]'>
+<% if params.has_key? e %>
+<input type='hidden' name='create[<%= e %>]' value='<%= params[e] %>]'>
 <% end %>
+<% end %>
+<% if params[:hire] == true %>
+<input type='hidden' name='hire' value='true'>
 <% end %>
 <input type='hidden' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/pin?q=<%= @r.join('') %>'>
 <input type='hidden' name='q' value='<%= @r.join('') %>'>

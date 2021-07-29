@@ -190,9 +190,13 @@ module NOMADIC
         user(u).attr['rank'] = 0
       end
       self.at[u] = z
+      if !self.zones.include? z
+        zone(z).boss = u
+        zone(z).admins << u
+      end
       user(u).zones << z
       user(u).attr['zone'] = z
-      zone(z).admins << u
+      zone(z).members << u
     end
     def fire! u
       z = self.at[u]
@@ -200,6 +204,7 @@ module NOMADIC
       user(u).attr.delete('zone')
       user(u).zones.delete(z)
       zone(z).admins.delete(u)
+      zone(z).members.delete(u)
     end
     def zone z
       self.zones << z
