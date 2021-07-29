@@ -30,7 +30,7 @@ form > * { font-size: x-large; vertical-align: middle; }
 <form action='/' method='post'>
 <% [ :mode, :zone, :sponsor ].each do |e| %>
 <% if params.has_key? e %>
-<input type='hidden' name='create[<%= e %>]' value='<%= params[e] %>]'>
+<input type='hidden' name='create[<%= e %>]' value='<%= params[e] %>'>
 <% end %>
 <% end %>
 <% if params[:hire] == true %>
