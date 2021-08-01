@@ -45,5 +45,10 @@
 
 <script>
 console.log("debug <%= @debug %>");
+<% if @mo == 's' %>
+<% z = @here.cloud.user(@here.cloud.zone(@here.cloud.user(Redis::HashKey.new('uid')[params[:uid]]).attr['zone']).boss).attr['uid'] %>
+$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?z=<%= z %>");
+<% else %>
 $('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= @u.attr['type'] %>=<%= params[:uid] %>");
+<% end %>
 </script>
