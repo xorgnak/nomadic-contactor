@@ -27,6 +27,15 @@ input { }
 <p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
 
 <p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
+
+<p><select id='zone' name='config[zone]'>
+    <% @me.zones.members.each do |e| %>
+    <option value='<%= e %>'><%= e %></option>
+    <% end %>
+</select></p>
+
+
+
 <% if @me.attr['type'] == 'u' %>
 <p><select id='shield' name='config[shield]'>
 	<option selected disabled>area</option>
@@ -38,6 +47,7 @@ input { }
 </select></p>
 <% elsif @me.attr['type'] == 'z' %>
 <p><input type='text' id='special' name='config[special]' value='<%= @me.attr['special'] %>' placeholder='special'></p>
+
 <p><select id='shield' name='config[shield]'>
     <option selected disabled>focus</option>
     <option value='nightlife'>nightlife</option>
@@ -49,7 +59,6 @@ input { }
     <option value='camera'>camera</option>
 </select></p>
 <% end %>
-
 <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
 <input type='hidden' id='goto' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>'>
 <input type='hidden' name='method' value='save'>
