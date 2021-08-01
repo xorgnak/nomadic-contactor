@@ -11,11 +11,10 @@ form > * { font-size: x-large; vertical-align: middle; }
 #focus {
     padding: 3%;
     border: none;
-    width: 100%;
+    width: 80%;
 }
 
 #click {
-    margin-left: -30%;
     width: 20%;
     border-radius: 20px;
 }
@@ -39,6 +38,6 @@ form > * { font-size: x-large; vertical-align: middle; }
 <input type='hidden' name='goto' value='https://<%= ENV['DOMAIN'] %>/comms/pin?q=<%= @r.join('') %>'>
 <input type='hidden' name='q' value='<%= @r.join('') %>'>
 <p id='help'><span>use format <code>+12345551212</code></span></p>
-<input id='focus'  type='tel' name='From' placeholder='phone' pattern="\+1[0-9]{10}" autofocus>
-<button id='click' class='material-icons'>sms_failed</button>
+<p><input id='focus'  type='tel' name='From' placeholder='phone' pattern="\+1[0-9]{10}" autofocus>
+<button id='click' class='material-icons'>sms_failed</button></p>
 </form>
