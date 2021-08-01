@@ -72,7 +72,7 @@ hlp { display: inline; }
     <p id='badges'>
     <% @badges.each_pair do |k,v| %>
     <span class='badge'>
-      <span class='material-icons icon'><%= @here.badge(@me.id).badges.icon[k] %></span>
+      <span class='material-icons icon'><%= @here.badge(@me.id).icon[k] %></span>
       <span class='amount'><%= v %></span>
     </span>
     <% end %>
