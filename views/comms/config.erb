@@ -24,25 +24,33 @@ input { }
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
   <p><input type='text' id='name' name='config[name]' value='<%= @me.attr['name'] %>' placeholder='name'></p>
   <p><input type='text' id='tagline' name='config[tagline]' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
-  
-  <% if @me.attr['type'] != 's' %>
   <p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
   <p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
+
+  <% if @me.attr['type'] != 's' %>
   <p><select id='zone' name='config[zone]'>
       <% @me.zones.members.each do |e| %>
       <option value='<%= e %>'><%= e %></option>
       <% end %>
   </select></p>
   <% end %>
-  
+
   <% if @me.attr['type'] == 'u' %>
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>area</option>
-	<option value='green'>road</option>
+      <option value='green'>road</option>
       <option value='yellow'>tour</option>
       <option value='blue'>garage</option>
       <option value='purple'>media</option>
       <option value='red'>office</option>
+  </select></p>
+  <% elsif @me.attr['type'] == 's' %>
+  <p><select id='shield' name='config[shield]'>
+      <option selected disabled>area</option>
+      <option value='yellow'>front of house</option>
+      <option value='blue'>back of house</option>
+      <option value='purple'>operations</option>
+      <option value='red'>security</option>
   </select></p>
   <% elsif @me.attr['type'] == 'z' %>
   <p><input type='text' id='special' name='config[special]' value='<%= @me.attr['special'] %>' placeholder='special'></p>
@@ -55,6 +63,13 @@ input { }
       <option value='directions'>directions</option>
       <option value='party'>party</option>
       <option value='camera'>camera</option>
+  </select></p>
+  <% elsif @me.attr['type'] == 'i' %>
+  <p><select id='shield' name='config[shield]'>
+      <option selected disabled>role</option>
+      <option value='orange'>main</option>
+      <option value='green'>support</option>
+      <option value='purple'>background</option>
   </select></p>
   <% end %>
   
