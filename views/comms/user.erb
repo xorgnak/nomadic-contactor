@@ -69,12 +69,17 @@ hlp { display: inline; }
     <% kk = k.split(':'); @users[kk[0]] += 1; @badges[kk[1]] += 1 %>
     <% end %>
     <% end %>
+    <ul id='badges'>
     <% @badges.each_pair do |k,v| %>
-    <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
+    <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
     <% end %>
+    </ul>
+    <fieldset id='fans'>
+      <legend>fans</legend>
     <% @users.each_pair do |k,v| %>
     <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
     <% end %>
+    </fieldset>
   </fieldset>
 </div>
 <!--
