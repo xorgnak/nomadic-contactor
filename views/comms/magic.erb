@@ -32,7 +32,7 @@ input { }
 <% @b = @here.badge(@usr) %>
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
     <h3><%= @usr.attr['uid'] %></h3>
-    <input type='hidden' name='usr' value='<%= @usr.id %>'>
+    <input type='hidden' name='usr' value='<%= @usr.attr['uid'] %>'>
 <div id='fields'>
 <% if params.has_key? :boss %>
 <p>
@@ -65,6 +65,5 @@ input { }
   $(function() {
   $("#border").val('<%= @usr.attr['border'] %>');
   $("#type").val('<%= @usr.attr['type'] %>');
-  <%=  %>
   });
 </script>
