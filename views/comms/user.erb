@@ -83,18 +83,16 @@ hlp { display: inline; }
     </span>
     </legend>
     <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
-    <% if v.to_i > 0 %>
+    <% if v.to_i > 0 && k != 'like' %>
     <% kk = k.split(':'); @users[kk[0]] += 1; @badges[kk[1]] += 1 %>
     <% end %>
     <% end %>
     <p id='badges'>
       <% @badges.each_pair do |k,v| %>
-      <% if k != 'like' %>
     <span class='badge'>
       <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
       <span class='amount'><%= v %></span>
     </span>
-    <% end %>
     <% end %>
     </p>
     <fieldset id='fans'>
