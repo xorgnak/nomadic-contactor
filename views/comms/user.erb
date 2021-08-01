@@ -35,8 +35,8 @@ li { list-style: none; }
 hlp { display: inline; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
-<% @here.ticket(params[:tok]).activate(name: 'token', ttl: 60 * 60 * 24 * 7, value: u); %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
+<% @here.ticket(params[:tok]).activate(name: 'token', ttl: 60 * 60 * 24 * 7, value: @me.id ); %>
 
 <form style='height: 100vh; width: 100vw;'>
     <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
