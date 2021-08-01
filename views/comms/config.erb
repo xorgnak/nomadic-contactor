@@ -106,7 +106,8 @@ input { }
 <script>
   $(function() {
   $('#shield').val('<%= @me.attr['shield'] %>');
-  $(document).on('click', '#add-campaign', function() {
+  $(document).on('click', '#add-campaign', function(ev) {
+  ev.preventDefault();
   $('.new-campaign').show();
   $('#add-campaign').hide();
   $('#add-new-campaign').show();
