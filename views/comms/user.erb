@@ -118,16 +118,16 @@ function tick() {
 		var oo = o[1].split('=');
 		var ty = 'rando';
 		if (oo[0] == 'i') {
-		    ty = 'influencer'
+		    ty = "influencer"
 		} else if (oo[0] == 'z') {
 		    ty = "sponsor"
 		} else if (oo[0] == 'u') {
-		    ty = 'rider'
+		    ty = "rider"
 		}
 		console.log(oo)
 		$('#zap').attr('href', zap + "&usr=" + oo[1]);
 		if ( ty == 'rider' ) {
-		    $('#rsvp').attr('href', rsvp + "&usr=" + 00[1]);
+		    $('#rsvp').attr('href', rsvp + "&usr=" + oo[1]);
 		    $('#rsvp').css('background-color', 'orange');
 		} else {
 		    $('#rsvp').css('background-color', 'grey');
