@@ -60,6 +60,15 @@ hlp { display: inline; }
 <div id='output'>
   <fieldset id='output'>
     <legend id='nameplate'>
+      <% if @me.attr['type'] == 'u' %>
+      <span id='type' class='material-icons'>bike_scooter</span>
+      <% elsif @me.attr['type'] == 'i' %>
+      <span id='type' class='material-icons'>campaign</span>
+      <% elsif @me.attr['type'] == 'z' %>
+      <span id='type' class='material-icons'>local_activity</span>
+      <% else %>
+      <span id='type' class='material-icons'>sentiment_satisfied</span>
+      <% end %>
     <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <span id='name'><%= @me.attr['name'] %></span>
     <% else %>
