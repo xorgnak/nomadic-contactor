@@ -35,7 +35,7 @@ input { }
     <input type='hidden' name='usr' value='<%= @usr.attr['uid'] %>'>
 <div id='fields'>
 <p>
-<% if params[:boss] > 0 %>
+<% if params[:boss].to_i > 0 %>
 <select id='border' name='magic[border]'>	
   <option value='red'>new</option>
   <option value='green' selected>general</option>
@@ -44,7 +44,7 @@ input { }
   <option value='gold'>god</option>
 </select>
 <select id='type' name='magic[type]'>
-  <% if params[:boss] > 1 %>	
+  <% if params[:boss].to_i > 1 %>	
   <option value='u'>rider</option>
   <option value='z'>sponsor</option>
   <% end %>
@@ -52,7 +52,7 @@ input { }
   <option value='s'>staff</option>
 </select>
 <% end %>
-<% if params[:boss] > 0 %>
+<% if params[:boss].to_i > 0 %>
 <input type='number' id='lvl' name='magic[lvl]' value='<%= @usr.attr['lvl'] %>'>
 <% end %>
 </p>
