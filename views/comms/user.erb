@@ -48,16 +48,18 @@ hlp { display: inline; }
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
     <div id='output'>
-    <ul>
+      <fieldset>
+	<legend>attributes</legend>
     <% @me.attr.all.each_pair do |k,v| %>
-    <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
+    <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
     <% end %>
-    </ul>
-    <ul>	
+    </fieldset>
+      <fieldset>
+	<legend>statistics</legend>
       <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
-      <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
+      <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
       <% end %>		  
-    </ul>
+    </fieldset>
     <!--
 	<% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <h4>hello, <%= @me.attr['name'] %></h4>
