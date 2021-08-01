@@ -79,8 +79,10 @@
 </h1>
 
 <% if @mo == 'Z' %>
-<h1 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h1>
-<h2 id='foot' class='i'><%= @a['special'] || 'come back and see us again soon!' %></h2>
+<div id='foot'>
+<h1 class='i'><%= @a['tagline'] || 'thanks!' %></h1>
+<h2 class='i'><%= @a['special'] || 'come back and see us again soon!' %></h2>
+</div>
 <% else %>
 <h2 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h2>
 <% end %>
