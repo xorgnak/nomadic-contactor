@@ -2,7 +2,7 @@
 <% if params.has_key?(:z); @mo = 'Z'; @id = params[:z]; end %>
 <% if params.has_key?(:i); @mo = 'I'; @id = params[:i]; end %>
 <% @ts = Time.now.utc.to_i %>
-<% @user = Redis::HashKey.new("uid")[params[:u]] %>
+<% @user = Redis::HashKey.new("uid")[@id] %>
 <% @u = @here.cloud.user(@user) %>
 <% @b = @here.badge(@user) %>
 <% @a = @u.attr.all %>
