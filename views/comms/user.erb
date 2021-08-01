@@ -49,7 +49,7 @@ hlp { display: inline; }
 </h1>
     <div id='output'>
     <ul>
-    <% @me.attr.each_pair do |k,v| %>
+    <% @me.attr.all.each_pair do |k,v| %>
     <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
     <% end %>
     </ul>
