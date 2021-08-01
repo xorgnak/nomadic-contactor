@@ -64,17 +64,21 @@ input { }
     </select>
     <button id="add-campaign" class='material-icons'>add_circle</button>
     <button type='submit' id="add-new-campaign" class='material-icons new-campaign'>add_circle_outline</button>
-  <textarea class='new-campaign' name='campaign[offer]' placeholder='add your new special offer...'></textarea>
-  <select id='good' class='new-campaign' name='campaign[good]' required>
+    </p>
+    <p><textarea class='new-campaign' name='campaign[offer]' placeholder='add your new special offer...'></textarea></p>
+    
+  <p><select id='good' class='new-campaign' name='campaign[good]' required>
       <option selected disabled>good</option>
       <option value='before'>before</option>
       <option value='after'>after</option>
       <option value='times'>times</option>
       <option value='when'>when</option>
-    </select>
-    <input type='datetime' class='good' id='good-time' name='campaign[good]' placeholder='valid'>
+    </select></p>
+  <p>
+    <input type='datetime-local' class='good' id='good-time' name='campaign[good]' placeholder='valid'>
     <input type='number' class='good' id='good-times' name='campaign[good]' placeholder='times'>
     <input type='text' class='good' id='good-when' name='campaign[good]' placeholder='condition'>
+    </p>
   </p>
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>focus</option>
