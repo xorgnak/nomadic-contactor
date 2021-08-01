@@ -48,6 +48,7 @@ module NOMADIC
     # jobs assigned to user.
     set :sponsors
     set :jobs
+    set :campaigns
     def initialize i
       @id = i
     end
