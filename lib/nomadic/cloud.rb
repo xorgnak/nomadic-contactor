@@ -14,6 +14,8 @@ module NOMADIC
     set :members
     # group special offers
     hash_key :code
+    # stats
+    sorted_set :stat
     def initialize i
       @id = i 
     end
