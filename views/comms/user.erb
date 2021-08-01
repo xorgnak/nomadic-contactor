@@ -33,6 +33,14 @@ li { list-style: none; }
     .l { text-align: left; }
     .r { text-align: right; }
 hlp { display: inline; }
+.fan { border: thick solid black; }
+.fan-1 { border: thick solid blue; }
+.fan-2 { border: thick solid green; }
+.fan-3 { border: thick solid yellow; }
+.fan-4 { border: thick solid orange; }
+.fan-5 { border: thick solid red; }
+.fan-6 { border: thick solid purple; }
+.fan-7 { border: thick solid gold; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
@@ -79,8 +87,8 @@ hlp { display: inline; }
     </p>
     <fieldset id='fans'>
       <legend>fans</legend>
-    <% @users.each_pair do |k,v| %>
-    <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
+      <% @users.each_pair do |k,v| %>
+      <a class='fan fan-<%= v %>' href='#<%= k %>'><%= k %></a>
     <% end %>
     </fieldset>
   </fieldset>
