@@ -92,22 +92,22 @@ module NOMADIC
         if params.has_key? :magic
           uid = @here.cloud.user(@here.ticket(params[:tok]).active?('token')).attr['uid']
           if params.has_key? :usr
-            us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
+            @us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
           else
-            us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
+            @us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
           end
           Redis.new.publish('DEBUG.post.magic', "#{params}")
           [:nightlife, :food, :art, :music, :directions, :party, :camera ].each { |e|
             if params.has_key?("badge-#{e}");
-              us.stat["#{uid}:#{e}"] = 1;
+              @us.stat["#{uid}:#{e}"] = 1;
             else
-              us.stat["#{uid}:#{e}"] = 0;
+              @us.stat["#{uid}:#{e}"] = 0;
             end
           }
           l = 0
-          us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
-          us.attr['lvl'] = l
-          params[:magic].each_pair { |k,v| us.attr[k] = v }
+          @us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
+          @us.attr['lvl'] = l
+          params[:magic].each_pair { |k,v| @us.attr[k] = v }
         end
 
         
