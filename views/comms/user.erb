@@ -49,12 +49,13 @@ hlp { display: inline; }
 </h1>
 <div id='output'>
   <fieldset>
+    <legend>
     <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
-    <span id='name'>id: <%= @me.attr['name'] %></span>
+    <span id='name'><%= @me.attr['name'] %></span>
     <% else %>
-    <span id='name'>name:<%= @me.attr['uid'] %></span>
+    <span id='name'>Ux<%= @me.attr['uid'] %></span>
     <% end %>
-    <span id='lvls'><span id='level'><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></span><span id='lvl'><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></span></span><legend>
+    <span id='lvls'><span id='level'><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></span><span id='lvl'><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></span></span></legend>
       <fieldset class='hlp'>
 	<legend>help</legend>
 	<% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
