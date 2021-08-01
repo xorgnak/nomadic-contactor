@@ -20,9 +20,12 @@
       border-radius: 0 0 0 20px;
   }
 #badge { text-decoration: none; }
+
 #team > .t { display: block; color: grey; }
-  .s { padding: 25% 0 25% 0; font-size: xx-large; }
-  #name {
+
+.s { padding: 25% 0 25% 0; font-size: xx-large; }
+
+#name {
     position: fixed;
     left: 0;
     top: 0;
@@ -31,9 +34,12 @@
       border-radius: 0 0 20px 0px;
       background-color: rgba(0, 0, 0, 0.5);
   }
-  #id { background-color: black; color: white; }
-  #skills { display: none; text-align: left; }
-  .ic {
+
+#id { background-color: black; color: white; }
+
+#skills { display: none; text-align: left; }
+
+.ic {
   color: black;
   padding: 1%;
   border: thick solid black;
@@ -42,13 +48,17 @@
   display: inline;
   width: min-content;
   }
-  #skills > * {
+
+#skills > * {
   display: block;
   margin: 1%;
   }
-  #foot { position: fixed; bottom: 30%; width: 100%; padding: 2% 0 2% 0; background-color: black; color: white; }
-  #nav { position: fixed; bottom: 0; width: 100%; }
-  .nav {
+
+#foot { position: fixed; bottom: 30%; width: 100%; padding: 2% 0 2% 0; background-color: black; color: white; }
+
+#nav { position: fixed; bottom: 0; width: 100%; }
+
+.nav {
   width: 20%;
   border: thick solid white;
   border-radius: 15px;
@@ -58,7 +68,6 @@
   margin: 2%;
   }
 
-#pig { background-color: black; color: pink; }
 </style>
 
 <img id='bg' src='<%= @a['img'] || '/bg.img' %>'>
@@ -73,10 +82,13 @@
     <% if params.has_key? :like %>
     <% if @mo == 'Z' %>
     <% @here.cloud.zone(@u.attr['zone']).stat.incr('like') %>
+    <% @count = @here.cloud.zone(@u.attr['zone']).stat['like'] %>
     <% else %>
     <% @u.stat.incr('like') %>
+    <% @count = @u.attr['like'] %>
     <% end %>
-    <a href='#' id='badge' class='material-icons s badge' style='color: gold;'>star</a>
+    
+    <span id='badge'><span id='count'><%= @count %></span><span href='#' class='material-icons s badge' style='color: gold;'>star</span></span>
 <% else %>
   <a href='https://<%= ENV['DOMAIN'] %>/q/m?<%= @mo.downcase %>=<%= @id %>&ts=<%= @ts %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
   <% end %>
@@ -87,12 +99,10 @@
 <div id='foot'>
 <h1 class='i'><%= @a['tagline'] || 'thanks!' %></h1>
 <h2 class='i'><%= @a['special'] || 'come back and see us again soon!' %></h2>
-<h1><span class='material-icons s badge' style='color: gold;'>star</span><span><%= @here.cloud.zone(@u.attr['zone']).stat['like'] %></span></h1>
 </div>
 <% else %>
 <div id='foot'>
 <h1 class='i'><%= @a['tagline'] || 'thanks!' %></h1>
-<h1><span class='material-icons s badge' style='color: gold;'>star</span><span><%= @u.stat['like'] %></span></h1>
 </div>
 <% end %>
 <nav id='nav' class='i'>
