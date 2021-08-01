@@ -47,8 +47,7 @@ hlp { display: inline; }
     <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
-<div id='output'>
-  <fieldset>
+  <fieldset id='output'>
     <legend>
     <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <span id='name'><%= @me.attr['name'] %></span>
@@ -69,7 +68,6 @@ hlp { display: inline; }
       <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
           <% end %>
   </fieldset>
-</div>
 </form>
     <script>
     var hi = $('#output').html();
