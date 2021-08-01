@@ -47,38 +47,27 @@ hlp { display: inline; }
     <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
-    <div id='output'>
-      <fieldset>
-	<legend>attributes</legend>
-    <% @me.attr.all.each_pair do |k,v| %>
-    <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
+<div id='output'>
+  <fieldset>
+    <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
+    <span id='name'>id: <%= @me.attr['name'] %></span>
+    <% else %>
+    <span id='name'>name:<%= @me.attr['uid'] %></span>
     <% end %>
-    </fieldset>
-      <fieldset>
-	<legend>statistics</legend>
+    <span id='lvls'><span id='level'><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></span><span id='lvl'><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></span></span><legend>
+      <fieldset class='hlp'>
+	<legend>help</legend>
+	<% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
+	<p class='r'><span>zap</span><span class='material-icons'>auto_fix_high</span></p>
+	<p class='r'><span>invite</span><span class='material-icons'>mail</span></p>
+	<% end %>
+	<p class='r'><span>settings</span><span class='material-icons'>settings</span></p>
+	<p class='r'><span>badge</span><span class='material-icons'>badge</span></p>
+	  </fieldset>
       <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
       <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
-      <% end %>		  
-    </fieldset>
-    <!--
-	<% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
-    <h4>hello, <%= @me.attr['name'] %></h4>
-    <% else %>
-    <h4>welcome, <%= @me.attr['uid'] %></h4>
-    <% end %>
-    <ul>
-    <li class='l'><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></li>
-    <li class='l'><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></li>
-    </ul>
-    <ul class='hlp'>
-    <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
-    <li class='r'><span>zap</span><span class='material-icons'>auto_fix_high</span></li>
-    <li class='r'><span>invite</span><span class='material-icons'>mail</span></li>
-    <% end %>
-    <li class='r'><span>settings</span><span class='material-icons'>settings</span></li>
-    <li class='r'><span>badge</span><span class='material-icons'>badge</span></li>
-    </ul>
-    -->
+          <% end %>
+  </fieldset>
 </div>
 </form>
     <script>
