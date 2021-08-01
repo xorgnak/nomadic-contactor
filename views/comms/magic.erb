@@ -29,7 +29,7 @@ input { }
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 <% if params.has_key?(:usr); @usr = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]]); else @usr = @here.cloud.user(@me); end %>
-<% @b = @here.badge(@usr) %>
+<% @b = @here.badge(@usr.id) %>
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
     <h3><%= @usr.attr['uid'] %></h3>
     <input type='hidden' name='usr' value='<%= @usr.attr['uid'] %>'>
