@@ -27,7 +27,7 @@ input { }
 <p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
 
 <p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
-<% if @me.attr['type'] == u %>
+<% if @me.attr['type'] == 'u' %>
 <p><select id='shield' name='config[shield]'>
 	<option selected disabled>area</option>
 	<option value='green'>road</option>
@@ -37,6 +37,7 @@ input { }
 	<option value='red'>office</option>
 </select></p>
 <% elsif @me.attr['type'] == 'z' %>
+<p><input type='text' id='description' name='config[description]' value='<%= @me.attr['description'] %>' placeholder='description'></p>
 <p><select id='shield' name='config[shield]'>
     <option selected disabled>focus</option>
     <option value='nightlife'>nightlife</option>
