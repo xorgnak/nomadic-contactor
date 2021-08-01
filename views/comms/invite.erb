@@ -26,7 +26,7 @@ input { }
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 <form action='/' method='post' style='height: 100vh; width: 100vw;'>
     <% if !params.has_key? :usr %>
-    <% if @me.id == ENV['PHONE_ADMIN'] %>
+    <% if @here.cloud.boss?(@me.id) > 1 %>
 <p><select id='type' name='invite[type]' hidden>
     <option value='none' selected disabled>type</option>   
     <option value='rider'>rider</option>
@@ -36,30 +36,9 @@ input { }
   </select></p>
   <p><select id='area' name='invite[area]'>
     <option value='none' selected disabled>area</option>
-    <optgroup label='zone 4'>
-      <option value='MBC'>myrtle beach, sc</option>
-      <option value='MIA'>maimi, fl</option>
-    </optgroup>
-    <optgroup label='zone 3'>
-    <option value='ROC'>rochester, ny</option>
-    <option value='BNA'>buffalo, ny</option>
-    <option value='DTW'>detroit, mi</option>
-    </optgroup>
-    <optgroup label='zone 2'>
-    <option value='BNA'>nashville, tn</option>
-    <option value='JCK'>jackson, ms</option>
-    <option value='NLA'>new oreleans, la</option>
-    <option value='AST'>austin, tx</option>
-    </optgroup>
-    <optgroup label='zone 1'>
-    <option value='DIA'>denver, co</option>
-    <option value='DIA'>denver, co - updn</option>
-    <option value='DIA'>denver, co - civic center</option>
-    <option value='DIA'>denver, co - rhino</option>
-    <option value='DIA'>denver, co - cap hill</option>
-    <option value='DIA'>denver, co - lodo</option>
-    <option value='DIA'>denver, co - larimer square</option>
-    </optgroup>
+    <% @here.cloud.zones.members.each do |e| %>
+    <option value='<%= e %>'><%= e %></option>
+    <% end %>
     </select></p>
     <% else %>
     <p><select id='type' name='invite[type]'>
@@ -68,7 +47,7 @@ input { }
     <option value='influencer'>influencer</option>
       </select></p>
     <% end %>
-    <% else %>
+    <% elsif @here.cloud.boss?(@me.id) > 0 %>
     <p><select id='type' name='invite[type]'>
 	<option value='rider' selected>rider</option>
 	<option value='influencer'>influencer</option>

@@ -173,7 +173,14 @@ module NOMADIC
       user(u).jobs.delete(i)
     end
     def boss? u
-      u == ENV['PHONE_ADMIN']
+      r = 0
+      b = Set.new; self.zones.members.each { |e| }
+      if u == ENV['PHONE_ADMIN']
+        r = 2
+      elsif b.include? u
+        r = 1
+      end
+      return r
     end
     def admin? u
       self.at.has_key? u
