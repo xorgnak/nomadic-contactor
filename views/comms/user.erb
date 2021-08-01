@@ -121,7 +121,9 @@ hlp { display: inline; }
     var hi = $('#output').html();
 var zap = '/comms/magic?tok=<%= params[:tok] %>'
     <% if @me.id == ENV['PHONE_ADMIN'] %>
-    zap += "&boss=1";
+    zap += "&boss=2";
+    <% elsif @here.cloud.admin?(@me.id) %>
+    zap += "&boss=1"
 <% end %>
 var rsvp = '/comms/invite?tok=<%= params[:tok] %>'
 var video = document.createElement("video");
