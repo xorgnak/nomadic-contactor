@@ -90,9 +90,12 @@ module NOMADIC
         end
         
         if params.has_key? :magic
-          us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
+          if params.has_key? :usr
+            us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
+          else
+            us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
+          end
           Redis.new.publish('DEBUG.post.magic', "#{params}")
-          params[:magic].each_pair { |k,v| us.attr[k] = v }
           [:nightlife, :food, :art, :music, :directions, :party, :camera ].each { |e|
             if params.has_key?("badge-#{e}");
               us.stat["#{params[:tok]}:#{e}"] = 1;
@@ -103,6 +106,7 @@ module NOMADIC
           l = 0
           us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
           us.attr['lvl'] = l
+          params[:magic].each_pair { |k,v| us.attr[k] = v }
         end
 
         
