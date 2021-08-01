@@ -69,11 +69,14 @@ hlp { display: inline; }
     <% kk = k.split(':'); @users[kk[0]] += 1; @badges[kk[1]] += 1 %>
     <% end %>
     <% end %>
-    <ul id='badges'>
+    <p id='badges'>
     <% @badges.each_pair do |k,v| %>
-    <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
+    <span class='badge'>
+      <span class='material-icons icon'><%= @here.badge(@me.id).badges.icon[k] %></span>
+      <span class='amount'><%= v %></span>
+    </span>
     <% end %>
-    </ul>
+    </p>
     <fieldset id='fans'>
       <legend>fans</legend>
     <% @users.each_pair do |k,v| %>

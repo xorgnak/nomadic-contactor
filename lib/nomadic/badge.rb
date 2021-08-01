@@ -36,6 +36,9 @@ module NOMADIC
     def [] k
       COLORS[@u.stat[k].to_i]
     end
+    def icon
+      BADGES
+    end
     def badges
       r = []
       BADGES.each_pair do |b, i|
