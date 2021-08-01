@@ -17,6 +17,9 @@ select { width: 60%; }
 input { }
 .fr {float: right; }
 #ready { }
+.new-campaign { display: none; }
+.good { display: none; }
+
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
@@ -53,7 +56,25 @@ input { }
       <option value='red'>security</option>
   </select></p>
   <% elsif @me.attr['type'] == 'z' %>
-  <p><input type='text' id='special' name='config[special]' value='<%= @me.attr['special'] %>' placeholder='special'></p>
+  <p><select id='shield' name='config[shield]'>
+      <option selected disabled>focus</option>
+      <% @me.campaigns.members.each do |e| %>
+      <option value='<%= e %>'><%=  %></option>
+    </select>
+    <button id="add-campaign" class='material-icons'>plus</button>
+    <button type='submit' id="add-new-campaign" class='material-icons new-campaign'>plus</button>
+  <textarea class='new-campaign' name='campaign[offer]' placeholder='add your new special offer...'></textarea>
+  <select id='good' class='new-campaign' name='campaign[good]' required>
+      <option selected disabled>good</option>
+      <option value='before'>before</option>
+      <option value='after'>after</option>
+      <option value='times'>times</option>
+      <option value='when'>when</option>
+    </select>
+    <input type='datetime' class='good' id='good-time' name='campaign[good]' placeholder='valid'>
+    <input type='number' class='good' id='good-times' name='campaign[good]' placeholder='times'>
+    <input type='text' class='good' id='good-when' name='campaign[good]' placeholder='condition'>
+  </p>
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>focus</option>
       <option value='nightlife'>nightlife</option>
@@ -84,5 +105,21 @@ input { }
 <script>
   $(function() {
   $('#shield').val('<%= @me.attr['shield'] %>');
+  $(document).on('click', '#add-campaign', function() {
+  $('.new-campaign').show();
+  $('#add-campaign').hide();
+  $('#add-new-campaign').show();
+  })
+  $(document).on('change', '#good', function() {
+  var g = $('#good').val();
+  $('.good').hide();
+  if (g == 'when') {
+  $('#good-when').show();
+  } else if (g == 'times') {
+  $('#good-times').show();
+  } else {
+  $('#good-time').show();
+  }
+  });
 });
 </script>
