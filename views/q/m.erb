@@ -85,16 +85,15 @@
     <% @count = @here.cloud.zone(@u.attr['zone']).stat['like'] %>
     <% else %>
     <% @u.stat.incr('like') %>
-    <% @count = @u.attr['like'] %>
+    <% @count = @u.stat['like'] %>
     <% end %>
-    
-    <span id='badge'><span id='count'><%= @count %></span><span href='#' class='material-icons s badge' style='color: gold;'>star</span></span>
+    <span id='badge'><span id='count'><%= @count.to_i %></span><span href='#' class='material-icons s badge' style='color: gold;'>star</span></span>
 <% else %>
   <a href='https://<%= ENV['DOMAIN'] %>/q/m?<%= @mo.downcase %>=<%= @id %>&ts=<%= @ts %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
   <% end %>
   </span>
 </h1>
-
+OA
 <% if @mo == 'Z' %>
 <div id='foot'>
 <h1 class='i'><%= @a['tagline'] || 'thanks!' %></h1>
