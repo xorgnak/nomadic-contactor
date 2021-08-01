@@ -67,7 +67,7 @@ module NOMADIC
           if @here.ticket(params[:q] + ':pin').active?('challange') == params[:a]
             u = @here.ticket(params[:q]).active?('challange')
             @here.ticket(u).activate(name: 'token', ttl: 60 * 60 * 24, value: params[:q]);
-            @here.ticket(params[:q]).activate(name: 'token', ttl: 60 * 60 * 24, value: u);
+            @here.ticket(params[:q]).activate(name: 'token', ttl: 60 * 60 * 24 * 7, value: u);
             if params.has_key? :create
               Redis.new.publish('DEBUG.post.create', "#{params}")
               if params[:hire] == 'true'
@@ -85,20 +85,24 @@ module NOMADIC
            
         if params.has_key? :config
           Redis.new.publish('DEBUG.post.config', "#{params[:config]}")
-          u = @here.ticket(params[:tok]).active?('token')
-          us = @here.cloud.user(u)
+          us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
           params[:config].each_pair { |k,v| us.attr[k] = v }
         end
         
         if params.has_key? :magic
+          us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
           Redis.new.publish('DEBUG.post.magic', "#{params}")
-          u = @here.ticket(params[:tok]).active?('token')
-          us = @here.cloud.user(params[:usr])
           params[:magic].each_pair { |k,v| us.attr[k] = v }
+          [].each { |e| if params.has_key?("badge-" + e); us.stat["#{params[:tok]}:#{e}"] = 1 }
+          l = 0
+          us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
+          us.attr['lvl'] = l
         end
 
         
+        
         Redis.new.publish('DEBUG.post.post', "#{params}")
+       
         redirect params[:goto]
       end
     end

@@ -1,7 +1,7 @@
 <% if params.has_key?(:u); @mo = 'U'; @id = params[:u]; end %>
 <% if params.has_key?(:z); @mo = 'Z'; @id = params[:z]; end %>
 <% if params.has_key?(:i); @mo = 'I'; @id = params[:i]; end %>
-
+<% @ts = Time.now.utc.to_i %>
 <% @user = Redis::HashKey.new("uid")[params[:u]] %>
 <% @u = @here.cloud.user(@user) %>
 <% @b = @here.badge(@user) %>
@@ -61,7 +61,7 @@
 #pig { background-color: black; color: pink; }
 </style>
 
-<img id='bg' src='/bg.img'>
+<img id='bg' src='<%= @a['img'] || '/bg.img' %>'>
 
 <h1 id='head' class='i'>
     <% if @a.has_key? 'name' %>
@@ -73,13 +73,17 @@
     <% if params.has_key? :like %>
     <a href='#' id='badge' class='material-icons s badge' style='color: gold;'>star</a>
 <% else %>
-  <a href='https://<%= ENV['DOMAIN'] %>//q/m?<%= @mo %>=<%= @id %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
+  <a href='https://<%= ENV['DOMAIN'] %>//q/m?<%= @mo %>=<%= @id %>&ts=<%= @ts %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
   <% end %>
   </span>
 </h1>
 
+<% if @a['type'] == 'z' %>
+<h1 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h1>
+<h2 id='foot' class='i'><%= @a['special'] || 'come back and see us again soon!' %></h2>
+<% else %>
 <h2 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h2>
-
+<% end %>
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
   <a class='material-icons nav i input' style='left: 0; background-color: green; color: white;' href='sms:<%= @u.id %>?body=I%20NEED%20A%20RIDE'>bike_scooter</a>

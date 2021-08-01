@@ -350,3 +350,27 @@ D, [2021-07-29T01:39:46.120191 #3746] DEBUG -- : No activity is over timeout, di
 D, [2021-07-29T01:39:46.120410 #3746] DEBUG -- : Disconnecting from localhost.
 D, [2021-07-29T01:39:46.123388 #3746] DEBUG -- : No activity is over timeout, disconnecting from localhost.
 D, [2021-07-29T01:39:46.123454 #3746] DEBUG -- : Disconnecting from localhost.
+D, [2021-08-01T01:30:56.759246 #9133] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-08-01T01:30:56.760381 #9133] DEBUG -- : Connection accepted
+D, [2021-08-01T01:30:56.760429 #9133] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-08-01T01:30:56.762339 #9133] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-08-01T01:30:56.762757 #9133] DEBUG -- : Connection accepted
+D, [2021-08-01T01:30:56.762787 #9133] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-08-01T01:30:56.764582 #9133] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-08-01T01:30:56.766273 #9133] DEBUG -- : Connection accepted
+D, [2021-08-01T01:30:56.766319 #9133] DEBUG -- : No previous session found by server, starting a new one.
+D, [2021-08-01T01:30:56.766520 #9133] DEBUG -- : Attempt to connect to host: localhost...
+D, [2021-08-01T01:30:56.767026 #9133] DEBUG -- : Connection accepted
+D, [2021-08-01T01:30:56.767156 #9133] DEBUG -- : No previous session found by server, starting a new one.
+I, [2021-08-01T01:30:56.780540 #9133]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-08-01T01:30:56.780710 #9133]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-08-01T01:30:56.781667 #9133]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+I, [2021-08-01T01:30:56.783412 #9133]  INFO -- : New packet PahoMqtt::Packet::Suback received.
+D, [2021-08-01T01:32:02.782006 #9133] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-08-01T01:32:02.782160 #9133] DEBUG -- : Disconnecting from localhost.
+D, [2021-08-01T01:32:02.782394 #9133] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-08-01T01:32:02.782429 #9133] DEBUG -- : Disconnecting from localhost.
+D, [2021-08-01T01:32:02.785244 #9133] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-08-01T01:32:02.785300 #9133] DEBUG -- : Disconnecting from localhost.
+D, [2021-08-01T01:32:02.787408 #9133] DEBUG -- : No activity is over timeout, disconnecting from localhost.
+D, [2021-08-01T01:32:02.787473 #9133] DEBUG -- : Disconnecting from localhost.

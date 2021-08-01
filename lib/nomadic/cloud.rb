@@ -188,7 +188,7 @@ module NOMADIC
         Redis::HashKey.new('uid')[b.join('')] = u
         user(u).attr['uid'] = b.join('')
         
-        user(u).attr['rank'] = 0
+        user(u).attr['lvl'] = 0
       end
       self.at[u] = z
       if !self.zones.include? z

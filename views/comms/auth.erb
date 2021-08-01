@@ -28,7 +28,7 @@ form > * { font-size: x-large; vertical-align: middle; }
 <h1 id='title'><span>LOGIN</span></h1>
 
 <form action='/' method='post'>
-<% [ :mode, :zone, :sponsor ].each do |e| %>
+<% [ :mode, :zone, :sponsor, :code ].each do |e| %>
 <% if params.has_key? e %>
 <input type='hidden' name='create[<%= e %>]' value='<%= params[e] %>'>
 <% end %>
@@ -42,4 +42,3 @@ form > * { font-size: x-large; vertical-align: middle; }
 <input id='focus'  type='tel' name='From' placeholder='phone' pattern="\+1[0-9]{10}" autofocus>
 <button id='click' class='material-icons'>sms_failed</button>
 </form>
-

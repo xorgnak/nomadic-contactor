@@ -3,30 +3,54 @@
     "background_color": "#f69435",
     "display": "fullscreen",
     "scope": "/",
+    <% if params.has_key? :tok %>
     "start_url": "https://<%= ENV['DOMAIN'] %>/comms/user?tok=<%= params[:tok] %>",
-    "name": "pedicab",
-    "short_name": "propedicab.com",
+    <% elsif params.has_key? :u %>
+    "start_url": "https://<%= ENV['DOMAIN'] %>/q/m?u=<%= params[:u] %>",
+    <% elsif params.has_key? :z %>
+    "start_url": "https://<%= ENV['DOMAIN'] %>/q/m?z=<%= params[:z] %>",
+    <% elsif params.has_key? :i %>
+    "start_url": "https://<%= ENV['DOMAIN'] %>/q/m?i=<%= params[:i] %>",
+    <% end %>
+    "name": "propedicab.com",
+    "short_name": "pedicab",
     "description": "the propedicab.com user interface",
     "icons": [
 	{
-	    "src": "/icon-192x192.png",
+	    "src": "\/android-icon-36x36.png",
+	    "sizes": "36x36",
+	    "type": "image\/png",
+	    "density": "0.75"
+	},
+	{
+	    "src": "\/android-icon-48x48.png",
+	    "sizes": "48x48",
+	    "type": "image\/png",
+	    "density": "1.0"
+	},
+	{
+	    "src": "\/android-icon-72x72.png",
+	    "sizes": "72x72",
+	    "type": "image\/png",
+	    "density": "1.5"
+	},
+	{
+	    "src": "\/android-icon-96x96.png",
+	    "sizes": "96x96",
+	    "type": "image\/png",
+	    "density": "2.0"
+	},
+	{
+	    "src": "\/android-icon-144x144.png",
+	    "sizes": "144x144",
+	    "type": "image\/png",
+	    "density": "3.0"
+	},
+	{
+	    "src": "\/android-icon-192x192.png",
 	    "sizes": "192x192",
-	    "type": "image/png"
-	},
-	{
-	    "src": "/icon-256x256.png",
-	    "sizes": "256x256",
-	    "type": "image/png"
-	},
-	{
-	    "src": "/icon-384x384.png",
-	    "sizes": "384x384",
-	    "type": "image/png"
-	},
-	{
-	    "src": "/icon-512x512.png",
-	    "sizes": "512x512",
-	    "type": "image/png"
+	    "type": "image\/png",
+	    "density": "4.0"
 	}
     ]
 }

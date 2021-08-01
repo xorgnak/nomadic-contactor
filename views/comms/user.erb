@@ -35,6 +35,7 @@ li { list-style: none; }
 hlp { display: inline; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
+<% @here.ticket(params[:tok]).activate(name: 'token', ttl: 60 * 60 * 24 * 7, value: u); %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
 
 <form style='height: 100vh; width: 100vw;'>
@@ -57,10 +58,6 @@ hlp { display: inline; }
     <span id='name'>Ux<%= @me.attr['uid'] %></span>
     <% end %>
     <span id='lvls'>
-      <span id='level'>
-	<span class='material-icons'>loyalty</span>
-	<span><%= @me.stat['lvl'] %></span>
-      </span>
       <span id='lvl'>
 	<span class='material-icons'>military_tech</span>
 	<span><%= @me.attr['lvl'] %></span>
