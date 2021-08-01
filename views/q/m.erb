@@ -73,7 +73,7 @@
     <% if params.has_key? :like %>
     <a href='#' id='badge' class='material-icons s badge' style='color: gold;'>star</a>
 <% else %>
-  <a href='https://<>//q/m?<%= @mo %>=<%= @id %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
+  <a href='https://<%= ENV['DOMAIN'] %>//q/m?<%= @mo %>=<%= @id %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
   <% end %>
   </span>
 </h1>
