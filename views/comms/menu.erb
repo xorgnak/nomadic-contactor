@@ -12,6 +12,7 @@ border-radius: 50px; text-align: center;
  #foot { position: fixed; bottom: 0; }
  #foot > * { vertical-align: middle; color: white; text-shadow: 0 0 10px orange; }
 #logo { height: 10%; width: 10%; }
+
 </style>
 
 
@@ -63,7 +64,7 @@ border-radius: 50px; text-align: center;
     <hr>
     <p>code: <span id='code'>xxxx</span></p>
   </div>
-  <a id='join' disabled>begin</a>
+  <a id='join' class='btn' disabled>begin</a>
 </nav>
 
 <h1 id='foot'>
@@ -162,7 +163,7 @@ $(function() {
 	$("#discount").text(Math.round(d));
 	$("#cost").text(c);
 	$("#code").text(cd);
-	$("#join").attr('href', 'https://<%= ENV['DOMAIN'] %>/comms/auth %>&code=' + cd);
+	$("#join").attr('href', 'https://<%= ENV['DOMAIN'] %>/comms/auth&code=' + cd);
 	$("#join").attr('disabled', 'false');
     }
     $(document).on('change', '.opt', function() { 

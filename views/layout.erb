@@ -13,7 +13,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/jquery.qrcode@1.0.3/jquery.qrcode.min.js"></script>
 <!-- <script src="https://<%= ENV['DOMAIN'] %>/html5-qrcode.min.js"></script> -->
-<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>     
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+<style>
+.btn { border: thick solid black; border-radius: 20px; background-color: orange; color: white; text-decoration: none; }
+</style>
 </head>
 <body style="width: 100vw; height: 100vh; text-align: center; margin: 0; padding: 0;">
   <%# Redis.new.publish("LAYOUT", "#{params}") %>
