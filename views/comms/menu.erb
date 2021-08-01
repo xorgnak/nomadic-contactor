@@ -163,7 +163,7 @@ $(function() {
 	$("#discount").text(Math.round(d));
 	$("#cost").text(c);
 	$("#code").text(cd);
-	$("#join").attr('href', 'https://<%= ENV['DOMAIN'] %>/comms/auth&code=' + cd);
+	$("#join").attr('href', 'https://<%= ENV['DOMAIN'] %>/comms/auth?code=' + cd);
 	$("#join").attr('disabled', 'false');
     }
     $(document).on('change', '.opt', function() { 
