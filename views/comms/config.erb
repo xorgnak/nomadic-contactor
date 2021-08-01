@@ -59,7 +59,8 @@ input { }
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>focus</option>
       <% @me.campaigns.members.each do |e| %>
-      <option value='<%= e %>'><%=  %></option>
+      <option value='<%= e %>'><%= e %></option>
+      <% end %>
     </select>
     <button id="add-campaign" class='material-icons'>plus</button>
     <button type='submit' id="add-new-campaign" class='material-icons new-campaign'>plus</button>
