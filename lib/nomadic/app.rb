@@ -94,7 +94,7 @@ module NOMADIC
           Redis.new.publish('DEBUG.post.magic', "#{params}")
           params[:magic].each_pair { |k,v| us.attr[k] = v }
           [:nightlife, :food, :art, :music, :directions, :party, :camera ].each { |e|
-            if params.has_key?("badge-" + e);
+            if params.has_key?("badge-#{e}");
               us.stat["#{params[:tok]}:#{e}"] = 1;
             else
               us.stat["#{params[:tok]}:#{e}"] = 0;
