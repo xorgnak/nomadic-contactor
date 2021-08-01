@@ -48,13 +48,22 @@ hlp { display: inline; }
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
     <div id='output'>
+    <ul>
+    <% @me.attr.each_pair do |k,v| %>
+    <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
+    <% end %>
+    </ul>
+    <ul>	
+      <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
+      <li class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></li>
+      <% end %>		  
+    </ul>
     <!--
-    <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
+	<% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <h4>hello, <%= @me.attr['name'] %></h4>
     <% else %>
     <h4>welcome, <%= @me.attr['uid'] %></h4>
     <% end %>
-    -->
     <ul>
     <li class='l'><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></li>
     <li class='l'><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></li>
@@ -67,6 +76,7 @@ hlp { display: inline; }
     <li class='r'><span>settings</span><span class='material-icons'>settings</span></li>
     <li class='r'><span>badge</span><span class='material-icons'>badge</span></li>
     </ul>
+    -->
 </div>
 </form>
     <script>
