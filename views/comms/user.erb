@@ -26,6 +26,7 @@ button { border-radius: 10px; border: thick solid black; }
 #copy { color: white; font-size: xx-small; }
 #rank { left: 0; }
 #lvl { right: 0; }
+#nameplate { border: thin solid black; border-radius: 20px; }
 h5 { text-align: left; }
 ul { width: max-content; padding: 0 5%; display: inline-block; }
 li { list-style: none; }
@@ -47,27 +48,44 @@ hlp { display: inline; }
     <a href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
     <a href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 </h1>
+<div id='output'>
   <fieldset id='output'>
-    <legend>
+    <legend id='nameplate'>
     <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
     <span id='name'><%= @me.attr['name'] %></span>
     <% else %>
     <span id='name'>Ux<%= @me.attr['uid'] %></span>
     <% end %>
-    <span id='lvls'><span id='level'><span class='material-icons'>loyalty</span><span><%= @me.stat['lvl'] %></span></span><span id='lvl'><span class='material-icons'>military_tech</span><span><%= @me.attr['lvl'] %></span></span></span></legend>
-      <fieldset class='hlp'>
-	<legend>help</legend>
-	<% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
-	<p class='r'><span>zap</span><span class='material-icons'>auto_fix_high</span></p>
-	<p class='r'><span>invite</span><span class='material-icons'>mail</span></p>
-	<% end %>
-	<p class='r'><span>settings</span><span class='material-icons'>settings</span></p>
-	<p class='r'><span>badge</span><span class='material-icons'>badge</span></p>
-	  </fieldset>
+    <span id='lvls'>
+      <span id='level'>
+	<span class='material-icons'>loyalty</span>
+	<span><%= @me.stat['lvl'] %></span>
+      </span>
+      <span id='lvl'>
+	<span class='material-icons'>military_tech</span>
+	<span><%= @me.attr['lvl'] %></span>
+      </span>
+    </span>
+    </legend>
       <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
       <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
-          <% end %>
+      <% end %>
   </fieldset>
+</div>
+<!--
+
+      <fieldset class='hlp'>
+        <legend>help</legend>
+        <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
+        <p class='r'><span>zap</span><span class='material-icons'>auto_fix_high</span></p>
+        <p class='r'><span>invite</span><span class='material-icons'>mail</span></p>
+        <% end %>
+        <p class='r'><span>settings</span><span class='material-icons'>settings</span></p>
+        <p class='r'><span>badge</span><span class='material-icons'>badge</span></p>
+          </fieldset>
+
+-->
+  
 </form>
     <script>
     var hi = $('#output').html();
