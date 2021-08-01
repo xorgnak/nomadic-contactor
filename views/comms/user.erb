@@ -64,9 +64,14 @@ hlp { display: inline; }
       </span>
     </span>
     </legend>
-      <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
-      <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
-      <% end %>
+    <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
+    <% if v.to_i > 0 %>
+    <% kk = k.split(':'); @users.incr(kk[0]); @badges.incr(kk[1]) %>
+    <% end %>
+    <% end %>
+    <% @badges.each_pair do |k,v| %>
+    <p class='l'><span class='k'><%= k %></span><span class='v'><%= v %></span></p>
+    <% end %>
   </fieldset>
 </div>
 <!--

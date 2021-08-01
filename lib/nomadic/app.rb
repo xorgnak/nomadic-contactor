@@ -90,6 +90,7 @@ module NOMADIC
         end
         
         if params.has_key? :magic
+          uid = @here.cloud.user(@here.ticket(params[:tok]).active?('token')).attr['uid']
           if params.has_key? :usr
             us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
           else
@@ -98,9 +99,9 @@ module NOMADIC
           Redis.new.publish('DEBUG.post.magic', "#{params}")
           [:nightlife, :food, :art, :music, :directions, :party, :camera ].each { |e|
             if params.has_key?("badge-#{e}");
-              us.stat["#{params[:tok]}:#{e}"] = 1;
+              us.stat["#{uid}:#{e}"] = 1;
             else
-              us.stat["#{params[:tok]}:#{e}"] = 0;
+              us.stat["#{uid}:#{e}"] = 0;
             end
           }
           l = 0
