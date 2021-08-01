@@ -93,7 +93,13 @@ module NOMADIC
           us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
           Redis.new.publish('DEBUG.post.magic', "#{params}")
           params[:magic].each_pair { |k,v| us.attr[k] = v }
-          [].each { |e| if params.has_key?("badge-" + e); us.stat["#{params[:tok]}:#{e}"] = 1 }
+          [:nightlife, :food, :art, :music, :directions, :party, :camera ].each { |e|
+            if params.has_key?("badge-" + e);
+              us.stat["#{params[:tok]}:#{e}"] = 1;
+            else
+              us.stat["#{params[:tok]}:#{e}"] = 0;
+            end
+          }
           l = 0
           us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
           us.attr['lvl'] = l
