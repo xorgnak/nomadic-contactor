@@ -56,14 +56,14 @@ input { }
       <option value='red'>security</option>
   </select></p>
   <% elsif @me.attr['type'] == 'z' %>
-  <p><select id='shield' name='config[shield]'>
-      <option selected disabled>focus</option>
+  <p><select id='campaign' name='config[campaign]'>
+      <option selected disabled>campaign</option>
       <% @me.campaigns.members.each do |e| %>
       <option value='<%= e %>'><%= e %></option>
       <% end %>
     </select>
-    <button id="add-campaign" class='material-icons'>plus</button>
-    <button type='submit' id="add-new-campaign" class='material-icons new-campaign'>plus</button>
+    <button id="add-campaign" class='material-icons'>add_circle</button>
+    <button type='submit' id="add-new-campaign" class='material-icons new-campaign'>add_circle_outline</button>
   <textarea class='new-campaign' name='campaign[offer]' placeholder='add your new special offer...'></textarea>
   <select id='good' class='new-campaign' name='campaign[good]' required>
       <option selected disabled>good</option>
