@@ -19,7 +19,7 @@
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 0 0 0 20px;
   }
-#pig { position: fixed; top: 0; }
+#badge { text-decoration: none; }
 #team > .t { display: block; color: grey; }
   .s { padding: 25% 0 25% 0; font-size: xx-large; }
   #name {
@@ -71,6 +71,11 @@
     <% end %>
     <span id='team'>
     <% if params.has_key? :like %>
+    <% if @mo == 'Z' %>
+    <% @here.cloud.zone(@u.attr['zone']).stat.incr('like') %>
+    <% else %>
+    <% @u.stat.incr('like') %>
+    <% end %>
     <a href='#' id='badge' class='material-icons s badge' style='color: gold;'>star</a>
 <% else %>
   <a href='https://<%= ENV['DOMAIN'] %>/q/m?<%= @mo.downcase %>=<%= @id %>&ts=<%= @ts %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
@@ -82,9 +87,13 @@
 <div id='foot'>
 <h1 class='i'><%= @a['tagline'] || 'thanks!' %></h1>
 <h2 class='i'><%= @a['special'] || 'come back and see us again soon!' %></h2>
+<h1><span class='material-icons s badge' style='color: gold;'>star</span><span><%= @here.cloud.zone(@u.attr['zone']).stat['like'] %></span></h1>
 </div>
 <% else %>
-<h2 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h2>
+<div id='foot'>
+<h1 class='i'><%= @a['tagline'] || 'thanks!' %></h1>
+<h1><span class='material-icons s badge' style='color: gold;'>star</span><span><%= @u.stat['like'] %></span></h1>
+</div>
 <% end %>
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
