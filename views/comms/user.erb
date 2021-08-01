@@ -89,7 +89,7 @@ hlp { display: inline; }
     <% end %>
     <p id='badges'>
       <% @badges.each_pair do |k,v| %>
-      <% if @here.badge(@me.id).icon.has_key?(:"#{k}") %>
+      <% if k != 'like' %>
     <span class='badge'>
       <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
       <span class='amount'><%= v %></span>
