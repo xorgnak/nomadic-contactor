@@ -9,14 +9,14 @@
 
 <style>
   #bg { position: fixed; left: 0; top: 0; width: 100vw; height: 100%; z-index: -1; }
-  #head { position: fixed; top: 0; width: 100%; padding: 1%; background-color: white; }
+  #head { position: fixed; top: 0; width: 100%; padding: 1%; }
   #head > * { vertical-align: middle; }
   #team {
     position: fixed;
     right: 0;
       top: 0;
       padding: 2%;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.5);
       border-radius: 0 0 0 20px;
   }
 #pig { position: fixed; top: 0; }
@@ -29,7 +29,7 @@
       padding: 2%;
       color: white;
       border-radius: 0 0 20px 0px;
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.5);
   }
   #id { background-color: black; color: white; }
   #skills { display: none; text-align: left; }
@@ -67,25 +67,27 @@
     <% if @a.has_key? 'name' %>
     <span id='name' class='i'><%= @a['name'] %></span>
     <% else %>
-    <span id='name' class='i'><%= @mo %>x<%= @id %></span>
+    <span id='name' class='i'><%= @mo.upcase %>x<%= @id %></span>
     <% end %>
     <span id='team'>
-  <span id='badge' class='material-icons s badge' style='color: gold;'>star_border</span>
+    <% if params.has_key? :like %>
+    <a href='#' id='badge' class='material-icons s badge' style='color: gold;'>star</a>
+<% else %>
+  <a href='https://<>//q/m?<%= @mo %>=<%= @id %>&like=true' id='badge' class='material-icons s badge' style='color: gold;'>star_border</a>
+  <% end %>
   </span>
 </h1>
 
 <h2 id='foot' class='i'><%= @a['tagline'] || 'thanks!' %></h2>
 
-<div id="reader" width="600px"></div>
 <nav id='nav' class='i'>
   <% if params.has_key? :u %>
   <a class='material-icons nav i input' style='left: 0; background-color: green; color: white;' href='sms:<%= @u.id %>?body=I%20NEED%20A%20RIDE'>bike_scooter</a>
   <% end %>
-  <a class='material-icons nav i input' style='right: 0; background-color: red; color: white;' href='<%= @a['social'] %>'>link</a>
+  <a class='material-icons nav i input' style='right: 0; background-color: blue; color: white;' href='<%= @a['social'] %>'>link</a>
 </nav>
 <script>
     $(function() {
     
     });
-
 </script>
