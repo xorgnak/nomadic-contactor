@@ -10,56 +10,61 @@
 ##
 # start the server
 ##
-ME = '+17205522104'
+#ME = '+17205522104'
+ME = '+16155926675'
 @me = @here.cloud.user(ME)
 ##
 # setup administrator
 #
 # create user
-@here.cloud.user ENV['PHONE_ADMIN']
-@here.cloud.user ME
+[ ENV['PHONE_ADMIN'], ME ].each { |e|
+  @here.cloud.user e
+}
 # elevate user
-@here.cloud.hire! '00000', ENV['PHONE_ADMIN']
-['00000', '11111', '22222'].each { |e| @here.cloud.hire! e, ME }
+
+@here.cloud.hire! '00000', ME
+['DEN', 'DEN:lodo', 'DEN:updn', 'DEN:sq', 'DEN:rhino', 'DEN:caphill', 'DEN:broadway'].each { |e|
+  @here.cloud.hire! e, ENV['PHONE_ADMIN']
+}
 
 ##
 # nomadic comms
 ##
 
-@here.sub('#') { |t, o| Redis.new.publish "MQTT.#{t}", "#{o}" }
+#@here.sub('#') { |t, o| Redis.new.publish "MQTT.#{t}", "#{o}" }
 
 # sudscribe to channel. "#" is a channel wildcard
 
-@here.sub(Redis::List.new('SEED').values[-1]) do |t, p|
-  case p['method']
-  when 'ping'
-    @here.pub(p['target'], JSON.generate({ alive: Time.now.utc.to_i }))
-  else
-    Redis.new.publish("NODE.#{t}", p)
-  end
-end
+#@here.sub(Redis::List.new('SEED').values[-1]) do |t, p|
+#  case p['method']
+#  when 'ping'
+#    @here.pub(p['target'], JSON.generate({ alive: Time.now.utc.to_i }))
+#  else
+#    Redis.new.publish("NODE.#{t}", p)
+#  end
+#end
 
 
-@here.sub('connect') {|t, o|
-  tik = @here.ticket(o['tok']).active?('token')
-  u = @here.cloud.user(tik)
-  u.attr['tok'] = o['tok']
-  Redis.new.publish("CONNECT", "#{o} #{tik} #{u}")
-  Redis::HashKey.new('book')[o['to']] = o['tok']
-}
+#@here.sub('connect') {|t, o|
+#  tik = @here.ticket(o['tok']).active?('token')
+#  u = @here.cloud.user(tik)
+#  u.attr['tok'] = o['tok']
+#  Redis.new.publish("CONNECT", "#{o} #{tik} #{u}")
+#  Redis::HashKey.new('book')[o['to']] = o['tok']
+#}
 
-@here.sub('user/') {|t, o|
-  Redis.new.publish("USER", "#{o}")
-  from = @here.cloud.user(@here.ticket(o['tok']).active?('token')) 
-  if o['method'] == 'save'
-    ['name', 'tagline', 'img', 'venmo', 'tip', 'social', 'thanks', 'shield', 'border'].each do |e|
-      from.attr[e] = o[e]
-      @here.pub("user/#{o['tok']}", { to: from.attr['uid'], html: "<span>#{e}</span><span>#{@me.attr[e]}</span>"})
-    end
-  else
-    @here.pub("user/#{o['tok']}", { to: from.attr['uid'], html: "<span>#{o}</span>"})
-  end
-}
+#@here.sub('user/') {|t, o|
+#  Redis.new.publish("USER", "#{o}")
+#  from = @here.cloud.user(@here.ticket(o['tok']).active?('token')) 
+#  if o['method'] == 'save'
+#    ['name', 'tagline', 'img', 'venmo', 'tip', 'social', 'thanks', 'shield', 'border'].each do |e|
+#      from.attr[e] = o[e]
+#      @here.pub("user/#{o['tok']}", { to: from.attr['uid'], html: "<span>#{e}</span><span>#{@me.attr[e]}</span>"})
+#    end
+#  else
+#    @here.pub("user/#{o['tok']}", { to: from.attr['uid'], html: "<span>#{o}</span>"})
+#  end
+#}
 
 # publish object to channel
 #@here.pub('utc', { utc: Time.now.utc })
@@ -79,17 +84,18 @@ end
 #@here.game.vs(ENV['PHONE_ADMIN'], ME)
 
 
-@tokens = {}
+#@tokens = {}
 
-def token t, *a
-  b = @tokens[t] = @here.bank.of(t)
-  if !@tokens.has_key? t
-    if b[:vault].account['World'] >= 0
-      b[:branch].borrow(a[0] || 1)
-    end
-  end
-  return b
-end
+#def token t, *a
+#  b = @tokens[t] = @here.bank.of(t)
+#  if !@tokens.has_key? t
+#    if b[:vault].account['World'] >= 0
+#      b[:branch].borrow(a[0] || 1)
+#    end
+#  end
+#  return b
+#end
+
 ##
 # generate transactions
 #
