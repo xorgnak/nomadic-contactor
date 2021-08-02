@@ -92,6 +92,7 @@ module NOMADIC
         if params.has_key? :magic
           uid = @here.cloud.user(@here.ticket(params[:tok]).active?('token')).attr['uid']
           if params.has_key? :usr
+            Redis.new.publish('DEBUG.post.magic.usr', "#{params}")
             @us = @here.cloud.user(Redis::HashKey.new('uid')[params[:usr]])
           else
             @us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
