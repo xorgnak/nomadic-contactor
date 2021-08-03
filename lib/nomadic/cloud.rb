@@ -51,7 +51,7 @@ module NOMADIC
     set :sponsors
     set :jobs
     set :campaigns
-    set :promos
+    set :codes
     def initialize i
       @id = i
     end
