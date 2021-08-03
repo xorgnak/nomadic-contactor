@@ -33,11 +33,9 @@ textarea { width: 80%; }
   <input type='hidden' id='img' name='config[img]' value='<%= @me.attr['img'] %>'>
   <input style='position: fixed; top: -100000px;' type='file' id='file'>
   </p>
-  <div style='width: 100%; height: 20%;'>
-  <button style='padding: 1%; border: thin solid white;' id='pic'>
+  <button style='padding: 1%; border: thin solid white; width: 100%; height: 20%;' id='pic'>
   <img id='preview' style='height: 100%;' src='<%= @me.attr['img'] %>' alt='click to set image...'>
   </button>
-  </div>
   
   <p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
   
