@@ -62,10 +62,8 @@
       
       var files = localStorage.getItem('files');
       console.log("FILES:0", files);
-      if ( files == null ) {
-      localStorage.setItem('files', JSON.stringify([]));
-      files = JSON.parse(localStorage.getItem('files'));
-      }
+      if ( files == null ) { files = []; save(); }
+      load();
       console.log("FILES:1", files);
       
       function load() { files = JSON.parse(localStorage.getItem('files')); }
