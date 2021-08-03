@@ -115,10 +115,10 @@ padding: 1%;
 	<% end %>
 	<% end %>
 	<p id='badges'>
-	  <% @badges.each_pair do |k,v| %>
+	  <% @badges.each_pair do |kk,vv| %>
 	  <span class='badge'>
-	    <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
-	    <span class='amount'>x<%= v %></span>
+	    <span class='material-icons icon'><%= @here.badge(@me.id).icon[kk.to_sym] %></span>
+	    <span class='amount'>x<%= v %>|<%= vv %></span>
 	  </span>
 	  <% end %>
 	</p>
