@@ -46,14 +46,14 @@ padding: 1%;
 }
 .lvl > span { vertical-align: middle; }
 
-.input { text-decoration: none; color: white; border: thick solid white; padding: 2%; font-size: xx-large; }
+.input { text-decoration: none; color: white; border: thick solid white; padding: 3%; font-size: xx-large; }
 
 .scan { width: 100%;  background-color: none; background-color: white; color: black; border-top: thick solid black; border-bottom: thick solid black; }
 
-#badge { position: fixed; left: 0; top: 0; }
-#settings { position: fixed; right: 0; top: 0; }
-#rsvp { position: fixed; left: 0; bottom: 0; }
-#zap { position: fixed; right: 0; bottom: 0; }
+#badge { position: fixed; left: 5%; top: 5%; }
+#settings { position: fixed; right: 5%; top: 5%; }
+#rsvp { position: fixed; left: 5%; bottom: 5%; }
+#zap { position: fixed; right: 5%; bottom: 5%; }
 
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
@@ -167,7 +167,7 @@ function tick() {
 		    $('#rsvp').attr('href', rsvp + "&usr=" + oo[1]);
 		    $('#rsvp').css('background-color', 'orange');
 		} else {
-		    $('#rsvp').css('background-color', 'grey');
+		    $('#rsvp').css('background-color', 'rgba(0,0,0,0)');
 		}
 		$('#zap').css('background-color', 'orange');
 		$("#badges").html("<h1 class='scan'><span class='usr'>" + oo[1] +"</span></h1>");
@@ -175,16 +175,16 @@ function tick() {
 	    } else {
 		$('#zap').attr('href', zap);
 		$('#rsvp').attr('href', rsvp);
-		$('#zap').css('background-color', 'grey');
-		$('#rsvp').css('background-color', 'grey');
+		$('#zap').css('background-color', 'rgba(0,0,0,0)');
+		$('#rsvp').css('background-color', 'rgba(0,0,0,0)');
 		$("#nameplate").html("<code>" + code.data + "</code>");
 		$("#badges").html("<a class='input' href='" + code.data + "'>GO</a>");
 	    }
 	} else {
 	    $('#zap').attr('href', zap);
 	    $('#rsvp').attr('href', rsvp);
-	    $('#zap').css('background-color', 'grey');
-	    $('#rsvp').css('background-color', 'grey');
+	    $('#zap').css('background-color', 'rgba(0,0,0,0)');
+	    $('#rsvp').css('background-color', 'rgba(0,0,0,0)');
 	    $("#badges").html(hi);
 	    $("#nameplate").html(ih);
 	}
