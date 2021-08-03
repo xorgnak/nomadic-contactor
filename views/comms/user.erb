@@ -16,12 +16,14 @@ button { border-radius: 10px; border: thick solid black; }
 .fan-6 { border: thick solid purple; }
 .fan-7 { border: thick solid gold; }
 
-#nameplate {
+#nameplate-wrapper {
 position: fixed;
 top: 10%;
+width: 100%;
+}
+#nameplate {
 border-radius: 20px;
 padding: 1%;
-width: 100%;
 background-color: rgba(255,255,255,0.2);
 color: white;
 }
@@ -82,33 +84,35 @@ padding: 1%;
     <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 
     <!-- index -->
-    <h1 id='nameplate'>
-      <span id='nick' class='lvl'>
-	<!-- icon -->
-	<% if @me.attr['type'] == 'u' %>
-	<span id='type' class='material-icons'>bike_scooter</span>
-	<% elsif @me.attr['type'] == 'i' %>
-	<span id='type' class='material-icons'>campaign</span>
-	<% elsif @me.attr['type'] == 'z' %>
-	<span id='type' class='material-icons'>local_activity</span>
-	<% else %>
-	<span id='type' class='material-icons'>sentiment_satisfied</span>
-	<% end %>
-	<!-- nick -->
-	<% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
-	<span id='name'><%= @me.attr['name'] %></span>
-	<% else %>
-	<span id='name'><%= @me.attr['uid'] %></span>
-	<% end %>
-      </span>
-      <!-- awards -->
-      <span class='lvl'>
-	<span class='material-icons'>brightness_7</span>
-	<span><%= @me.attr['badges'].to_i %></span>
-      </span>
-      <span class='lvl'>
-	<span class='material-icons'>military_tech</span>
-	<span><%= @me.attr['lvl'] %></span>
+    <h1 id='nameplate-wrapper'>
+      <span id='nameplate'>
+	<span id='nick' class='lvl'>
+	  <!-- icon -->
+	  <% if @me.attr['type'] == 'u' %>
+	  <span id='type' class='material-icons'>bike_scooter</span>
+	  <% elsif @me.attr['type'] == 'i' %>
+	  <span id='type' class='material-icons'>campaign</span>
+	  <% elsif @me.attr['type'] == 'z' %>
+	  <span id='type' class='material-icons'>local_activity</span>
+	  <% else %>
+	  <span id='type' class='material-icons'>sentiment_satisfied</span>
+	  <% end %>
+	  <!-- nick -->
+	  <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
+	  <span id='name'><%= @me.attr['name'] %></span>
+	  <% else %>
+	  <span id='name'><%= @me.attr['uid'] %></span>
+	  <% end %>
+	</span>
+	<!-- awards -->
+	<span class='lvl'>
+	  <span class='material-icons'>brightness_7</span>
+	  <span><%= @me.attr['badges'].to_i %></span>
+	</span>
+	<span class='lvl'>
+	  <span class='material-icons'>military_tech</span>
+	  <span><%= @me.attr['lvl'] %></span>
+	</span>
       </span>
     </h1>
     <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; %>
