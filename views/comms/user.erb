@@ -18,9 +18,9 @@ button { border-radius: 10px; border: thick solid black; }
 
 #wrap { width: 100%; position: fixed; bottom: 10%; }
 
-#output { border: thin solid black; border-radius: 50px; padding: 2%; background-color: white; }
+#output { border: thin solid black; border-radius: 50px; padding: 2%; background-color: rgba(255,255,255,0.2); }
 
-#nameplate { border: thin solid black; border-radius: 20px; padding: 1%; background-color: lightgrey; }
+#nameplate { border: thin solid black; border-radius: 20px; padding: 1%; background-color: rgba(255,255,255,0.2); }
 #nameplate > * { vertical-align: middle; }
 
 .badge {
@@ -28,6 +28,19 @@ border: thin dashed black;
 display: inline-block;
 border-radius: 1000%;
 padding: 4%;
+}
+.badge > .icon {
+text-shadow: 0 0 1px black;
+color: white;
+}
+.badge > .amount {
+margin-left: -20%;
+background-color: rgba(0, 0, 0, 0.2);
+padding: 10%;
+border-radius: 1000%;
+border: thin solid black;
+box-shadow: 0 3px 3px lightgrey;
+color: white;
 }
 
 .input { text-decoration: none; color: white; border: thick solid white; padding: 2%; font-size: xx-large; }
