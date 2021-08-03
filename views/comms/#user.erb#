@@ -1,0 +1,208 @@
+<style>
+html { background-color: black; color: black; }
+
+#canvas { height: 100%; width: 100%; }
+
+.fan { border: thick solid black; }
+.fan-1 { border: thick solid blue; }
+.fan-2 { border: thick solid green; }
+.fan-3 { border: thick solid yellow; }
+.fan-4 { border: thick solid orange; }
+.fan-5 { border: thick solid red; }
+.fan-6 { border: thick solid purple; }
+.fan-7 { border: thick solid gold; }
+
+#nameplate-wrapper {
+position: fixed;
+top: 10%;
+width: 100%;
+}
+#nameplate { border-radius: 20px; padding: 1%; color: white; background-color: rgba(255,255,255,0.3); display: inline-block; }
+#nameplate > * { vertical-align: middle; }
+
+#type { font-size: 200%; }
+
+#badges { position: fixed; bottom: 15%; width: 100%; color: white; background-color: rgba(255,255,255,0.3); }
+
+.badge {
+border: thin dashed white;
+display: inline-block;
+border-radius: 20px;
+padding: 4%;
+margin: 1%;
+}
+.badge > .icon {
+color: white;
+}
+.badge > .amount {
+margin-left: -20%;
+padding: 10%;
+color: white;
+}
+
+.lvl {
+padding: 0%;
+margin: 0px 1% 0px 1%;
+display: inline-block;
+padding: 1%;
+}
+.lvl > span { vertical-align: middle; }
+
+.input { text-decoration: none; color: white; border: thick solid white; padding: 3%; font-size: xx-large; }
+
+.scan { width: 100%;  background-color: none; background-color: white; color: black; border-top: thick solid black; border-bottom: thick solid black; }
+
+#badge { position: fixed; left: 5%; top: 5%; }
+#settings { position: fixed; right: 5%; top: 5%; }
+#rsvp { position: fixed; left: 5%; bottom: 5%; }
+#zap { position: fixed; right: 5%; bottom: 5%; }
+
+</style>
+<% Redis.new.publish "HERE", "#{params}" %>
+<% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
+<% @here.ticket(params[:tok]).activate(name: 'token', ttl: 60 * 60 * 24 * 7, value: @me.id ); %>
+
+<form style='height: 100vh; width: 100vw;'>
+    <input type='hidden' id='tok' name='tok' value='<%= params[:tok] %>'>
+    <canvas id="canvas"></canvas>
+
+<!-- ui -->
+    <a id='zap' href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
+    <a id='rsvp' href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
+    <a id='settings' href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
+    <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
+
+    <!-- index -->
+    <div id='nameplate-wrapper'>
+      <span id='nameplate'>
+	<h1 id='nick' class='lvl'>
+	  <!-- icon -->
+	  <% if @me.attr['type'] == 'u' %>
+	  <span id='type' class='material-icons'>bike_scooter</span>
+	  <% elsif @me.attr['type'] == 'i' %>
+	  <span id='type' class='material-icons'>campaign</span>
+	  <% elsif @me.attr['type'] == 'z' %>
+	  <span id='type' class='material-icons'>local_activity</span>
+	  <% else %>
+	  <span id='type' class='material-icons'>sentiment_satisfied</span>
+	  <% end %>
+	  <!-- nick -->
+	  <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
+	  <span id='name'><%= @me.attr['name'] %></span>
+	  <% else %>
+	  <span id='name'><%= @me.attr['uid'] %></span>
+	  <% end %>
+	</h1>
+	<!-- awards -->
+	<h3>
+	  <span class='lvl'>
+	    <span class='material-icons'>brightness_7</span>
+	    <span><%= @me.attr['badges'].to_i %></span>
+	  </span>
+	  <span class='lvl'>
+	    <span class='material-icons'>military_tech</span>
+	    <span><%= @me.attr['lvl'] %></span>
+	  </span>
+	</h3>
+    </div>
+    
+    <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; %>
+    <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
+    <% if v.to_i > 0 && k != 'like' %>
+    <% kk = k.split(':'); @users[kk[0]] += v; @badges[kk[1]] += v %>
+    <% end %>
+    <% end %>
+    <p id='badges'>
+      <% @badges.each_pair do |k,v| %>
+      <span class='badge'>
+	<span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
+	<span class='amount'>x<%= v.to_i %></span>
+      </span>
+      <% end %>
+    </p>
+    
+    <!--
+	<% @users.each_pair do |k,v| %>
+	<span class='fan fan-<%= v %>' href='#<%= k %>'><%= k %></span>
+	<% end %>
+	-->
+</form>
+<script>
+  var ih = $('#nameplate').html();
+    var hi = $('#badges').html();
+var zap = '/comms/magic?tok=<%= params[:tok] %>'
+var rsvp = '/comms/invite?tok=<%= params[:tok] %>'
+var video = document.createElement("video");
+var canvasElement = document.getElementById("canvas");
+var canvas = canvasElement.getContext("2d");
+// Use facingMode: environment to attemt to get the front camera on phones
+navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function(stream) {
+    video.srcObject = stream;
+    video.setAttribute("playsinline", true); // required to tell iOS safari we don't want fullscreen
+    video.play();
+    requestAnimationFrame(tick);
+});
+
+function tick() {
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+	canvasElement.height = video.videoHeight;
+	canvasElement.width = video.videoWidth;
+	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
+	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
+	var code = jsQR(imageData.data, imageData.width, imageData.height, {});
+	var dom = /https:\/\/<%= ENV['DOMAIN'] %>/g;
+	if (code) {
+	    if (dom.test(code.data)) {
+		var h = {};
+		var o = code.data.split('?');
+		var kv = o[1].split('&');
+		var u;
+		kv.forEach(function(v, i, obj) {
+		    var oo = v.split('=');
+		    h[oo[0]] = oo[1]
+		});
+		
+		if ( "i" in h ) {
+		    ty = "influencer"
+		    u = h.i;
+		} else if ( 'z' in h ) {
+		    ty = "sponsor";
+		    u = h.z;
+		} else if ( 'u' in h ) {
+		    ty = "rider"
+		    u = h.u;
+		}
+		
+		console.log(h)
+		$('#zap').attr('href', zap + "&usr=" + u);
+		if ( ty == 'rider' ) {
+		    $('#rsvp').attr('href', rsvp + "&usr=" + u);
+		    $('#rsvp').css('background-color', 'orange');
+		} else {
+		    $('#rsvp').css('background-color', 'rgba(0,0,0,0)');
+		}
+		
+		$('#zap').css('background-color', 'orange');
+		$("#badges").html("<h1 class='scan'><span class='usr'>" + u +"</span></h1>");
+		$("#nameplate").html("<div class='scan'><h1><span class='typ'>" + ty + "</span></h1><h1><span id='hashtag'>" + h.x || '#supportthearts' + "</span></h1><fieldset><legend>code</legend><code>" + h.c + "</code></fieldset></div>")
+	    } else {
+		$('#zap').attr('href', zap);
+		$('#rsvp').attr('href', rsvp);
+		$('#zap').css('background-color', 'rgba(0,0,0,0)');
+		$('#rsvp').css('background-color', 'rgba(0,0,0,0)');
+		$("#nameplate").html("<h1 class='scan'><code>" + code.data + "</code></h1>");
+		$("#badges").html("<h1 class='scan'><a class='input' href='" + code.data + "'>GO</a></h1>");
+	    }
+	} else {
+	    $('#zap').attr('href', zap);
+	    $('#rsvp').attr('href', rsvp);
+	    $('#zap').css('background-color', 'rgba(0,0,0,0)');
+	    $('#rsvp').css('background-color', 'rgba(0,0,0,0)');
+	    $("#badges").html(hi);
+	    $("#nameplate").html(ih);
+	}
+    }
+    requestAnimationFrame(tick);
+}
+
+</script>
