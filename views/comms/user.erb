@@ -148,7 +148,7 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).th
 
 
 function picture() {
-$('#save').attr('href', canvasElement());
+$('#save').attr('href', canvasElement.toDataURL());
 $('#save').show();
 }
 
