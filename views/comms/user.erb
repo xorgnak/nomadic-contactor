@@ -57,7 +57,7 @@ padding: 1%;
 #rsvp { position: fixed; left: 5%; bottom: 5%; }
 #pic { }
 #zap { position: fixed; right: 5%; bottom: 5%; }
-#save { display: none; text-decoration: none; color: white; border: thick solid white; padding: 1%; }
+#save { }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
