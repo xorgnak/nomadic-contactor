@@ -56,8 +56,8 @@ padding: 1%;
 #settings { position: fixed; right: 5%; top: 5%; }
 #rsvp { position: fixed; left: 5%; bottom: 5%; }
 #pic { position: fixed; bottom: 0; }
-#zap { position: fixed; right: 5%; bottom: 5%; }
-
+#zap { position: fixed; right: 25%; bottom: 5%; }
+#files { position: fixed; left: 25%; bottom: 5%; }
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
@@ -71,6 +71,7 @@ padding: 1%;
     <a id='zap' href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
     <a id='rsvp' href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
     <a id='settings' href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
+    <a id='save' download>files</a>
     <a id='pic' onclick='picture();' class='material-icons input'>camera</a>
     <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 
@@ -145,10 +146,10 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).th
     requestAnimationFrame(tick);
 });
 
+
 function picture() {
-$('#pic').css('background-color', 'black');
-files.push(canvasElement.toDataURL());
-$('#pic').css('background-color', 'white');
+$('#save').attr('href', canvasElement());
+$('#save').show();
 }
 
 function tick() {
@@ -212,5 +213,8 @@ function tick() {
     }
     requestAnimationFrame(tick);
 }
+$(document).on('click', '#save', function() {	
+	$('#save').hide();	
+});
 
 </script>

@@ -60,14 +60,13 @@
     }
       console.log("TOK:1", tok);
       
-      var files = localStorage.getItem('files');
-      console.log("FILES:0", files);
-      if ( files == null ) { files = []; save(); }
-      load();
-      console.log("FILES:1", files);
+      var file = localStorage.getItem('file');
+      console.log("FILES:0", file);
+      if ( file == null ) { file = ""; save(); } load();
+      console.log("FILES:1", file);
       
-      function load() { files = JSON.parse(localStorage.getItem('files')); }
-      function save() { localStorage.setItem('files', JSON.stringify(files)); load(); }
+      function load() { file = JSON.parse(localStorage.getItem('file')); }
+      function save() { localStorage.setItem('files', file); load(); }
 
       
       
