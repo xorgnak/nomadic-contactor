@@ -10,7 +10,7 @@
   #uid { }
   .lvl { box-shadow: 0 2px 1px white; }
   #qrcode { padding: 5%;  }
-  #wrap { padding: 10% 0 10% 0; background-color: <%= @u.attr['shield'] %>; border: thick solid <%= @u.attr['border'] %>; border-radius: 0 0 1000px 1000px; }
+  #wrap { padding: 10% 0 10% 0; background-color: <%= @u.attr['shield'] %>; border: thick solid <%= @u.attr['border'] %>; }
   #qrcode > canvas { border: thick solid white; padding: 2%; background-color: white; }
   #bottom { position: fixed; bottom: 0; margin-bottom: 0; width: 100%; }
   .x {
@@ -20,9 +20,7 @@
   text-shadow: 0 0 3px white;
   }
   #rank {
-  border-left: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
-  border-bottom: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
-  border-right: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
+  border: thick <%= @ranks[@d] %> <%= @u.attr['border'] || 'white' %>;
   }
   .xx { color: orange; }
 </style>
