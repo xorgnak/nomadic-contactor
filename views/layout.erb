@@ -58,11 +58,19 @@
 	localStorage.setItem('token', tk);
 	tok = localStorage.getItem('token');
     }
-    console.log("TOK:1", tok);
+      console.log("TOK:1", tok);
+      
+      var files = localStorage.getItem('files');
+      console.log("FILES:0", files);
+      if ( files == null ) {
+      localStorage.setItem('files', JSON.stringify([]));
+      files = localStorage.getItem('files');
+      }
+      console.log("FILES:1", files);
 
       var files;
-      function load() { files = JSON.parse(localStorage.getItem('files') || []); }
-      function save() { localStorage.setItem('files', JSON.stringify(files)); load; }
+      function load() { files = JSON.parse(localStorage.getItem('files'); }
+      function save() { localStorage.setItem('files', JSON.stringify(files)); load(); }
 
       
     if ('serviceWorker' in navigator) {
