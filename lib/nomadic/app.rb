@@ -89,7 +89,7 @@ module NOMADIC
 
           if params.has_key? :campaign
             params[:campaign] = params[:campaign]
-            @here.cloud.zone(us.attr['zone']).codes[params[:campaign][:tag]] = params[:campaign][:offer]
+            @here.cloud.zone(us.attr['zone']).campaigns[params[:campaign][:tag]] = params[:campaign][:offer]
           end
           params[:config][:campaign] = params[:campaign][:tag]
           params.delete(:campaign)
