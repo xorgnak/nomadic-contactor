@@ -71,7 +71,7 @@ input { }
   
   <p><select id='promo' class='watch' name='config[promo]'>
       <option selected disabled>promo</option>
-      <% @here.cloud.zone(@me.attr['zone']).codes.all.each_pair do |k| %>
+      <% @here.cloud.zone(@me.attr['zone']).codes.all.each_pair do |k, v| %>
       <option value='<%= k %>'><%= v %></option>
       <% end %>
       <option value='new'>new</option>
