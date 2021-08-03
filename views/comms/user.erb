@@ -23,6 +23,13 @@ button { border-radius: 10px; border: thick solid black; }
 #nameplate { border: thin solid black; border-radius: 20px; padding: 1%; background-color: lightgrey; }
 #nameplate > * { vertical-align: middle; }
 
+.badge {
+border: thin dashed black;
+display: inline-block;
+border-radius: 1000%;
+padding: 4%;
+}
+
 .input { text-decoration: none; color: white; border: thick solid white; padding: 2%; font-size: xx-large; }
 
 #badge { position: fixed; left: 0; top: 0; }
@@ -86,13 +93,15 @@ button { border-radius: 10px; border: thick solid black; }
 	  <% @badges.each_pair do |k,v| %>
 	  <span class='badge'>
 	    <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
-	    <span class='amount'><%= v %></span>
+	    <span class='amount'>x<%= v %></span>
 	  </span>
 	  <% end %>
 	</p>
+	<!--
 	<% @users.each_pair do |k,v| %>
 	<span class='fan fan-<%= v %>' href='#<%= k %>'><%= k %></span>
 	<% end %>
+	-->
       </fieldset>
     </div>
 </form>
