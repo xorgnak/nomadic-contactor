@@ -4,7 +4,12 @@ button { border-radius: 10px; border: thick solid black; }
 .top { position: fixed; top: 0; width: 100%; left: 0; text-align: left; }
 .top > a { margin: 1%; border-radius: 10px; border: thick solid silver; background-color: white; text-decoration: none; }
 #ui { width: 100%; margin: 0; z-index: 10; }
-#output { border: thin solid black; border-radius: 50px; padding: 2%; background-color: white; }
+#output {
+  border: thin solid black; border-radius: 50px; padding: 2%; background-color: white;
+  position: fixed;
+  bottom: 10%;
+  
+}
 #ui > * { vertical-align: middle; font-size: xx-large; width: 10%; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 1% 0 1%; padding: 1%; }
 .pm { color: darkgrey; }
 .dm { }
@@ -42,6 +47,14 @@ hlp { display: inline; }
 .fan-5 { border: thick solid red; }
 .fan-6 { border: thick solid purple; }
 .fan-7 { border: thick solid gold; }
+
+.input {
+ text-decoration: none;
+ color: white;
+ border: thick solid white;
+ padding: 2%;
+ font-size: xx-large;
+}
 #badge { position: fixed; left: 0; top: 0; }
 #settings { position: fixed; right: 0; top: 0; }
 #rsvp { position: fixed; left: 0; bottom: 0; }
