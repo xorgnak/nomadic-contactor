@@ -67,9 +67,8 @@
       files = localStorage.getItem('files');
       }
       console.log("FILES:1", files);
-
-      var files;
-      function load() { files = JSON.parse(localStorage.getItem('files'); }
+      
+      function load() { files = JSON.parse(localStorage.getItem('files')); }
       function save() { localStorage.setItem('files', JSON.stringify(files)); load(); }
 
       
