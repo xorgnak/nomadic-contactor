@@ -91,15 +91,15 @@ module NOMADIC
             params[:config][:campaign] = params[:campaign][:tag]
           end
           
-         if params.has_key?(:promo) && params[:config][:promo] == 'new'
+          if params.has_key?(:promo) && params[:config][:promo] == 'new'
             p = [];
             (0..9).each {|e| p << e}
             (:A..:Z).each {|e| p << e}
             @k = []; 6.times { @k << p.sample }
             @here.cloud.zone(us.attr['zone']).codes[@k.join('')] = params[:promo][:offer]
             params[:config][:promo] = @k.join('')
-         end
-         
+          end
+          
           params[:config].each_pair { |k,v| us.attr[k] = v }
         end
         
