@@ -47,6 +47,7 @@ input { }
       <option value='purple'>media</option>
       <option value='red'>office</option>
   </select></p>
+  
   <% elsif @me.attr['type'] == 's' %>
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>area</option>
@@ -55,6 +56,7 @@ input { }
       <option value='purple'>operations</option>
       <option value='red'>security</option>
   </select></p>
+  
   <% elsif @me.attr['type'] == 'z' %>
   <p><select id='campaign' class='watch' name='config[campaign]'>
       <option selected disabled>campaign</option>
@@ -92,6 +94,7 @@ input { }
       <option value='party'>party</option>
       <option value='camera'>camera</option>
   </select></p>
+  
   <% elsif @me.attr['type'] == 'i' %>
   <p><select id='campaign' class='watch' name='config[campaign]'>
       <option selected disabled>campaign</option>
@@ -125,14 +128,8 @@ input { }
 <script>
   $(function() {
   $('#shield').val('<%= @me.attr['shield'] %>');
-
-  <% if @me.attr['campaign'] != '' %>
   $('#campaign').val('<%= @me.attr['campaign'] %>');
-  <% end %>
-  
-  <% if @me.attr['promo'] != '' %>
   $('#promo').val('<%= @me.attr['promo'] %>');
-  <% end %>
   $(document).on('click', '.watch', function(ev) {
   let x = $("#new-" + $(this).attr('id'));
   if ($(this).val() == 'new') { x.show(); } else { x.hide(); }
