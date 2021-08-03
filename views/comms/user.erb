@@ -20,13 +20,14 @@ width: 100%;
 #nameplate { border-radius: 20px; padding: 1%; color: white; background-color: rgba(255,255,255,0.3); display: inline-block; }
 #nameplate > * { vertical-align: middle; }
 
-#badges { position: fixed; bottom: 10%; width: 100%; color: white; background-color: rgba(255,255,255,0.3); border-radius: 20px; }
+#badges { position: fixed; bottom: 15%; width: 100%; color: white; background-color: rgba(255,255,255,0.3); }
 
 .badge {
 border: thin dashed white;
 display: inline-block;
 border-radius: 1000%;
 padding: 4%;
+margin: 1%;
 }
 .badge > .icon {
 color: white;
@@ -177,8 +178,8 @@ function tick() {
 		$('#rsvp').attr('href', rsvp);
 		$('#zap').css('background-color', 'rgba(0,0,0,0)');
 		$('#rsvp').css('background-color', 'rgba(0,0,0,0)');
-		$("#nameplate").html("<code>" + code.data + "</code>");
-		$("#badges").html("<a class='input' href='" + code.data + "'>GO</a>");
+		$("#nameplate").html("<h1 class='scan'><code>" + code.data + "</code></h1>");
+		$("#badges").html("<h1 class='scan'><a class='input' href='" + code.data + "'>GO</a></h1>");
 	    }
 	} else {
 	    $('#zap').attr('href', zap);
