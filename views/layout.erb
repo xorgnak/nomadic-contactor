@@ -60,7 +60,11 @@
     }
     console.log("TOK:1", tok);
 
-    
+      var files;
+      function load() { files = JSON.parse(localStorage.getItem('files') || []); }
+      function save() { localStorage.setItem('files', JSON.stringify(files)); load; }
+
+      
     if ('serviceWorker' in navigator) {
 	// Register a service worker hosted at the root of the
 	// site using the default scope.
