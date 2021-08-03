@@ -49,7 +49,7 @@ console.log("debug <%= @debug %>");
 $('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?z=<%= z %>");
 <% elsif @u.attr['type'] == 'i' || @u.attr['type'] == 'z' %>
 <% z = @here.cloud.zone(@u.attr['zone']) %>
-$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= @u.attr['type'] %>=<%= z.id %>&c=<%= @u.attr['promo'] %>&x=<%= @u.attr['campaign'] %>");
+$('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= @u.attr['type'] %>=<%= Redis::HashKey.new('uids')[z.boss.value] %>&c=<%= @u.attr['promo'] %>&x=<%= @u.attr['campaign'] %>");
 <% else %>
 $('#qrcode').qrcode("https://<%= ENV['DOMAIN'] %>/q/m?<%= @u.attr['type'] %>=<%= params[:uid] %>");
 <% end %>
