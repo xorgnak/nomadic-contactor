@@ -73,7 +73,7 @@ padding: 1%;
     <a id='settings' href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
     <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
     <h1 style='width: 100%; position: fixed; bottom: 5%;'>
-      <a id='pic' class='material-icons input' onclick='$("#save").show(); $("pic").hide(); $("#save").attr("download", Date.now()); $("#save").attr("href", canvasElement.toDataURL());'>camera</a>
+      <a id='pic' class='material-icons input' onclick='$("#save").show(); $("#pic").hide(); $("#save").attr("download", Date.now()); $("#save").attr("href", canvasElement.toDataURL());'>camera</a>
       <a id='save' onclick='$("#save").hide(); $("#pic").show();' style='display: none;' download>save</a>
     </h1>
     
