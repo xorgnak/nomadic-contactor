@@ -1,11 +1,9 @@
 <style>
 html { background-color: black; color: black; }
-button { border-radius: 10px; border: thick solid black; }
 
 #canvas { height: 100%; width: 100%; }
 
-#nameplate { border: thin solid black; border-radius: 20px; padding: 1%; background-color: lightgrey; }
-#nameplate > * { vertical-align: middle; }
+#nameplate { border-radius: 20px; padding: 1%; }
 
 .fan { border: thick solid black; }
 .fan-1 { border: thick solid blue; }
@@ -24,7 +22,6 @@ width: 100%;
 #nameplate {
 border-radius: 20px;
 padding: 1%;
-background-color: rgba(255,255,255,0.2);
 color: white;
 }
 #nameplate > * { vertical-align: middle; }
@@ -32,22 +29,17 @@ color: white;
 #badges { position: fixed; bottom: 10%; }
 
 .badge {
-border: thin dashed black;
+border: thin dashed white;
 display: inline-block;
 border-radius: 1000%;
 padding: 4%;
 }
 .badge > .icon {
-text-shadow: 0 0 1px black;
 color: white;
 }
 .badge > .amount {
 margin-left: -20%;
-background-color: rgba(255, 255, 255, 0.2);
 padding: 10%;
-border-radius: 1000%;
-border: thin solid black;
-box-shadow: 0 3px 3px lightgrey;
 color: white;
 }
 
@@ -55,7 +47,6 @@ color: white;
 padding: 0%;
 margin: 0px 1% 0px 1%;
 display: inline-block;
-background-color: rgba(255,255,255,0.2);
 border-radius: 1000px;
 padding: 1%;
 }
@@ -181,20 +172,23 @@ function tick() {
 		    $('#rsvp').css('background-color', 'grey');
 		}
 		$('#zap').css('background-color', 'orange');
-		$("#output").html("<h1>" + oo[1] +"</h1><h3>" + ty + "</h3>");
+		$("#badges").html("<h1>" + oo[1] +"</h1>");
+		$("#nameplate").html("<h1>" + ty + "</h1>")
 	    } else {
 		$('#zap').attr('href', zap);
 		$('#rsvp').attr('href', rsvp);
 		$('#zap').css('background-color', 'grey');
 		$('#rsvp').css('background-color', 'grey');
-		$("#output").html(code.data);
+		$("#nameplate").html("<code>" + code.data + "</code>");
+		$("#badges").html("<a class='input' href='" + code.data + "'>GO</a>");
 	    }
 	} else {
 	    $('#zap').attr('href', zap);
 	    $('#rsvp').attr('href', rsvp);
 	    $('#zap').css('background-color', 'grey');
 	    $('#rsvp').css('background-color', 'grey');
-	    $("#output").html(hi);
+	    $("#badges").html(hi);
+	    $("#nameplate").html(ih);
 	}
     }
     requestAnimationFrame(tick);
