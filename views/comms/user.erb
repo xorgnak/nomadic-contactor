@@ -3,7 +3,7 @@ html { background-color: black; color: black; }
 
 #canvas { height: 100%; width: 100%; }
 
-#nameplate { border-radius: 20px; padding: 1%; }
+#nameplate { border-radius: 20px; padding: 1%; background-color: rgba(255,255,255,0.3); }
 
 .fan { border: thick solid black; }
 .fan-1 { border: thick solid blue; }
@@ -26,7 +26,7 @@ color: white;
 }
 #nameplate > * { vertical-align: middle; }
 
-#badges { position: fixed; bottom: 10%; width: 100%; color: white; }
+#badges { position: fixed; bottom: 10%; width: 100%; color: white; background-color: rgba(255,255,255,0.3); }
 
 .badge {
 border: thin dashed white;
@@ -75,9 +75,9 @@ padding: 1%;
     <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 
     <!-- index -->
-    <h1 id='nameplate-wrapper'>
+    <div id='nameplate-wrapper'>
       <span id='nameplate'>
-	<span id='nick' class='lvl'>
+	<h1 id='nick' class='lvl'>
 	  <!-- icon -->
 	  <% if @me.attr['type'] == 'u' %>
 	  <span id='type' class='material-icons'>bike_scooter</span>
@@ -94,18 +94,20 @@ padding: 1%;
 	  <% else %>
 	  <span id='name'><%= @me.attr['uid'] %></span>
 	  <% end %>
-	</span>
+	</h1>
 	<!-- awards -->
-	<span class='lvl'>
-	  <span class='material-icons'>brightness_7</span>
-	  <span><%= @me.attr['badges'].to_i %></span>
-	</span>
-	<span class='lvl'>
-	  <span class='material-icons'>military_tech</span>
-	  <span><%= @me.attr['lvl'] %></span>
-	</span>
-      </span>
-    </h1>
+	<h3>
+	  <span class='lvl'>
+	    <span class='material-icons'>brightness_7</span>
+	    <span><%= @me.attr['badges'].to_i %></span>
+	  </span>
+	  <span class='lvl'>
+	    <span class='material-icons'>military_tech</span>
+	    <span><%= @me.attr['lvl'] %></span>
+	  </span>
+	</h3>
+    </div>
+    
     <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; %>
     <% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
     <% if v.to_i > 0 && k != 'like' %>
