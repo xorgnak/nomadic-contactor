@@ -117,7 +117,9 @@ module NOMADIC
           @us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
           @us.attr['badges'] = l
           @us.attr['lvl'] = "#{@us.attr['lvl']}".length - 1
-          params[:magic].each_pair { |k,v| @us.attr[k] = v }
+          if params.has_key? :boss
+            params[:boss].each_pair { |k,v| if v != ''; @us.attr[k] = v; end }
+          end
         end
 
         

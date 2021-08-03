@@ -35,15 +35,16 @@ input { }
     <input type='hidden' name='usr' value='<%= @usr.attr['uid'] %>'>
 <div id='fields'>
 <p>
+<input type='hidden' name='magic' value='true'>
 <% if @here.cloud.boss?(@me) > 0 %>
-<select id='border' name='magic[border]'>	
+<select id='border' name='boss[border]'>	
   <option value='red'>new</option>
   <option value='green' selected>general</option>
   <option value='blue'>manager</option>
   <option value='silver'>legend</option>
   <option value='gold'>god</option>
 </select>
-<select id='type' name='magic[type]'>
+<select id='type' name='boss[type]'>
   <% if @here.cloud.boss?(@me) > 1 %>	
   <option value='u'>rider</option>
   <option value='z'>sponsor</option>
@@ -53,7 +54,7 @@ input { }
 </select>
 <% end %>
 <% if @here.cloud.boss?(@me) > 0 %>
-<input type='number' id='lvl' name='magic[lvl]' value='<%= @usr.attr['lvl'] %>'>
+<input type='number' id='lvl' name='boss[lvl]' value='<%= @usr.attr['lvl'] %>'>
 <% end %>
 </p>
 
