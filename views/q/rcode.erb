@@ -5,7 +5,7 @@
 <% @debug = { d: @d, l: @l, r: @r } %>
 <style>
   body { overflow-y: hidden; background-color: <%= @u.attr['field'] || 'black' %>; color: white;}
-  #top { margin-top: 0; }
+  #top { }
   #top > * { vertical-align: middle;  }
   #uid { }
   .lvl { box-shadow: 0 2px 1px white; }
@@ -40,6 +40,8 @@
 
 <div id='wrap'><div id="qrcode"></div></div>
 
+
+<h1 id='bottom'><span><%= ENV['DOMAIN'] %></span></h1>
 <script>
 console.log("debug <%= @debug %>");
 <% if @u.attr['type'] == 's' %>
