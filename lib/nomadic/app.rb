@@ -109,14 +109,13 @@ module NOMADIC
           Redis.new.publish('DEBUG.post.magic', "#{params}")
           [:nightlife, :food, :art, :music, :directions, :party, :camera ].each { |e|
             if params.has_key?("badge-#{e}");
-              @us.stat["#{u}:#{e}"] = 1;
-            else
-              @us.stat["#{u}:#{e}"] = 0;
+              @us.stat.incr "#{u.attr['uid']}:#{e}";
+              u.stat.incr "#{@us.attr['uid']}:#{e}";
             end
           }
           l = 0
           @us.stat.members(with_scores: true).to_h.each_pair { |k,v| l += v }
-          @us.attr['lvl'] = l
+          @us.attr['badges'] = l
           params[:magic].each_pair { |k,v| @us.attr[k] = v }
         end
 
