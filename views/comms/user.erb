@@ -8,7 +8,8 @@ button { border-radius: 10px; border: thick solid black; }
   border: thin solid black; border-radius: 50px; padding: 2%; background-color: white;
   position: fixed;
   bottom: 10%;
-  
+  height: 40%;
+  width: 90%;
 }
 #ui > * { vertical-align: middle; font-size: xx-large; width: 10%; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 1% 0 1%; padding: 1%; }
 .pm { color: darkgrey; }
@@ -75,54 +76,52 @@ hlp { display: inline; }
     <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 
 <!-- index -->
-<div id='output'>
-  <fieldset id='output'>
-    <legend id='nameplate'>
-      <% if @me.attr['type'] == 'u' %>
-      <span id='type' class='material-icons'>bike_scooter</span>
-      <% elsif @me.attr['type'] == 'i' %>
-      <span id='type' class='material-icons'>campaign</span>
-      <% elsif @me.attr['type'] == 'z' %>
-      <span id='type' class='material-icons'>local_activity</span>
-      <% else %>
-      <span id='type' class='material-icons'>sentiment_satisfied</span>
+    <fieldset id='output'>
+      <legend id='nameplate'>
+	<% if @me.attr['type'] == 'u' %>
+	<span id='type' class='material-icons'>bike_scooter</span>
+	<% elsif @me.attr['type'] == 'i' %>
+	<span id='type' class='material-icons'>campaign</span>
+	<% elsif @me.attr['type'] == 'z' %>
+	<span id='type' class='material-icons'>local_activity</span>
+	<% else %>
+	<span id='type' class='material-icons'>sentiment_satisfied</span>
+	<% end %>
+	<% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
+	<span id='name'><%= @me.attr['name'] %></span>
+	<% else %>
+	<span id='name'>Ux<%= @me.attr['uid'] %></span>
+	<% end %>
+	<span id='lvls'>
+	  <span id='lvl'>
+	    <span class='material-icons'>military_tech</span>
+	    <span><%= @me.attr['lvl'] %></span>
+	  </span>
+	</span>
+      </legend>
+      <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
+      <% if v.to_i > 0 && k != 'like' %>
+      <% kk = k.split(':'); @users[kk[0]] += 1; @badges[kk[1]] += 1 %>
       <% end %>
-    <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
-    <span id='name'><%= @me.attr['name'] %></span>
-    <% else %>
-    <span id='name'>Ux<%= @me.attr['uid'] %></span>
-    <% end %>
-    <span id='lvls'>
-      <span id='lvl'>
-	<span class='material-icons'>military_tech</span>
-	<span><%= @me.attr['lvl'] %></span>
-      </span>
-    </span>
-    </legend>
-    <% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
-    <% if v.to_i > 0 && k != 'like' %>
-    <% kk = k.split(':'); @users[kk[0]] += 1; @badges[kk[1]] += 1 %>
-    <% end %>
-    <% end %>
-    <p id='badges'>
-      <% @badges.each_pair do |k,v| %>
-    <span class='badge'>
-      <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
-      <span class='amount'><%= v %></span>
-    </span>
-    <% end %>
-    </p>
-    <fieldset id='fans'>
-      <legend>fans</legend>
-      <% @users.each_pair do |k,v| %>
-      <a class='fan fan-<%= v %>' href='#<%= k %>'><%= k %></a>
-    <% end %>
+      <% end %>
+      <p id='badges'>
+	<% @badges.each_pair do |k,v| %>
+	<span class='badge'>
+	  <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
+	  <span class='amount'><%= v %></span>
+	</span>
+	<% end %>
+      </p>
+      <fieldset id='fans'>
+	<legend>fans</legend>
+	<% @users.each_pair do |k,v| %>
+	<a class='fan fan-<%= v %>' href='#<%= k %>'><%= k %></a>
+	<% end %>
+      </fieldset>
     </fieldset>
-  </fieldset>
-</div>
 <!--
-      <fieldset class='hlp'>
-        <legend>help</legend>
+    <fieldset class='hlp'>
+      <legend>help</legend>
         <% if @here.cloud.admin?(@me.id) || @here.cloud.boss?(@me.id)  %>
         <p class='r'><span>zap</span><span class='material-icons'>auto_fix_high</span></p>
         <p class='r'><span>invite</span><span class='material-icons'>mail</span></p>
