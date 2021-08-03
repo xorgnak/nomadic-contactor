@@ -29,7 +29,7 @@ input { }
   <p><input type='text' id='tagline' name='config[tagline]' value='<%= @me.attr['tagline'] %>' placeholder='tagline'></p>
   <p><input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img'></p>
   <p><input type='text' id='social' name='config[social]' value='<%= @me.attr['social'] %>' placeholder='social'></p>
-
+  
   <% if @me.attr['type'] != 's' %>
   <p><select id='zone' name='config[zone]'>
       <% @me.zones.members.each do |e| %>
@@ -37,7 +37,7 @@ input { }
       <% end %>
   </select></p>
   <% end %>
-
+  
   <% if @me.attr['type'] == 'u' %>
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>area</option>
@@ -56,30 +56,32 @@ input { }
       <option value='red'>security</option>
   </select></p>
   <% elsif @me.attr['type'] == 'z' %>
-  <p><select id='campaign' name='config[campaign]'>
+  <p><select id='campaign' class='watch' name='config[campaign]'>
       <option selected disabled>campaign</option>
-      <% @me.campaigns.members.each do |e| %>
-      <option value='<%= e %>'><%= e %></option>
+      <% @here.cloud.zone(@me.attr['zone']).campaigns.all.each_pair do |k,v| %>
+      <option value='<%= k %>'><%= k %></option>
       <% end %>
+      <option value='new'>new</option>
     </select>
-    <button id="add-campaign" class='material-icons'>add_circle</button>
-    <button type='submit' id="add-new-campaign" class='material-icons new-campaign'>add_circle_outline</button>
-    </p>
-    <p><textarea class='new-campaign' name='campaign[offer]' placeholder='add your new special offer...'></textarea></p>
-    
-  <p><select id='good' class='new-campaign' name='campaign[good]' required>
-      <option selected disabled>good</option>
-      <option value='before'>before</option>
-      <option value='after'>after</option>
-      <option value='times'>times</option>
-      <option value='when'>when</option>
-    </select></p>
-  <p>
-    <input type='datetime-local' class='good' id='good-time' name='campaign[good]' placeholder='valid'>
-    <input type='number' class='good' id='good-times' name='campaign[good]' placeholder='times'>
-    <input type='text' class='good' id='good-when' name='campaign[good]' placeholder='condition'>
-    </p>
   </p>
+  <div id='new-campaign' style='display: none;'>
+    <p><input type='text' name='campaign[tag]' placeholder='tag'></p>
+    <p><textarea name='campaign[offer]' placeholder='add your new campaign offer...'></textarea></p>
+  </div>
+  
+  <p><select id='promo' class='watch' name='config[promo]'>
+      <option selected disabled>promo</option>
+      <% @here.cloud.zone(@me.attr['zone']).codes.all.each_pair do |k| %>
+      <option value='<%= k %>'><%= v %></option>
+      <% end %>
+      <option value='new'>new</option>
+    </select>
+  </p>
+  <div id='new-promo' style='display: none;'>
+    <p><textarea name='promo[offer]' placeholder='your new promo...'></textarea></p>
+  </div>
+
+  
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>focus</option>
       <option value='nightlife'>nightlife</option>
@@ -91,6 +93,19 @@ input { }
       <option value='camera'>camera</option>
   </select></p>
   <% elsif @me.attr['type'] == 'i' %>
+  <p><select id='campaign' class='watch' name='config[campaign]'>
+      <option selected disabled>campaign</option>
+      <% @here.cloud.zone(@me.attr['zone']).campaigns.all.each do |k,v| %>
+      <option value='<%= k %>'><%= k %></option>
+      <% end %>
+      <option value='new'>new</option>
+    </select>
+  </p>
+  <div id='new-campaign' style='display: none;'>
+    <p><input type='text' name='campaign[tag]' placeholder='tag'></p>
+    <p><textarea name='campaign[offer]' placeholder='add your new campaign offer...'></textarea></p>
+  </div>
+  
   <p><select id='shield' name='config[shield]'>
       <option selected disabled>role</option>
       <option value='orange'>main</option>
@@ -110,14 +125,12 @@ input { }
 <script>
   $(function() {
   $('#shield').val('<%= @me.attr['shield'] %>');
-  $(document).on('click', '#add-campaign', function(ev) {
-  ev.preventDefault();
-  $('.new-campaign').show();
-  $('#add-campaign').hide();
-  $('#add-new-campaign').show();
+  $(document).on('click', '.watch', function(ev) {
+  let x = $("#new-" + $(this).attr('id'));
+  if ($(this).val() == 'new') { x.show(); } else { x.hide(); }
   })
-  $(document).on('change', '#good', function() {
-  var g = $('#good').val();
+  $(document).on('change', '.good-watch', function() {
+  var g = $(this).val();
   $('.good').hide();
   if (g == 'when') {
   $('#good-when').show();

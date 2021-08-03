@@ -14,6 +14,8 @@ module NOMADIC
     set :members
     # group special offers
     hash_key :code
+    # group campaigns
+    hash_key :campaigns
     # stats
     sorted_set :stat
     def initialize i
@@ -49,6 +51,7 @@ module NOMADIC
     set :sponsors
     set :jobs
     set :campaigns
+    set :promos
     def initialize i
       @id = i
     end
