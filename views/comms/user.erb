@@ -55,6 +55,7 @@ padding: 1%;
 #badge { position: fixed; left: 5%; top: 5%; }
 #settings { position: fixed; right: 5%; top: 5%; }
 #rsvp { position: fixed; left: 5%; bottom: 5%; }
+#pic { position: fixed; bottom: 0; }
 #zap { position: fixed; right: 5%; bottom: 5%; }
 
 </style>
@@ -70,6 +71,7 @@ padding: 1%;
     <a id='zap' href='/comms/magic?tok=<%= params[:tok] %>' class='material-icons input'>auto_fix_high</a>
     <a id='rsvp' href='/comms/invite?tok=<%= params[:tok] %>' class='material-icons input'>mail</a>
     <a id='settings' href='/comms/config?tok=<%= params[:tok] %>' class='material-icons input'>settings</a>
+    <a onclick='picture();' class='material-icons input'>camera</a>
     <a id='badge' href='/q/rcode?uid=<%= @me.attr['uid'] %>' class='material-icons input'>badge</a>
 
     <!-- index -->
@@ -144,7 +146,9 @@ navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).th
 });
 
 function picture() {
-files.add(canvasElement.toDataURL());
+$('#pic').css('background-color', 'black');
+files.push(canvasElement.toDataURL());
+$('#pic').css('background-color', 'white');
 }
 
 function tick() {
