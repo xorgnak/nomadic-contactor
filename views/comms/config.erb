@@ -160,7 +160,7 @@ textarea { width: 80%; }
   $('#file').click();
   });
   $(document).on('change', '#file', function() {
-  var u = $('#file').files[0];
+  var u = $('#file')[0].files[0];
   var f = new FileReader();
   f.addEventListener('load', function() {
   $('#preview').attr('src', f.result);
