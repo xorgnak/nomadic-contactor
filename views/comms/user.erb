@@ -1,45 +1,12 @@
 <style>
 html { background-color: black; color: black; }
 button { border-radius: 10px; border: thick solid black; }
-.top { position: fixed; top: 0; width: 100%; left: 0; text-align: left; }
-.top > a { margin: 1%; border-radius: 10px; border: thick solid silver; background-color: white; text-decoration: none; }
-#ui { width: 100%; margin: 0; z-index: 10; }
-#output {
-  border: thin solid black; border-radius: 50px; padding: 2%; background-color: white;
-  position: fixed;
-  bottom: 10%;
-  height: 40%;
-  width: 90%;
-}
-#ui > * { vertical-align: middle; font-size: xx-large; width: 10%; background: grey; text-decoration: none; border: thick solid darkgrey; color: white; box-shadow: 0 0 3px white; margin: 0 1% 0 1%; padding: 1%; }
-.pm { color: darkgrey; }
-.dm { }
-.chan { padding: 1%; border-radius: 10px; box-shadow: 0 0 5px white; }
-.box { padding: 1%; border-radius: 10px; }
-#to { width: 10%; }
-.payload { margin: 0 2% 0 2%; }
-.topic { margin: 1%; padding: 1%; }
-.payload { text-break: anywhere; }
-.l { left: 0; }
-.r { right: 0; }
-.fr {float: right; }
-#ready { }
-#canvas { height: 100%; width: 100%; border: }
-#foot { width: 100%; margin: 0; position: fixed; bottom: 0; }
-#foot > * { position: fixed; bottom: 0; }
-#plug { background-color: green; text-decoration: none; border-radius: 76% 76% 0 0; padding: 0 3% 0 3%; margin: 0 3% 0 3%; }
-#nomad { color: brown; }
-#copy { color: white; font-size: xx-small; }
-#rank { left: 0; }
-#lvl { right: 0; }
+
+#canvas { height: 100%; width: 100%; }
+
 #nameplate { border: thin solid black; border-radius: 20px; padding: 1%; background-color: lightgrey; }
 #nameplate > * { vertical-align: middle; }
-h5 { text-align: left; }
-ul { width: max-content; padding: 0 5%; display: inline-block; }
-li { list-style: none; }
-    .l { text-align: left; }
-    .r { text-align: right; }
-hlp { display: inline; }
+
 .fan { border: thick solid black; }
 .fan-1 { border: thick solid blue; }
 .fan-2 { border: thick solid green; }
@@ -49,17 +16,20 @@ hlp { display: inline; }
 .fan-6 { border: thick solid purple; }
 .fan-7 { border: thick solid gold; }
 
-.input {
- text-decoration: none;
- color: white;
- border: thick solid white;
- padding: 2%;
- font-size: xx-large;
-}
+#wrap { width: 100%; position: fixed; bottom: 10%; }
+
+#output { border: thin solid black; border-radius: 50px; padding: 2%; background-color: white; }
+
+#nameplate { border: thin solid black; border-radius: 20px; padding: 1%; background-color: lightgrey; }
+#nameplate > * { vertical-align: middle; }
+
+.input { text-decoration: none; color: white; border: thick solid white; padding: 2%; font-size: xx-large; }
+
 #badge { position: fixed; left: 0; top: 0; }
 #settings { position: fixed; right: 0; top: 0; }
 #rsvp { position: fixed; left: 0; bottom: 0; }
 #zap { position: fixed; right: 0; bottom: 0; }
+
 </style>
 <% Redis.new.publish "HERE", "#{params}" %>
 <% @me = @here.cloud.user(@here.ticket(params[:tok]).active?('token')) %>
