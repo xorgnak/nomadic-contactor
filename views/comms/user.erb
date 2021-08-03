@@ -153,27 +153,38 @@ function tick() {
 	var dom = /https:\/\/<%= ENV['DOMAIN'] %>/g;
 	if (code) {
 	    if (dom.test(code.data)) {
+		var h = {};
 		var o = code.data.split('?');
-		var oo = o[1].split('=');
-		var ty = 'rando';
-		if (oo[0] == 'i') {
+		var kv = o[1].split('&');
+		var u;
+		kv.forEach(function(v, i, obj) {
+		    var oo = v.split('=');
+		    h[oo[0]] = oo[1]
+		});
+		
+		if ( "i" in h ) {
 		    ty = "influencer"
-		} else if (oo[0] == 'z') {
-		    ty = "sponsor"
-		} else if (oo[0] == 'u') {
+		    u = h.i;
+		} else if ( 'z' in h ) {
+		    ty = "sponsor";
+		    u = h.z;
+		} else if ( 'u' in h ) {
 		    ty = "rider"
+		    u = h.u;
 		}
+		
 		console.log(oo)
-		$('#zap').attr('href', zap + "&usr=" + oo[1]);
+		$('#zap').attr('href', zap + "&usr=" + u);
 		if ( ty == 'rider' ) {
-		    $('#rsvp').attr('href', rsvp + "&usr=" + oo[1]);
+		    $('#rsvp').attr('href', rsvp + "&usr=" + u);
 		    $('#rsvp').css('background-color', 'orange');
 		} else {
 		    $('#rsvp').css('background-color', 'rgba(0,0,0,0)');
 		}
+		
 		$('#zap').css('background-color', 'orange');
-		$("#badges").html("<h1 class='scan'><span class='usr'>" + oo[1] +"</span></h1>");
-		$("#nameplate").html("<h1 class='scan'><span class='typ'>" + ty + "</span></h1>")
+		$("#badges").html("<h1 class='scan'><span class='usr'>" + u +"</span></h1>");
+		$("#nameplate").html("<div class='scan'><h1><span class='typ'>" + ty + "</span></h1><h1><span id='hashtag'>" + h.x || '#supportthearts' + "</span></h1><fieldset><legend>code</legend><code>" + h.c + "</code></fieldset></div>")
 	    } else {
 		$('#zap').attr('href', zap);
 		$('#rsvp').attr('href', rsvp);
