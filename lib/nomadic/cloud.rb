@@ -13,7 +13,7 @@ module NOMADIC
     # group members
     set :members
     # group special offers
-    hash_key :code
+    hash_key :codes
     # group campaigns
     hash_key :campaigns
     # stats
