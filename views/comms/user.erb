@@ -49,6 +49,7 @@ button { border-radius: 10px; border: thick solid black; }
     <div id='wrap'>
       <fieldset id='output'>
 	<legend id='nameplate'>
+	  <!-- icon -->
 	  <% if @me.attr['type'] == 'u' %>
 	  <span id='type' class='material-icons'>bike_scooter</span>
 	  <% elsif @me.attr['type'] == 'i' %>
@@ -58,13 +59,19 @@ button { border-radius: 10px; border: thick solid black; }
 	  <% else %>
 	  <span id='type' class='material-icons'>sentiment_satisfied</span>
 	  <% end %>
+	  <!-- nick -->
 	  <% if @me.attr.has_key?('name') && @me.attr['name'] != '' %>
 	  <span id='name'><%= @me.attr['name'] %></span>
 	  <% else %>
-	  <span id='name'>Ux<%= @me.attr['uid'] %></span>
+	  <span id='name'><%= @me.attr['uid'] %></span>
 	  <% end %>
+	  <!-- awards -->
 	  <span id='lvls'>
-	    <span id='lvl'>
+	    <span class='lvl'>
+	      <span class='material-icons'>brightness_7</span>
+	      <span><%= @me.attr['badges'] %></span>
+	    </span>
+	    <span class='lvl'>
 	      <span class='material-icons'>military_tech</span>
 	      <span><%= @me.attr['lvl'] %></span>
 	    </span>
