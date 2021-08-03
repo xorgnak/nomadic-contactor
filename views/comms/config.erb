@@ -65,8 +65,8 @@ input { }
     </select>
   </p>
   <div id='new-campaign' style='display: none;'>
-    <p><input type='text' name='campaign[tag]' placeholder='tag'></p>
-    <p><textarea name='campaign[offer]' placeholder='add your new campaign offer...'></textarea></p>
+    <p><input type='text' name='campaign[tag]' placeholder='#tag'></p>
+    <p><textarea name='campaign[offer]' placeholder='your campaign concept...'></textarea></p>
   </div>
   
   <p><select id='promo' class='watch' name='config[promo]'>
@@ -95,7 +95,7 @@ input { }
   <% elsif @me.attr['type'] == 'i' %>
   <p><select id='campaign' class='watch' name='config[campaign]'>
       <option selected disabled>campaign</option>
-      <% @here.cloud.zone(@me.attr['zone']).campaigns.all.each do |k,v| %>
+      <% @here.cloud.zone(@me.attr['zone']).campaigns.all.each_pair do |k,v| %>
       <option value='<%= k %>'><%= k %></option>
       <% end %>
       <option value='new'>new</option>
