@@ -90,20 +90,18 @@ module NOMADIC
           if params.has_key? :campaign
             params[:campaign] = params[:campaign]
             @here.cloud.zone(us.attr['zone']).campaigns[params[:campaign][:tag]] = params[:campaign][:offer]
+            params[:config][:campaign] = params[:campaign][:tag]
           end
-          params[:config][:campaign] = params[:campaign][:tag]
-          params.delete(:campaign)
           
-          if params.has_key? :promo
+         if params.has_key? :promo
             p = [];
             (0..9).each {|e| p << e}
             (:A..:Z).each {|e| p << e}
             @k = []; 6.times { @k << p.sample }
             @here.cloud.zone(us.attr['zone']).codes[@k.join('')] = params[:promo][:offer]
-          end
-          params[:config][:promo] = @k.join('')
-          params.delete(:promo)
-          
+            params[:config][:promo] = @k.join('')
+         end
+         
           params[:config].each_pair { |k,v| us.attr[k] = v }
         end
         
