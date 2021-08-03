@@ -64,7 +64,7 @@
       console.log("FILES:0", files);
       if ( files == null ) {
       localStorage.setItem('files', JSON.stringify([]));
-      files = localStorage.getItem('files');
+      files = JSON.parse(localStorage.getItem('files'));
       }
       console.log("FILES:1", files);
       
