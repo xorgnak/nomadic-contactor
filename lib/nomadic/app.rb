@@ -88,7 +88,6 @@ module NOMADIC
           us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
 
           if params.has_key? :campaign
-            params[:campaign] = params[:campaign]
             @here.cloud.zone(us.attr['zone']).campaigns[params[:campaign][:tag]] = params[:campaign][:offer]
             params[:config][:campaign] = params[:campaign][:tag]
           end
