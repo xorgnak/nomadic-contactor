@@ -109,19 +109,21 @@ padding: 1%;
 	    </span>
 	  </span>
 	</legend>
-	<% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
-	<% if v.to_i > 0 && k != 'like' %>
-	<% kk = k.split(':'); @users[kk[0]] += 1; @badges[kk[1]] += 1 %>
-	<% end %>
+	<% @users = Hash.new {|h,k| h[k] = 0 }; @badges = Hash.new {|h,k| h[k] = 0 }; %>
+	<% @me.stat.members(with_scores:true).to_h.each_pair do |k,v| %>
+	  <% if v.to_i > 0 && k != 'like' %>
+	    <% kk = k.split(':'); @users[kk[0]] += v; @badges[kk[1]] += v %>
+	  <% end %>
 	<% end %>
 	<p id='badges'>
-	  <% @badges.each_pair do |kk,vv| %>
+	  <% @badges.each_pair do |k,v| %>
 	  <span class='badge'>
-	    <span class='material-icons icon'><%= @here.badge(@me.id).icon[kk.to_sym] %></span>
-	    <span class='amount'>x<%= v %>|<%= vv %></span>
+	    <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
+	    <span class='amount'>x<%= v %></span>
 	  </span>
 	  <% end %>
 	</p>
+	
 	<!--
 	<% @users.each_pair do |k,v| %>
 	<span class='fan fan-<%= v %>' href='#<%= k %>'><%= k %></span>
