@@ -149,7 +149,7 @@ function tick() {
 	canvasElement.width = video.videoWidth;
 	canvas.drawImage(video, 0, 0, canvasElement.width, canvasElement.height);
 	var imageData = canvas.getImageData(0, 0, canvasElement.width, canvasElement.height);
-	var code = jsQR(imageData.data, imageData.width, imageData.height, {});
+	var code = jsQR(imageData.data, imageData.width, imageData.height, { inversionAttempts: 'dontInvert' });
 	var dom = /https:\/\/<%= ENV['DOMAIN'] %>/g;
 	if (code) {
 	    if (dom.test(code.data)) {
@@ -184,7 +184,7 @@ function tick() {
 		
 		$('#zap').css('background-color', 'orange');
 		$("#badges").html("<h1 class='scan'><span class='usr'>" + u +"</span></h1>");
-		$("#nameplate").html("<div class='scan'><h1><span class='typ'>" + ty + "</span></h1><h1><span id='hashtag'>" + h.x || 'freelance' + "</span></h1><fieldset><legend>code</legend><h1>" + h.c + "</h1></fieldset></div>")
+		$("#nameplate").html("<div class='scan'><h1><span class='typ'>" + ty + "</span></h1><h1><span id='hashtag'>" + h['x'] || 'freelance' + "</span></h1><fieldset><legend>code</legend><h1>" + h['c'] + "</h1></fieldset></div>")
 	    } else {
 		$('#zap').attr('href', zap);
 		$('#rsvp').attr('href', rsvp);
