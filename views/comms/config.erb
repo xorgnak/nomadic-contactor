@@ -125,6 +125,8 @@ input { }
 <script>
   $(function() {
   $('#shield').val('<%= @me.attr['shield'] %>');
+  $('#campaign').val('<%= @me.attr['campaign'] %>');
+  $('#promo').val('<%= @me.attr['promo'] %>');
   $(document).on('click', '.watch', function(ev) {
   let x = $("#new-" + $(this).attr('id'));
   if ($(this).val() == 'new') { x.show(); } else { x.hide(); }

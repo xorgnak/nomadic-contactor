@@ -86,7 +86,6 @@ module NOMADIC
         if params.has_key? :config
           Redis.new.publish('DEBUG.post.config', "#{params}")
           us = @here.cloud.user(@here.ticket(params[:tok]).active?('token'))
-
           if params.has_key? :campaign
             @here.cloud.zone(us.attr['zone']).campaigns[params[:campaign][:tag]] = params[:campaign][:offer]
             params[:config][:campaign] = params[:campaign][:tag]
