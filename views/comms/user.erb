@@ -86,7 +86,6 @@ button { border-radius: 10px; border: thick solid black; }
 	  <% @badges.each_pair do |k,v| %>
 	  <span class='badge'>
 	    <span class='material-icons icon'><%= @here.badge(@me.id).icon[k.to_sym] %></span>
-	    <br>
 	    <span class='amount'><%= v %></span>
 	  </span>
 	  <% end %>
