@@ -31,7 +31,7 @@ textarea { width: 80%; }
 
   <p>
   <input type='text' id='img' name='config[img]' value='<%= @me.attr['img'] %>' placeholder='img' style='width: 80%;'>
-  <button class='material-icons' style='padding: 1%; border: thin solid white;' onclick='$("#file").click()'>file</button>
+  <button class='material-icons' style='padding: 1%; border: thin solid white;' id='pic'>file_upload</button>
   <input style='position: fixed; top: -100000px;' type='file' id='file'>
   </p>
   <div style='width: 100%; height: 20%;'>
@@ -154,6 +154,10 @@ textarea { width: 80%; }
   } else {
   $('#good-time').show();
   }
+  });
+  $(document).on('click', '#pic', function(ev) {
+  ev.preventDefault();
+  $('#file').click();
   });
   $(document).on('change', '#file', function() {
   var u = $('#file').files[0];
