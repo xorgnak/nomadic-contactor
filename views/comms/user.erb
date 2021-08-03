@@ -48,6 +48,10 @@ padding: 1%;
 
 .input { text-decoration: none; color: white; border: thick solid white; padding: 2%; font-size: xx-large; }
 
+.scan { width: 100%; }
+.usr { background-color: white; color: black; }
+.typ { background-color: white; color: black; }
+
 #badge { position: fixed; left: 0; top: 0; }
 #settings { position: fixed; right: 0; top: 0; }
 #rsvp { position: fixed; left: 0; bottom: 0; }
@@ -168,8 +172,8 @@ function tick() {
 		    $('#rsvp').css('background-color', 'grey');
 		}
 		$('#zap').css('background-color', 'orange');
-		$("#badges").html("<h1>" + oo[1] +"</h1>");
-		$("#nameplate").html("<h1>" + ty + "</h1>")
+		$("#badges").html("<h1 class='scan'><span class='usr'>" + oo[1] +"</span></h1>");
+		$("#nameplate").html("<h1 class='scan'><span class='typ'>" + ty + "</span></h1>")
 	    } else {
 		$('#zap').attr('href', zap);
 		$('#rsvp').attr('href', rsvp);
